@@ -92,6 +92,75 @@ function _dnaMatches(season, pos, player, historic) {
   return out.sort((a, b) => b.score - a.score).slice(0, 3);
 }
 
+/* ---------- Erklaerungen (js/player-dna-glossary.js) ---------- */
+function _dnaGloss(pos, k) {
+  return (typeof DNA_GLOSSARY !== 'undefined' && DNA_GLOSSARY.stats[pos] && DNA_GLOSSARY.stats[pos][k]) || null;
+}
+const _dnaAttr = s => String(s || '').replace(/<[^>]+>/g, '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+function _dnaWrap(text, n) {
+  const words = String(text || '').replace(/<[^>]+>/g, '').split(' '); const lines = []; let cur = '';
+  words.forEach(w => { if ((cur + ' ' + w).trim().length > n) { lines.push(cur.trim()); cur = w; } else cur += ' ' + w; });
+  if (cur.trim()) lines.push(cur.trim());
+  return lines;
+}
+
+function dnaOpenHelp(pos, focusKey) {
+  if (typeof DNA_GLOSSARY === 'undefined') return;
+  pos = pos || dnaState.pos;
+  let m = document.getElementById('dnaHelp');
+  if (!m) {
+    m = document.createElement('div');
+    m.id = 'dnaHelp'; m.className = 'dna-modal';
+    m.addEventListener('click', e => { if (e.target === m) dnaCloseHelp(); });
+    document.body.appendChild(m);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') dnaCloseHelp(); });
+  }
+  const G = DNA_GLOSSARY;
+  const cats = (typeof PLAYER_DNA !== 'undefined' ? PLAYER_DNA.categories[pos] : []) || [];
+  const card = (c) => {
+    const g = _dnaGloss(pos, c.k) || {};
+    return `<div class="dna-help-card${c.k === focusKey ? ' focus' : ''}" id="dnaHelp-${c.k}">
+      <div class="dna-help-card-head"><b>${c.type === 'style' ? '◇ ' : '● '}${c.label}</b><span>${c.type === 'style' ? 'Stil' : 'Rolle & Produktion'} · Stabilität r = ${String(c.stab).replace('.', ',')}</span></div>
+      ${g.what ? `<p><b>Was ist das?</b> ${g.what}</p>` : ''}
+      ${g.why ? `<p><b>Warum ist es drin?</b> ${g.why}</p>` : ''}
+      ${g.ex ? `<p class="dna-help-ex"><b>Beispiel:</b> ${g.ex}</p>` : ''}
+    </div>`;
+  };
+  m.innerHTML = `
+    <div class="dna-modal-box" role="dialog" aria-label="Player DNA erklärt">
+      <div class="dna-modal-head">
+        <div><div class="dna-name" style="font-size:22px">📖 Player DNA – einfach erklärt</div>
+          <div class="page-sub">Für alle – auch ohne Football-Wissen.</div></div>
+        <button class="dna-modal-x" onclick="dnaCloseHelp()" aria-label="Schließen">✕</button>
+      </div>
+      <div class="dna-help-basics">
+        ${G.basics.map((b, i) => `<details${i === 1 && !focusKey ? ' open' : ''}><summary>${b.title}</summary><div>${b.body}</div></details>`).join('')}
+      </div>
+      <div class="rr-tb-group" style="margin:16px 0 10px;width:max-content">
+        ${['QB', 'RB', 'WR', 'TE'].map(p => `<button class="rr-tb-btn${p === pos ? ' rr-tb-active' : ''}" onclick="dnaOpenHelp('${p}')">${p}</button>`).join('')}
+      </div>
+      <div class="dna-help-title">Die 8 Stats beim ${{ QB: 'Quarterback', RB: 'Running Back', WR: 'Wide Receiver', TE: 'Tight End' }[pos]}</div>
+      <div class="dna-help-grid">${cats.map(card).join('')}</div>
+      <div class="dna-help-title">🚫 Warum nicht …? <span>Bekannte Stats, die wir bewusst weggelassen haben</span></div>
+      <div class="dna-help-grid">${(G.notChosen[pos] || []).map(n => `
+        <div class="dna-help-card dna-help-no">
+          <div class="dna-help-card-head"><b>${n.name}</b><span>Stabilität r = ${n.r}</span></div>
+          <p>${n.why}</p>
+          ${n.ex && n.ex !== '–' ? `<p class="dna-help-ex"><b>Beispiel:</b> ${n.ex}</p>` : ''}
+        </div>`).join('')}</div>
+      <div class="page-sub" style="margin-top:14px;font-size:11px">Zahlen = Saison 2025 bzw. eigene Messung über die Saisons 2016–2025.</div>
+    </div>`;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (!focusKey) m.scrollTop = 0;
+  if (focusKey) setTimeout(() => { const el = document.getElementById('dnaHelp-' + focusKey); if (el) el.scrollIntoView({ block: 'center' }); }, 30);
+}
+function dnaCloseHelp() {
+  const m = document.getElementById('dnaHelp');
+  if (m) m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 function _dnaFmt(v, cat) {
   if (v == null) return '—';
   const abs = Math.abs(v);
@@ -170,6 +239,7 @@ function renderPlayerDna(notice) {
       </div>
       ${all.some(p => p.ps) ? `<label class="dna-toggle" title="Frühe Saison: jeder Wert wird zum Vorjahreswert des Spielers (bzw. Positions-Schnitt) gezogen – je instabiler die Kennzahl, desto stärker."><input type="checkbox" ${dnaState.stab ? 'checked' : ''} onchange="dnaSet('stab',this.checked)"> Stichproben-Korrektur</label>` : ''}
       <label class="dna-toggle"><input type="checkbox" ${dnaState.rosteredOnly ? 'checked' : ''} onchange="dnaState.rosteredOnly=this.checked;_dnaRenderList()"> nur DPE-Kader</label>
+      <button class="dna-help-btn" onclick="dnaOpenHelp(dnaState.pos)">📖 Stats erklärt</button>
     </div>
     <div class="dna-layout">
       <div class="dna-side">
@@ -269,7 +339,7 @@ function _dnaRenderMain() {
     const color = isStyle ? 'var(--muted)' : _dnaPctColor(x);
     const rawTxt = _dnaFmt(me.v[i], c) + (useStab && raw[i] != null && me.v[i] != null ? `<small>stabilisiert ${_dnaFmt(raw[i], c)}</small>` : '');
     return `<tr${isStyle ? ' class="dna-style-row"' : ''}>
-      <td><b>${isStyle ? '◇ ' : ''}${c.label}</b><small>${c.unit} · Stabilität r=${String(c.stab).replace('.', ',')}</small></td>
+      <td><span class="dna-tip" tabindex="0" data-tip="${_dnaAttr((_dnaGloss(pos, c.k) || {}).short || '')}"><b>${isStyle ? '◇ ' : ''}${c.label}</b> <a class="dna-info" onclick="event.stopPropagation();dnaOpenHelp('${pos}','${c.k}')" title="Ausführlich erklärt">ⓘ</a></span><small>${c.unit} · Stabilität r=${String(c.stab).replace('.', ',')}</small></td>
       <td>${rawTxt}</td>
       <td><div class="dna-bar${dnaState.scale === 'z' ? ' dna-bar-z' : ''}">${dnaState.scale === 'z' && x != null
         ? `<div style="position:absolute;top:0;left:${Math.min(50, x)}%;width:${Math.max(1, Math.abs(x - 50))}%;background:${color}"></div>`
@@ -341,8 +411,9 @@ function _dnaDrawChart(entries, cats) {
         legend: { display: false },
         tooltip: {
           backgroundColor: st.getPropertyValue('--surface2').trim(), borderColor: border, borderWidth: 1,
-          titleColor: text, bodyColor: text, padding: 10,
+          titleColor: text, bodyColor: text, footerColor: st.getPropertyValue('--muted').trim(), footerFont: { weight: '400', size: 11 }, padding: 10,
           callbacks: {
+            footer: items => { const g = items[0] && _dnaGloss(dnaState.pos, cats[items[0].dataIndex].k); return g ? _dnaWrap(g.short, 48) : ''; },
             label: c => {
               const e = entries[c.datasetIndex], cat = cats[c.dataIndex];
               const x = _dnaVals(e.p)[c.dataIndex];

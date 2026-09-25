@@ -857,3 +857,37 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
 .dna-legend-mini { text-align: center; font-size: 10px; color: var(--muted); margin-top: 6px; }
 .dna-stab-tag { color: var(--accent); font-weight: 700; }
 .dna-inline { display: inline-flex; margin-left: 8px; text-transform: none; letter-spacing: 0; font-size: 11px; }
+
+/* Player DNA: Erklaerungen */
+.dna-help-btn { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent); border-radius: 9px; padding: 6px 12px; font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 12px; cursor: pointer; }
+.dna-help-btn:hover { background: var(--accent); color: var(--bg); }
+.dna-tip { position: relative; cursor: help; outline: none; }
+.dna-tip[data-tip=""]::after { display: none; }
+.dna-tip:hover::after, .dna-tip:focus::after {
+  content: attr(data-tip); position: absolute; left: 0; bottom: calc(100% + 6px); z-index: 30;
+  width: 260px; background: var(--surface2); color: var(--text); border: 1px solid var(--border); border-radius: 10px;
+  padding: 9px 11px; font-size: 12px; font-weight: 500; line-height: 1.45; box-shadow: 0 10px 24px rgba(0,0,0,.35); white-space: normal;
+}
+.dna-info { color: var(--accent); cursor: pointer; font-size: 12px; margin-left: 2px; text-decoration: none; }
+.dna-modal { display: none; position: fixed; inset: 0; background: rgba(5,10,18,.72); z-index: 200; padding: 30px 16px; overflow-y: auto; }
+.dna-modal.open { display: block; }
+.dna-modal-box { max-width: 900px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+.dna-modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.dna-modal-x { background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 50%; width: 34px; height: 34px; cursor: pointer; font-size: 14px; flex-shrink: 0; }
+.dna-help-basics details { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 6px; background: var(--surface2); }
+.dna-help-basics summary { cursor: pointer; padding: 10px 12px; font-weight: 800; font-size: 14px; }
+.dna-help-basics details > div { padding: 0 14px 12px; font-size: 13.5px; line-height: 1.6; }
+.dna-help-basics ul { margin: 8px 0 4px 18px; }
+.dna-help-title { font-weight: 800; font-size: 15px; margin: 18px 0 8px; }
+.dna-help-title span { font-weight: 500; font-size: 12px; color: var(--muted); margin-left: 6px; }
+.dna-help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dna-help-card { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; background: var(--surface2); font-size: 13px; line-height: 1.55; }
+.dna-help-card.focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-light); }
+.dna-help-card p { margin-top: 6px; }
+.dna-help-card-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.dna-help-card-head b { font-size: 14px; }
+.dna-help-card-head span { font-size: 11px; color: var(--muted); }
+.dna-help-ex { background: var(--accent-light); border-radius: 8px; padding: 6px 9px; }
+.dna-help-no { border-style: dashed; }
+.dna-help-no .dna-help-ex { background: rgba(242,92,138,.10); }
+@media (max-width: 700px) { .dna-help-grid { grid-template-columns: 1fr; } .dna-modal-box { padding: 16px; } .dna-tip:hover::after, .dna-tip:focus::after { width: 210px; } }
