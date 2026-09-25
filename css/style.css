@@ -850,3 +850,10 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
   .dna-list { max-height: 260px; }
   .dna-grid, .dna-matches { grid-template-columns: 1fr; }
 }
+.dna-style-row td b { color: var(--muted); }
+.dna-sep td { font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); padding-top: 12px !important; }
+.dna-table td small + small, .dna-table td > small { display: block; }
+.dna-bar-z { background: linear-gradient(90deg, var(--surface2) 49.5%, var(--border) 49.5%, var(--border) 50.5%, var(--surface2) 50.5%); }
+.dna-legend-mini { text-align: center; font-size: 10px; color: var(--muted); margin-top: 6px; }
+.dna-stab-tag { color: var(--accent); font-weight: 700; }
+.dna-inline { display: inline-flex; margin-left: 8px; text-transform: none; letter-spacing: 0; font-size: 11px; }

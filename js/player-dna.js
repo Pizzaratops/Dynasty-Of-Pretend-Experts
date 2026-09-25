@@ -9,13 +9,18 @@
 //  zeigt standardmaessig nur Spieler aus DPE-Kadern (umschaltbar).
 //
 //  DNA-Match: bestes Profil in derselben Saison ("Aktuelles Match") und ueber
-//  alle anderen Saisons ab 2016 ("Historisches Match"). Score = 100 minus
-//  mittlerer Perzentil-Abstand ueber alle Kategorien mit Wert bei beiden.
+//  alle anderen Saisons ab 2016 ("Historisches Match", optional nur im
+//  gleichen NFL-Jahr). Score = 100 minus mittlerer Abstand ueber alle
+//  Achsen (Kern + Stil) auf der gewaehlten Skala.
+//
+//  v2: 6 Kern-Achsen (Rolle & Produktion -> DNA-Score) + 2 Stil-Achsen
+//  (◇, kein besser/schlechter). Skala Perzentil oder Z-Score (Cap +-2,5).
+//  Laufende Saison optional mit Stichproben-Korrektur (vs/ps/zs).
 // ============================================================
 
 const DNA_POSITIONS = ['QB', 'RB', 'WR', 'TE'];
 const DNA_COLORS = ['#20d3c2', '#f25c8a', '#ffca28'];
-let dnaState = { season: null, pos: 'WR', search: '', rosteredOnly: true, sel: null, compare: [], sort: 'dna' };
+let dnaState = { season: null, pos: 'WR', search: '', rosteredOnly: true, sel: null, compare: [], scale: 'p', stab: true, sameYear: false };
 let _dnaChart = null;
 let _dnaLoading = null;
 
@@ -51,14 +56,25 @@ function _dnaOwner(name) {
   return _dnaOwnerIdx[_dnaKey(name)] || null;
 }
 
-const _dnaAvg = p => { const v = p.p.filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : 0; };
+// Welche Werte gerade gelten: Skala (Perzentil/Z) x Stichproben-Korrektur (nur wo vorhanden)
+const _dnaUseStab = p => dnaState.stab && !!p.ps;
+const _dnaVals = p => (dnaState.scale === 'z' ? (_dnaUseStab(p) ? p.zs : p.z) : (_dnaUseStab(p) ? p.ps : p.p)) || p.p;
+const _dnaRaw = p => (_dnaUseStab(p) ? p.vs : p.v);
+const _dnaCats = pos => PLAYER_DNA.categories[pos];
+const _dnaCoreIdx = pos => _dnaCats(pos).map((c, i) => (c.type === 'style' ? -1 : i)).filter(i => i >= 0);
+const _dnaAvg = p => {
+  const vals = _dnaVals(p);
+  const v = _dnaCoreIdx(dnaState.pos).map(i => vals[i]).filter(x => x != null);
+  return v.length ? v.reduce((a, b) => a + b, 0) / v.length : 0;
+};
 const _dnaPlayers = (season, pos) => ((PLAYER_DNA.seasons[season] || {}).players || {})[pos] || [];
 const _dnaFind = (season, pos, id) => _dnaPlayers(season, pos).find(p => p.id === id) || null;
 
 function _dnaDistance(a, b) {
+  const va = _dnaVals(a), vb = _dnaVals(b);
   let sum = 0, n = 0;
-  a.p.forEach((v, i) => { if (v != null && b.p[i] != null) { sum += Math.abs(v - b.p[i]); n++; } });
-  return n >= Math.min(6, a.p.length - 1) ? sum / n : null;
+  va.forEach((v, i) => { if (v != null && vb[i] != null) { sum += Math.abs(v - vb[i]); n++; } });
+  return n >= Math.min(6, va.length - 1) ? sum / n : null;
 }
 
 function _dnaMatches(season, pos, player, historic) {
@@ -68,6 +84,7 @@ function _dnaMatches(season, pos, player, historic) {
     _dnaPlayers(y, pos).forEach(o => {
       if (o.id === player.id && String(y) === String(season)) return;
       if (historic && o.id === player.id) return; // sich selbst in anderen Jahren nicht als "historisch" werten
+      if (historic && dnaState.sameYear && player.e != null && o.e !== player.e) return; // gleiches NFL-Jahr
       const d = _dnaDistance(player, o);
       if (d != null) out.push({ season: y, p: o, score: Math.round(100 - d) });
     });
@@ -147,14 +164,19 @@ function renderPlayerDna(notice) {
       <select class="dna-select" onchange="dnaSetSeason(this.value)">
         ${seasons.map(y => `<option value="${y}"${y === season ? ' selected' : ''}>${y}${String(y) === String(PLAYER_DNA.current) ? ` (bis Woche ${PLAYER_DNA.seasons[y].weeks})` : ''}</option>`).join('')}
       </select>
+      <div class="rr-tb-group" title="Perzentil = Rang im Pool. Z-Score = Abstand zum Schnitt in Standardabweichungen (gedeckelt auf ±${PLAYER_DNA.zCap || 2.5}), zeigt echte Abstände statt Rängen.">
+        <button class="rr-tb-btn${dnaState.scale === 'p' ? ' rr-tb-active' : ''}" onclick="dnaSet('scale','p')">Perzentil</button>
+        <button class="rr-tb-btn${dnaState.scale === 'z' ? ' rr-tb-active' : ''}" onclick="dnaSet('scale','z')">Z-Score</button>
+      </div>
+      ${all.some(p => p.ps) ? `<label class="dna-toggle" title="Frühe Saison: jeder Wert wird zum Vorjahreswert des Spielers (bzw. Positions-Schnitt) gezogen – je instabiler die Kennzahl, desto stärker."><input type="checkbox" ${dnaState.stab ? 'checked' : ''} onchange="dnaSet('stab',this.checked)"> Stichproben-Korrektur</label>` : ''}
       <label class="dna-toggle"><input type="checkbox" ${dnaState.rosteredOnly ? 'checked' : ''} onchange="dnaState.rosteredOnly=this.checked;_dnaRenderList()"> nur DPE-Kader</label>
     </div>
     <div class="dna-layout">
       <div class="dna-side">
         <input class="dna-search" placeholder="🔍 Spieler suchen …" value="${dnaState.search.replace(/"/g, '&quot;')}" oninput="dnaState.search=this.value;_dnaRenderList()">
-        <div class="dna-list-head"><span>Spieler</span><span title="Ø Perzentil über alle Kategorien">DNA Ø</span></div>
+        <div class="dna-list-head"><span>Spieler</span><span title="Ø über die 6 Kern-Achsen (Rolle & Produktion)">DNA Ø</span></div>
         <div class="dna-list" id="dnaList"></div>
-        <div class="dna-foot">Pool ${season}: ${all.length} ${pos}s mit Mindest-Volumen (${weeks} Wochen). Perzentile gegen die ganze NFL, nicht nur DPE.</div>
+        <div class="dna-foot">Pool ${season}: ${all.length} ${pos}s mit Mindest-Volumen (${weeks} Wochen). Skala gegen die ganze NFL, nicht nur DPE.</div>
       </div>
       <div class="dna-main" id="dnaMain"></div>
     </div>`;
@@ -162,6 +184,9 @@ function renderPlayerDna(notice) {
   _dnaRenderMain();
 }
 
+function dnaSet(key, val) { dnaState[key] = val; _dnaRenderList(); _dnaRenderMain(); document.querySelectorAll('.dna-controls .rr-tb-btn').forEach(b => {
+  if (b.textContent === 'Perzentil') b.classList.toggle('rr-tb-active', dnaState.scale === 'p');
+  if (b.textContent === 'Z-Score') b.classList.toggle('rr-tb-active', dnaState.scale === 'z'); }); }
 function dnaSetPos(p) { dnaState.pos = p; dnaState.sel = null; dnaState.compare = []; renderPlayerDna(); }
 function dnaSetSeason(y) {
   const prev = dnaState.sel ? _dnaFind(dnaState.season, dnaState.pos, dnaState.sel) : null;
@@ -203,65 +228,87 @@ function dnaAddCompare(season, id) {
 }
 function dnaRemoveCompare(i) { dnaState.compare.splice(i, 1); _dnaRenderMain(); }
 
+function _dnaCellVal(x) {
+  if (x == null) return '—';
+  if (dnaState.scale === 'z') { const z = (x - 50) / 20; return (z >= 0 ? '+' : '') + z.toFixed(1).replace('.', ','); }
+  return String(x);
+}
+
 function _dnaRenderMain() {
   const host = document.getElementById('dnaMain');
   if (!host) return;
   const { season, pos } = dnaState;
-  const cats = PLAYER_DNA.categories[pos];
+  const cats = _dnaCats(pos);
   const me = dnaState.sel ? _dnaFind(season, pos, dnaState.sel) : null;
   if (!me) { host.innerHTML = emptyState('Kein Spieler gewählt', 'Links einen Spieler auswählen.', '🧬'); return; }
 
   const entries = [{ season, p: me }].concat(dnaState.compare.map(c => ({ season: c.season, p: _dnaFind(c.season, pos, c.id) })).filter(e => e.p));
   const owner = _dnaOwner(me.n);
   const avg = Math.round(_dnaAvg(me));
-  const best = cats.map((c, i) => ({ c, v: me.p[i] })).filter(x => x.v != null).sort((a, b) => b.v - a.v);
+  const vals = _dnaVals(me), raw = _dnaRaw(me), useStab = _dnaUseStab(me);
+  const core = cats.map((c, i) => ({ c, i, v: vals[i] })).filter(x => x.c.type !== 'style' && x.v != null).sort((a, b) => b.v - a.v);
   const cur = _dnaMatches(season, pos, me, false);
   const hist = _dnaMatches(season, pos, me, true);
-  const matchHtml = (title, list, sub) => `
+  const yearTxt = me.e ? (me.e === 1 ? 'Rookie' : `NFL-Jahr ${me.e}`) : '';
+  const matchHtml = (title, list, sub, extra) => `
     <div class="dna-match-box">
-      <div class="dna-match-title">${title}</div>
+      <div class="dna-match-title">${title}${extra || ''}</div>
       ${list.length ? list.map(m => {
         const o = _dnaOwner(m.p.n);
         return `<div class="dna-match" onclick="dnaAddCompare('${m.season}','${m.p.id}')" title="Zum Vergleich hinzufügen">
           <span class="dna-match-score">${m.score}%</span>
-          <span class="dna-match-name">${m.p.n} <small>${sub ? m.season + ' · ' : ''}${m.p.t}${o ? ' · ' + o.emoji : ''}</small></span>
+          <span class="dna-match-name">${m.p.n} <small>${sub ? m.season + ' · ' : ''}${m.p.e ? 'J' + m.p.e + ' · ' : ''}${m.p.t}${o ? ' · ' + o.emoji : ''}</small></span>
           <span class="dna-match-add">＋</span>
         </div>`;
       }).join('') : '<div class="page-sub">Kein vergleichbares Profil.</div>'}
     </div>`;
+  const row = (c, i) => {
+    const isStyle = c.type === 'style';
+    const x = vals[i];
+    const barW = x == null ? 0 : Math.max(2, Math.min(100, x));
+    const color = isStyle ? 'var(--muted)' : _dnaPctColor(x);
+    const rawTxt = _dnaFmt(me.v[i], c) + (useStab && raw[i] != null && me.v[i] != null ? `<small>stabilisiert ${_dnaFmt(raw[i], c)}</small>` : '');
+    return `<tr${isStyle ? ' class="dna-style-row"' : ''}>
+      <td><b>${isStyle ? '◇ ' : ''}${c.label}</b><small>${c.unit} · Stabilität r=${String(c.stab).replace('.', ',')}</small></td>
+      <td>${rawTxt}</td>
+      <td><div class="dna-bar${dnaState.scale === 'z' ? ' dna-bar-z' : ''}">${dnaState.scale === 'z' && x != null
+        ? `<div style="position:absolute;top:0;left:${Math.min(50, x)}%;width:${Math.max(1, Math.abs(x - 50))}%;background:${color}"></div>`
+        : `<div style="width:${barW}%;background:${color}"></div>`}<span>${_dnaCellVal(x)}</span></div></td>
+    </tr>`;
+  };
 
   host.innerHTML = `
     <div class="dna-head">
       <div>
         <div class="dna-name">${me.n}</div>
-        <div class="page-sub">${pos} · ${me.t} · ${season} · ${me.g} Spiele${owner ? ` · ${owner.emoji} ${owner.name}` : ' · Free Agent'}</div>
+        <div class="page-sub">${pos} · ${me.t} · ${season} · ${me.g} Spiele${yearTxt ? ' · ' + yearTxt : ''}${owner ? ` · ${owner.emoji} ${owner.name}` : ' · Free Agent'}</div>
       </div>
-      <div class="dna-score" style="border-color:${_dnaPctColor(avg)}"><b style="color:${_dnaPctColor(avg)}">${avg}</b><small>DNA Ø</small></div>
+      <div class="dna-score" style="border-color:${_dnaPctColor(avg)}" title="Ø der 6 Kern-Achsen (${dnaState.scale === 'z' ? 'Z-Score, 50 = Schnitt' : 'Perzentil'})"><b style="color:${_dnaPctColor(avg)}">${dnaState.scale === 'z' ? _dnaCellVal(avg) : avg}</b><small>DNA Ø</small></div>
     </div>
-    ${best.length ? `<div class="dna-tags">Stärken: ${best.slice(0, 2).map(x => `<b>${x.c.label}</b>`).join(' & ')} · Schwäche: <b>${best[best.length - 1].c.label}</b></div>` : ''}
+    ${core.length ? `<div class="dna-tags">Stärken: ${core.slice(0, 2).map(x => `<b>${x.c.label}</b>`).join(' & ')} · Schwäche: <b>${core[core.length - 1].c.label}</b>${useStab ? ' · <span class="dna-stab-tag">Stichproben-korrigiert</span>' : ''}</div>` : ''}
     <div class="dna-grid">
       <div class="dna-chart-card">
         <canvas id="dnaCanvas"></canvas>
+        <div class="dna-legend-mini">● Rolle & Produktion &nbsp; ◇ Stil (kein besser/schlechter)</div>
         ${entries.length > 1 ? `<div class="dna-compare-chips">${entries.map((e, i) => `
           <span class="dna-chip" style="border-color:${DNA_COLORS[i]}"><i style="background:${DNA_COLORS[i]}"></i>${e.p.n} ${e.season}${i ? ` <a onclick="dnaRemoveCompare(${i - 1})">✕</a>` : ''}</span>`).join('')}</div>` : ''}
       </div>
       <div>
         <table class="dna-table">
-          <thead><tr><th>Kategorie</th><th>Wert</th><th>Perzentil</th></tr></thead>
-          <tbody>${cats.map((c, i) => `
-            <tr>
-              <td><b>${c.label}</b><small>${c.unit}${c.invert ? ' · weniger ist besser' : ''}</small></td>
-              <td>${_dnaFmt(me.v[i], c)}</td>
-              <td><div class="dna-bar"><div style="width:${me.p[i] ?? 0}%;background:${_dnaPctColor(me.p[i])}"></div><span>${me.p[i] ?? '—'}</span></div></td>
-            </tr>`).join('')}</tbody>
+          <thead><tr><th>Kategorie</th><th>Wert</th><th>${dnaState.scale === 'z' ? 'Z-Score' : 'Perzentil'}</th></tr></thead>
+          <tbody>
+            ${cats.map((c, i) => c.type !== 'style' ? row(c, i) : '').join('')}
+            <tr class="dna-sep"><td colspan="3">◇ Stil</td></tr>
+            ${cats.map((c, i) => c.type === 'style' ? row(c, i) : '').join('')}
+          </tbody>
         </table>
       </div>
     </div>
     <div class="dna-matches">
       ${matchHtml(`🧬 DNA-Match ${season}`, cur, false)}
-      ${matchHtml('🏛️ Historisches Match (ab 2016)', hist, true)}
+      ${matchHtml('🏛️ Historisches Match', hist, true, me.e ? ` <label class="dna-toggle dna-inline"><input type="checkbox" ${dnaState.sameYear ? 'checked' : ''} onchange="dnaSet('sameYear',this.checked)"> nur ${me.e === 1 ? 'Rookie-Jahre' : 'NFL-Jahr ' + me.e}</label>` : '')}
     </div>
-    <div class="page-sub" style="margin-top:10px;font-size:11px">Klick auf ein Match legt es zum Vergleich ins Radar (max. 3 Profile). Match-Score = 100 − Ø Perzentil-Abstand. Quelle: nflverse (Stats, Next Gen Stats, Snap Counts).</div>`;
+    <div class="page-sub" style="margin-top:10px;font-size:11px">Klick auf ein Match legt es zum Vergleich ins Radar (max. 3 Profile). Match-Score = 100 − Ø Abstand über alle 8 Achsen. Stabilität r = gemessene Jahr-zu-Jahr-Korrelation 2016–2025. Quellen: nflverse (Stats, Next Gen Stats, Snap Counts, PFR), ffverse (Expected Fantasy Points).</div>`;
   _dnaDrawChart(entries, cats);
 }
 
@@ -276,14 +323,16 @@ function _dnaDrawChart(entries, cats) {
   _dnaChart = new Chart(canvas.getContext('2d'), {
     type: 'radar',
     data: {
-      labels: cats.map(c => c.label),
+      labels: cats.map(c => (c.type === 'style' ? '◇ ' : '') + c.label),
       datasets: entries.map((e, i) => ({
         label: `${e.p.n} ${e.season}`,
-        data: e.p.p.map(v => v == null ? null : v),
+        data: _dnaVals(e.p).map(v => v == null ? null : v),
         borderColor: DNA_COLORS[i],
         backgroundColor: _hexToRgbaShared(DNA_COLORS[i], compare ? 0.12 : 0.25),
-        pointBackgroundColor: DNA_COLORS[i],
-        pointRadius: 4, pointHoverRadius: 6, borderWidth: 2.5, spanGaps: true,
+        pointBackgroundColor: cats.map(c => c.type === 'style' ? (st.getPropertyValue('--surface').trim() || '#fff') : DNA_COLORS[i]),
+        pointBorderColor: DNA_COLORS[i],
+        pointStyle: cats.map(c => c.type === 'style' ? 'rectRot' : 'circle'),
+        pointRadius: cats.map(c => c.type === 'style' ? 5 : 4), pointHoverRadius: 7, borderWidth: 2.5, spanGaps: true,
       })),
     },
     options: {
@@ -296,8 +345,9 @@ function _dnaDrawChart(entries, cats) {
           callbacks: {
             label: c => {
               const e = entries[c.datasetIndex], cat = cats[c.dataIndex];
-              const p = e.p.p[c.dataIndex];
-              return `${e.p.n} ${e.season}: ${p == null ? 'kein Wert' : p + '. Perzentil'} (${_dnaFmt(e.p.v[c.dataIndex], cat)} ${cat.unit})`;
+              const x = _dnaVals(e.p)[c.dataIndex];
+              const lbl = x == null ? 'kein Wert' : (dnaState.scale === 'z' ? 'z ' + _dnaCellVal(x) : x + '. Perzentil');
+              return `${e.p.n} ${e.season}: ${lbl} (${_dnaFmt(_dnaRaw(e.p)[c.dataIndex], cat)} ${cat.unit})`;
             },
           },
         },

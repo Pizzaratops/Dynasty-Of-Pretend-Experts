@@ -58,24 +58,37 @@ keine Leer-Commits.
 
 ## Player DNA 🧬
 
-Das NFL-Pendant zum Cat Web aus Taco Tuesday HQ: ein Perzentil-Radar pro Spieler (QB/RB/WR/TE),
-jeweils gegen **alle NFL-Spieler derselben Position** mit Mindest-Volumen, nicht nur gegen die
-gerosterten Spieler. Die Daten kommen aus nflverse (Stats, Next Gen Stats, Snap Counts), und zur
-Auswahl stehen die Saisons ab 2016.
+Das NFL-Pendant zum Cat Web aus Taco Tuesday HQ: ein Radar pro Spieler (QB/RB/WR/TE) gegen **alle
+NFL-Spieler derselben Position** mit Mindest-Volumen, nicht nur gegen die gerosterten Spieler.
+Zur Auswahl stehen die Saisons ab 2016.
 
-| Position | Kategorien |
-|---|---|
-| QB | Volumen, EPA/Play, CPOE, aDOT, Rushing, TD-Rate, Ball Security, Sack-Vermeidung |
-| RB | Carries, Rush-EPA, RYOE (ab 2018), Target Share, Receiving, Snap-Anteil, TDs, Explosivität |
-| WR/TE | Target Share, Air Yards Share, aDOT, YAC, Separation, Receiving, TDs, EPA/Target |
+**Achsen:** Jedes Radar hat 8 Achsen. 6 davon sind **Kern-Achsen** (Rolle und Produktion) und
+ergeben den DNA-Ø. 2 sind **◇ Stil-Achsen**: Sie zeigen, *wie* ein Spieler spielt, kennen kein
+Besser oder Schlechter und zählen nur für die Matches. Ausgewählt wurden die Kategorien nach
+einer eigenen Stabilitätsmessung (nflverse 2016–2025, Year-over-Year-Korrelation und Prognose
+der PPR-Punkte pro Spiel im Folgejahr).
 
-- **DNA-Match:** das ähnlichste Profil derselben Saison.
-- **Historisches Match:** das ähnlichste Profil aus allen anderen Saisons.
-- **Aufruf:** über das 🧬 bei jedem Spieler im Kader oder den Reiter *Spieler → Player DNA*.
+| Position | Kern | ◇ Stil |
+|---|---|---|
+| QB | xFP/Spiel, FP/Dropback, EPA/Play, CPOE, Rush-Yards/Spiel, Rush-Versuche/Spiel | aDOT, Time to Throw |
+| RB | xFP-Share, Snap-Anteil, Rush-Share, Targets/Spiel, Rec-Yards/Spiel, FPOE/Spiel | YAC/Carry (ab 2018), Explosivität |
+| WR | xFP-Share, Targets/Spiel, Yds/Team-Passversuch (YPRR-Proxy), Air Yards Share, Snap-Anteil, YAC/Catch | aDOT, Separation |
+| TE | xFP-Share, Yds/Team-Passversuch, Snap-Anteil, Targets/Spiel, Air Yards Share, YAC über Erwartung | aDOT, YAC/Catch |
 
-Die Kategorien lassen sich in `scripts/sync-player-dna.js` (`CATEGORIES`) anpassen. Danach einmal
-`DNA_REBUILD=1 node scripts/sync-player-dna.js` ausführen oder den Workflow starten, er erkennt
-geänderte Kategorien automatisch.
+**Schalter:**
+- **Perzentil / Z-Score:** Der Z-Score ist bei ±2,5 gedeckelt und zeigt echte Abstände statt Ränge.
+- **Stichproben-Korrektur:** Gilt nur in der laufenden Saison. Jeder Wert wird zum Vorjahreswert
+  des Spielers gezogen, bei Rookies zum Positions-Schnitt:
+  `(Spiele × Ist + k × Prior) / (Spiele + k)` mit `k = 17 × (1 − r) / r`. Je instabiler eine
+  Kennzahl, desto stärker wirkt die Korrektur.
+- **Historisches Match „nur NFL-Jahr X“:** Beim Rookie werden zum Beispiel nur Rookie-Saisons verglichen.
+
+**Quellen:** nflverse (Stats, Next Gen Stats, Snap Counts, PFR Advanced) und ffverse/ffopportunity
+(Expected Fantasy Points, xFP, FPOE). Yards per Route Run gibt es dort nicht, deshalb dient
+„Yards pro Team-Passversuch“ als Näherung.
+
+Die Kategorien lassen sich in `scripts/sync-player-dna.js` (`CATEGORIES`, inklusive `stab`)
+anpassen. Der Workflow erkennt geänderte Kategorien und rechnet dann alle Saisons neu.
 
 ## Von Hand pflegen
 
