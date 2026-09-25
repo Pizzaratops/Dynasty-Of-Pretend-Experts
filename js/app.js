@@ -23,7 +23,7 @@ const PAGES = [
   'home', 'roster', 'dues', 'draftboard', 'keepers', 'dynastyboard', 'rolling', 'teamaverages', 'weekbyweek',
   'playerrankings', 'playerprojections', 'nflteams', 'nflteamdetail', 'futureboards',
   'standings', 'leaguehistory', 'seasonrolling', 'nflrankings', 'matchups', 'trade', 'tradehistory',
-  'statusreport', 'erklaerung'
+  'statusreport', 'erklaerung', 'playerdna'
 ];
 
 function navigate(pageId, opts) {
@@ -90,6 +90,7 @@ const ROUTE_HANDLERS = {
   tradehistory: () => showTradeHistory(),
   statusreport: () => showStatusReport(),
   erklaerung: () => showErklaerung(),
+  playerdna: () => showPlayerDna(),
 };
 
 function _routeTo(pageId, teamId, nflCode, leagueId) {
@@ -169,10 +170,13 @@ const NAV_SECTIONS = [
     ['teamaverages', '📐 Team-Schnitt', () => showTeamAverages()],
   ] },
   { key: 'players', label: '📊 Spieler', pages: [
+    ['playerdna', '🧬 Player DNA', () => showPlayerDna()],
     ['playerrankings', '📊 Rankings', () => showPlayerRankings()],
     ['playerprojections', '🔮 Projections', () => showPlayerProjections()],
-    ['nflteams', '🏈 NFL-Teams', () => showNFLTeams()],
-    ['nflrankings', '🏟️ NFL Power Rankings', () => showNflRankings()],
+  ] },
+  { key: 'nfl', label: '🏈 NFL', pages: [
+    ['nflrankings', '🏟️ Power Rankings', () => showNflRankings()],
+    ['nflteams', '🏈 Team-Roster', () => showNFLTeams()],
   ] },
   { key: 'liga', label: '📜 Liga', pages: [
     ['erklaerung', '📜 Regeln', () => showErklaerung()],
@@ -556,7 +560,9 @@ function _rosterGroupHtml(label, list) {
   if (!list.length) return '';
   return `<div class="section-label">${label} (${list.length})</div>` + list.map(p => {
     const tags = (p.isStarter ? ' ⭐' : '') + (p.rookie ? ' 🐣' : '');
-    return playerRowHtml({ name: p.name + tags, nfl: p.nfl, pos: p.pos, status: p.status });
+    const dna = ['QB', 'RB', 'WR', 'TE'].includes(p.pos)
+      ? `<button class="dna-open-btn" title="Player DNA" onclick="openPlayerDna('${escapeJs(p.name)}','${p.pos}')">🧬</button>` : '';
+    return playerRowHtml({ name: p.name + tags, nfl: p.nfl, pos: p.pos, status: p.status }).replace(/<\/div>\s*$/, dna + '</div>');
   }).join('');
 }
 
@@ -2265,7 +2271,7 @@ function renderDues() {
   };
   wrap.innerHTML = `
     <div class="info-banner">
-      <b>✅ Bezahlt</b> — Beitrag für diese Saison beglichen. <b>offen</b> — noch nicht bezahlt.
+      <b>2026 ist von allen bezahlt.</b> <b>✅ Bezahlt</b> — Beitrag für diese Saison beglichen. <b>offen</b> — noch nicht bezahlt.<br>
       ${(() => { const n = LEAGUE_TEAMS.length; return DUES_YEARS.map(y => `${y}: <b>${LEAGUE_TEAMS.filter(t => leagueDuesStatus(t.name, y) === 'paid').length}/${n}</b>`).join(' · '); })()}
     </div>
     <div class="board-table-wrap">

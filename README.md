@@ -25,6 +25,7 @@ und keinen Worker. Colorway „Film Room“ (Petrol + Amber/Gold), Light- und Da
 | Workflow | Wann | Schreibt |
 |---|---|---|
 | `sync-sleeper.yml` | alle 2 h | Teams, Kader (inkl. Taxi/IR), Weekly Scores (+ Median), Spielplan, Rookie Draft, **Trades & Future Picks**, Player Stats, Projections, Liga-Settings, Fantasy Power Score |
+| `sync-player-dna.yml` | täglich 9:40 Uhr | Player DNA (Perzentile QB/RB/WR/TE aus nflverse) |
 | `sync-status-report.yml` | alle 2 h | Status Report (ESPN- + Sleeper-Ligen von Milchreis) |
 | `sync-espn-nfl-standings.yml` | 9 & 21 Uhr | NFL Power Rankings (nflverse, ligaunabhängig) |
 | `sync-nfl-power-score.yml` | 9 & 21 Uhr | Bootleg Power Score der NFL-Teams |
@@ -54,6 +55,27 @@ keine Leer-Commits.
 - **Namensabgleich**: Sleeper-Namen werden auf die Schreibweise von Dynasty Board und Trade
   Values normalisiert (z. B. „Kenneth Walker“ → „Kenneth Walker III“). Bei den ersten Tests
   passten 323 von 324 Kaderspielern.
+
+## Player DNA 🧬
+
+Das NFL-Pendant zum Cat Web aus Taco Tuesday HQ: ein Perzentil-Radar pro Spieler (QB/RB/WR/TE),
+jeweils gegen **alle NFL-Spieler derselben Position** mit Mindest-Volumen, nicht nur gegen die
+gerosterten Spieler. Die Daten kommen aus nflverse (Stats, Next Gen Stats, Snap Counts), und zur
+Auswahl stehen die Saisons ab 2016.
+
+| Position | Kategorien |
+|---|---|
+| QB | Volumen, EPA/Play, CPOE, aDOT, Rushing, TD-Rate, Ball Security, Sack-Vermeidung |
+| RB | Carries, Rush-EPA, RYOE (ab 2018), Target Share, Receiving, Snap-Anteil, TDs, Explosivität |
+| WR/TE | Target Share, Air Yards Share, aDOT, YAC, Separation, Receiving, TDs, EPA/Target |
+
+- **DNA-Match:** das ähnlichste Profil derselben Saison.
+- **Historisches Match:** das ähnlichste Profil aus allen anderen Saisons.
+- **Aufruf:** über das 🧬 bei jedem Spieler im Kader oder den Reiter *Spieler → Player DNA*.
+
+Die Kategorien lassen sich in `scripts/sync-player-dna.js` (`CATEGORIES`) anpassen. Danach einmal
+`DNA_REBUILD=1 node scripts/sync-player-dna.js` ausführen oder den Workflow starten, er erkennt
+geänderte Kategorien automatisch.
 
 ## Von Hand pflegen
 

@@ -10,27 +10,23 @@
 //  aendert. Der aktuelle Teamname funktioniert zur Not auch.
 // ============================================================
 
-const DUES_YEARS = [2026, 2027, 2028, 2029];
-const CURRENT_DUES_YEAR = 2026;
+const DUES_YEARS = [2027, 2028, 2029, 2030]; // 2026 von allen bezahlt
+const CURRENT_DUES_YEAR = 2027;
 
 const LEAGUE_DUES_PAID = [
   // Blowout Arctic Yetis: bis einschl. 2029
-  { team: "bomba12", year: 2026 },
   { team: "bomba12", year: 2027 },
   { team: "bomba12", year: 2028 },
   { team: "bomba12", year: 2029 },
   // Berlin Lightning Sloths: bis einschl. 2029
-  { team: "jiggydee2312", year: 2026 },
   { team: "jiggydee2312", year: 2027 },
   { team: "jiggydee2312", year: 2028 },
   { team: "jiggydee2312", year: 2029 },
   // Tokyo Titi Twisters: bis einschl. 2029
-  { team: "milchreis", year: 2026 },
   { team: "milchreis", year: 2027 },
   { team: "milchreis", year: 2028 },
   { team: "milchreis", year: 2029 },
   // San José Salamancas: bis einschl. 2028
-  { team: "lovethecheesehead", year: 2026 },
   { team: "lovethecheesehead", year: 2027 },
   { team: "lovethecheesehead", year: 2028 },
   // 2027: alle ausser SvenNYG, AmericanWildfireGrizzlies, AngryDucks
