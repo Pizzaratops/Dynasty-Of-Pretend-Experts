@@ -1,47 +1,47 @@
 /* ============================================================
    Dynasty of Pretend Experts HQ — Styles
-   Colorway: "Film Room" — tiefes Petrol + Amber/Gold, gedaempft,
+   Colorway: "Slate + Sleeper-Teal" — Schieferblau, Tuerkis + Pink,
    damit es angenehm fuer die Augen bleibt.
    Konvention wie bei Taco Tuesday HQ: :root = Dark Mode (Standard),
    body.light = Light Mode Override.
    ============================================================ */
 
 :root {
-  /* DARK MODE — Petrol als Primaerfarbe */
-  --bg: #0d1719;
-  --surface: #142226;
-  --surface2: #1b2d32;
-  --border: #2a4248;
-  --accent: #e3a73a;       /* Amber/Gold */
-  --accent2: #3fa7a0;      /* Teal als Sekundaerakzent */
-  --accent-light: rgba(227,167,58,0.10);
-  --text: #eef3f2;
-  --muted: #87a0a0;
+  /* DARK MODE — Schieferblau als Primaerfarbe */
+  --bg: #0f1621;
+  --surface: #172030;
+  --surface2: #1e2a3d;
+  --border: #2c3b54;
+  --accent: #20d3c2;       /* Sleeper-Tuerkis */
+  --accent2: #f25c8a;      /* Pink als Sekundaerakzent */
+  --accent-light: rgba(32,211,194,0.10);
+  --text: #e9eef6;
+  --muted: #8595ad;
   --green: #4caf81;
   --red: #d9695f;
-  --pick-own-bg: rgba(227,167,58,0.14);
-  --pick-own-color: #e9b659;
-  --pick-open-bg: rgba(63,167,160,0.12);
-  --pick-open-color: #6cc3bb;
+  --pick-own-bg: rgba(32,211,194,0.14);
+  --pick-own-color: #4fe0d2;
+  --pick-open-bg: rgba(242,92,138,0.12);
+  --pick-open-color: #f58aab;
 }
 
 body.light {
-  /* LIGHT MODE — helles Salbei + Gold, nichts grelles */
-  --bg: #f6f7f2;
+  /* LIGHT MODE — kuehles Hellgrau + Tuerkis, nichts grelles */
+  --bg: #f4f7fa;
   --surface: #ffffff;
-  --surface2: #eef3ee;
-  --border: #d9e2dc;
-  --accent: #b9831f;       /* gedecktes Gold */
-  --accent2: #2f7f79;      /* Petrol als Sekundaerakzent */
-  --accent-light: rgba(185,131,31,0.09);
-  --text: #1f2b2d;
-  --muted: #7d8c88;
+  --surface2: #eaf1f6;
+  --border: #d5e0ea;
+  --accent: #0f9e91;       /* gedecktes Tuerkis */
+  --accent2: #d6406f;      /* Himbeer als Sekundaerakzent */
+  --accent-light: rgba(15,158,145,0.09);
+  --text: #1b2533;
+  --muted: #6f7f94;
   --green: #3d8a5c;
   --red: #b8543f;
-  --pick-own-bg: rgba(185,131,31,0.10);
-  --pick-own-color: #9a6c16;
-  --pick-open-bg: rgba(47,127,121,0.08);
-  --pick-open-color: #2f7f79;
+  --pick-own-bg: rgba(15,158,145,0.10);
+  --pick-own-color: #0b7f75;
+  --pick-open-bg: rgba(214,64,111,0.08);
+  --pick-open-color: #d6406f;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -266,7 +266,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
-.team-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(227,167,58,0.14); }
+.team-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(32,211,194,0.14); }
 .team-card::before {
   content: "";
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -610,7 +610,7 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
 .share-btn-row { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 4px; }
 .share-action-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 13px 10px; border-radius: 14px; font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.18s; text-align: center; }
 .share-action-btn:hover { border-color: var(--accent); background: var(--accent-light); color: var(--accent); }
-.share-action-btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: white; box-shadow: 0 4px 14px rgba(227,167,58,0.3); }
+.share-action-btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; color: white; box-shadow: 0 4px 14px rgba(32,211,194,0.3); }
 .share-action-btn.primary:hover { opacity: 0.88; }
 .share-close-btn { position: absolute; top: 16px; right: 16px; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); border-radius: 50%; width: 32px; height: 32px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
 .share-close-btn:hover { border-color: var(--accent); color: var(--text); }
@@ -706,7 +706,7 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
 .team-pick-future-row:last-of-type { border-bottom: none; }
 
 /* ---------- TENTATIVE KEEPER (vsl.) ---------- */
-.tentative-tag { font-size: 9px; font-weight: 800; color: var(--accent2); background: rgba(63,167,160,0.14); padding: 1px 5px; border-radius: 5px; letter-spacing: .3px; }
+.tentative-tag { font-size: 9px; font-weight: 800; color: var(--accent2); background: rgba(242,92,138,0.14); padding: 1px 5px; border-radius: 5px; letter-spacing: .3px; }
 
 /* ---------- SEASON FINISH ROLLING (eingebettet in Liga-Historie) ---------- */
 .sr-embed { display: flex; flex-direction: column; height: 560px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-top: 4px; }

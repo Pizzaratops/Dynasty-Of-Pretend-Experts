@@ -513,9 +513,9 @@ async function downloadKeeperScreenshot() {
   btn.textContent = '⏳ Erstelle...'; btn.disabled = true;
 
   const isLight = document.body.classList.contains('light');
-  const bg = isLight ? '#f6f7f2' : '#0d1719';
-  const accent = isLight ? '#b9831f' : '#e3a73a';
-  const muted = isLight ? '#7d8c88' : '#87a0a0';
+  const bg = isLight ? '#f4f7fa' : '#0f1621';
+  const accent = isLight ? '#0f9e91' : '#20d3c2';
+  const muted = isLight ? '#6f7f94' : '#8595ad';
 
   try {
     const target = document.getElementById('keepersContent');
@@ -657,9 +657,9 @@ async function downloadDraftboardScreenshot() {
   btn.textContent = '⏳ Erstelle...'; btn.disabled = true;
 
   const isLight = document.body.classList.contains('light');
-  const bg = isLight ? '#f6f7f2' : '#0d1719';
-  const accent = isLight ? '#b9831f' : '#e3a73a';
-  const muted = isLight ? '#7d8c88' : '#87a0a0';
+  const bg = isLight ? '#f4f7fa' : '#0f1621';
+  const accent = isLight ? '#0f9e91' : '#20d3c2';
+  const muted = isLight ? '#6f7f94' : '#8595ad';
 
   try {
     const target = document.getElementById('draftboardContent');
@@ -855,7 +855,7 @@ let drChart = null;
 let drSortBy = 'latest'; // 'latest' | 'name' | <snapshot-date>
 let drSortDir = 'asc';
 
-const DR_COMPARE_COLORS = ['#e3a73a', '#3fa7a0', '#4caf81']; // Amber, Teal, Gruen
+const DR_COMPARE_COLORS = ['#20d3c2', '#f25c8a', '#4caf81']; // Tuerkis, Pink, Gruen
 
 let _drDataCache = null;
 function _drData() {
@@ -1003,9 +1003,9 @@ function drFilter() {
 
 function _drRankColor(r) {
   if (r === null || r === undefined) return 'var(--border)';
-  if (r <= 5) return '#e3a73a';
+  if (r <= 5) return '#20d3c2';
   if (r <= 15) return '#4caf81';
-  if (r <= 30) return '#3fa7a0';
+  if (r <= 30) return '#f25c8a';
   if (r <= 60) return '#9e78ff';
   if (r <= 100) return '#e0a53a';
   return '#d9695f';
@@ -1079,9 +1079,9 @@ function _drRenderSingle(panel, player) {
 
   const pillsHtml = `
     <div class="rr-pills">
-      <div class="rr-pill"><span class="rr-pill-val" style="color:#e3a73a">${best ?? '–'}</span><span class="rr-pill-label">Bestes</span></div>
+      <div class="rr-pill"><span class="rr-pill-val" style="color:#20d3c2">${best ?? '–'}</span><span class="rr-pill-label">Bestes</span></div>
       <div class="rr-pill"><span class="rr-pill-val" style="color:#d9695f">${worst ?? '–'}</span><span class="rr-pill-label">Schlechtestes</span></div>
-      <div class="rr-pill"><span class="rr-pill-val" style="color:#3fa7a0">${avg ?? '–'}</span><span class="rr-pill-label">Schnitt</span></div>
+      <div class="rr-pill"><span class="rr-pill-val" style="color:#f25c8a">${avg ?? '–'}</span><span class="rr-pill-label">Schnitt</span></div>
       <div class="rr-pill"><span class="rr-pill-val" style="color:#4caf81">${valid.length}/${values.length}</span><span class="rr-pill-label">Snapshots</span></div>
     </div>`;
 
@@ -1095,7 +1095,7 @@ function _drRenderSingle(panel, player) {
   const prediction = _drPredictNextRank(values);
   const predictionHtml = prediction != null ? `
     <div class="rr-prediction-box">
-      🔮 Geschätzter nächster Rang: <b style="color:#e3a73a">#${prediction}</b>
+      🔮 Geschätzter nächster Rang: <b style="color:#20d3c2">#${prediction}</b>
       <span style="color:var(--muted);font-size:11px">(grober Trend aus den letzten Snapshots, keine echte Prognose)</span>
     </div>` : '';
 
@@ -1225,7 +1225,7 @@ function _drDrawChart(datasets, labels) {
           borderColor: borderColor,
           borderWidth: 1,
           titleColor: textColor,
-          bodyColor: '#e3a73a',
+          bodyColor: '#20d3c2',
           padding: 12,
           callbacks: { label: c => c.raw === null ? `${c.dataset.label}: kein Ranking` : `${c.dataset.label}: #${c.raw}` }
         }
@@ -1245,7 +1245,7 @@ function _drDrawChart(datasets, labels) {
 
 function _drHexToRgba(hex, alpha) {
   const m = hex.match(/^#([0-9a-f]{6})$/i);
-  if (!m) return `rgba(227,167,58,${alpha})`;
+  if (!m) return `rgba(32,211,194,${alpha})`;
   const n = parseInt(m[1], 16);
   return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${alpha})`;
 }
@@ -1383,11 +1383,11 @@ function _drRenderShareCard() {
   const datasets = players.map((p, i) => ({ label: p.name, values: p.ranks, color: DR_COMPARE_COLORS[i] }));
 
   const th = drShareStyle === 'light' ? {
-    bg: '#f6f7f2', surface: '#ffffff', text: '#1f2b2d', muted: '#7d8c88',
-    accent: '#b9831f', border: '#d9e2dc', shadow: 'rgba(185,131,31,0.10)',
+    bg: '#f4f7fa', surface: '#ffffff', text: '#1b2533', muted: '#6f7f94',
+    accent: '#0f9e91', border: '#d5e0ea', shadow: 'rgba(15,158,145,0.10)',
   } : {
-    bg: '#0d1719', surface: '#142226', text: '#eef3f2', muted: '#87a0a0',
-    accent: '#e3a73a', border: '#2a4248', shadow: 'rgba(0,0,0,0.35)',
+    bg: '#0f1621', surface: '#172030', text: '#e9eef6', muted: '#8595ad',
+    accent: '#20d3c2', border: '#2c3b54', shadow: 'rgba(0,0,0,0.35)',
   };
 
   const titleText = isCompare ? 'Rolling Rankings · Vergleich' : players[0].name;
@@ -1420,9 +1420,9 @@ function _drRenderShareCard() {
         <div style="font-size:9px;color:${th.muted};margin-top:6px;letter-spacing:1px;text-transform:uppercase;">${label}</div>
       </div>`;
     statsHtml = `<div style="display:flex;gap:8px;margin-bottom:18px;">
-      ${pill(best, 'Bestes', '#e3a73a')}
+      ${pill(best, 'Bestes', '#20d3c2')}
       ${pill(worst, 'Schlechtestes', '#d9695f')}
-      ${pill(avg, 'Schnitt', '#3fa7a0')}
+      ${pill(avg, 'Schnitt', '#f25c8a')}
     </div>`;
   }
 
@@ -1458,11 +1458,11 @@ function _srRenderShareCard() {
   const datasets = teams.map((t, i) => ({ label: t.team, values: t.ranks, color: SR_COMPARE_COLORS[i] }));
 
   const th = drShareStyle === 'light' ? {
-    bg: '#f6f7f2', surface: '#ffffff', text: '#1f2b2d', muted: '#7d8c88',
-    accent: '#b9831f', border: '#d9e2dc', shadow: 'rgba(185,131,31,0.10)',
+    bg: '#f4f7fa', surface: '#ffffff', text: '#1b2533', muted: '#6f7f94',
+    accent: '#0f9e91', border: '#d5e0ea', shadow: 'rgba(15,158,145,0.10)',
   } : {
-    bg: '#0d1719', surface: '#142226', text: '#eef3f2', muted: '#87a0a0',
-    accent: '#e3a73a', border: '#2a4248', shadow: 'rgba(0,0,0,0.35)',
+    bg: '#0f1621', surface: '#172030', text: '#e9eef6', muted: '#8595ad',
+    accent: '#20d3c2', border: '#2c3b54', shadow: 'rgba(0,0,0,0.35)',
   };
 
   const titleText = isCompare ? 'Season Finish · Vergleich' : teams[0].team;
@@ -1494,9 +1494,9 @@ function _srRenderShareCard() {
         <div style="font-size:9px;color:${th.muted};margin-top:6px;letter-spacing:1px;text-transform:uppercase;">${label}</div>
       </div>`;
     statsHtml = `<div style="display:flex;gap:8px;margin-bottom:18px;">
-      ${pill(best, 'Bestes', '#e3a73a')}
+      ${pill(best, 'Bestes', '#20d3c2')}
       ${pill(worst, 'Schlechtestes', '#d9695f')}
-      ${pill(t.avg != null ? t.avg.toFixed(1) : null, 'Ø Platz', '#3fa7a0')}
+      ${pill(t.avg != null ? t.avg.toFixed(1) : null, 'Ø Platz', '#f25c8a')}
     </div>`;
   }
 
@@ -1571,7 +1571,7 @@ async function drDownloadShareImage() {
   const orig = btn ? btn.textContent : '';
   if (btn) { btn.textContent = '⏳ Erstelle...'; btn.disabled = true; }
   try {
-    const bg = drShareStyle === 'light' ? '#f6f7f2' : '#0d1719';
+    const bg = drShareStyle === 'light' ? '#f4f7fa' : '#0f1621';
     const canvas = await html2canvas(card, { backgroundColor: bg, scale: 2, logging: false, useCORS: true });
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
@@ -2247,7 +2247,7 @@ let srCompareMode = false;
 let srSelected = [];
 let srSortBy = 'avg';
 let srSortDir = 'asc';
-const SR_COMPARE_COLORS = ['#e3a73a', '#3fa7a0', '#4caf81'];
+const SR_COMPARE_COLORS = ['#20d3c2', '#f25c8a', '#4caf81'];
 
 let _srDataCache = null;
 function _srData() {
@@ -2438,9 +2438,9 @@ function _srRenderMain() {
       <div class="rr-player-header">
         <div><div class="rr-player-name">${t.team}</div><div class="rr-player-sub">Regular-Season-Finish über die Jahre</div>${aliasNote}</div>
         <div class="rr-pills">
-          <div class="rr-pill"><span class="rr-pill-val" style="color:#e3a73a">${best ?? '–'}</span><span class="rr-pill-label">Bestes</span></div>
+          <div class="rr-pill"><span class="rr-pill-val" style="color:#20d3c2">${best ?? '–'}</span><span class="rr-pill-label">Bestes</span></div>
           <div class="rr-pill"><span class="rr-pill-val" style="color:#d9695f">${worst ?? '–'}</span><span class="rr-pill-label">Schlechtestes</span></div>
-          <div class="rr-pill"><span class="rr-pill-val" style="color:#3fa7a0">${t.avg != null ? t.avg.toFixed(1) : '–'}</span><span class="rr-pill-label">Ø Platz</span></div>
+          <div class="rr-pill"><span class="rr-pill-val" style="color:#f25c8a">${t.avg != null ? t.avg.toFixed(1) : '–'}</span><span class="rr-pill-label">Ø Platz</span></div>
           <div class="rr-pill"><span class="rr-pill-val" style="color:#4caf81">${t.seasons}</span><span class="rr-pill-label">Saisons</span></div>
         </div>
       </div>
@@ -2487,7 +2487,7 @@ function _srDrawChart(datasets, labels) {
       plugins: {
         legend: { display: datasets.length > 1, labels: { color: textColor, font: { size: 11, weight: '700' } } },
         tooltip: {
-          backgroundColor: surfaceColor, borderColor, borderWidth: 1, titleColor: textColor, bodyColor: '#e3a73a', padding: 10,
+          backgroundColor: surfaceColor, borderColor, borderWidth: 1, titleColor: textColor, bodyColor: '#20d3c2', padding: 10,
           callbacks: { label: c => c.raw === null ? `${c.dataset.label}: keine Daten` : `${c.dataset.label}: Platz ${c.raw}` }
         }
       },
@@ -2582,14 +2582,14 @@ function _rstRankColor(rank, n) {
   if (rank == null) return 'var(--border)';
   const q = (rank - 1) / Math.max(1, n - 1);
   if (q <= 0.25) return '#4caf81';
-  if (q <= 0.5) return '#3fa7a0';
+  if (q <= 0.5) return '#f25c8a';
   if (q <= 0.75) return '#e0a53a';
   return '#d9695f';
 }
 
 function setRollingStandingsMode(m) { rstMode = m; renderRollingStandingsTable(); }
 
-const RST_TEAM_COLORS = ['#e3a73a', '#22c1dc', '#8a9ba8', '#ef5350', '#4caf81', '#ffca28',
+const RST_TEAM_COLORS = ['#20d3c2', '#22c1dc', '#8a9ba8', '#ef5350', '#4caf81', '#ffca28',
   '#e040fb', '#6c63ff', '#29b6f6', '#ff6b8a', '#9ccc65', '#ffa726'];
 let rstChart = null;
 let rstHover = null; // dataset-Index des gehighlighteten Teams
@@ -2920,9 +2920,9 @@ function _wrRenderMain() {
       <div class="rr-player-header">
         <div><div class="rr-player-name">${t.emoji || ''} ${t.team}</div><div class="rr-player-sub">Kumulierter Rang je Woche (Season ${_wrSeason()})</div></div>
         <div class="rr-pills">
-          <div class="rr-pill"><span class="rr-pill-val" style="color:#e3a73a">${best ?? '–'}</span><span class="rr-pill-label">Bester Rang</span></div>
+          <div class="rr-pill"><span class="rr-pill-val" style="color:#20d3c2">${best ?? '–'}</span><span class="rr-pill-label">Bester Rang</span></div>
           <div class="rr-pill"><span class="rr-pill-val" style="color:#d9695f">${worst ?? '–'}</span><span class="rr-pill-label">Schlechtester</span></div>
-          <div class="rr-pill"><span class="rr-pill-val" style="color:#3fa7a0">${t.avg != null ? t.avg.toFixed(1) : '–'}</span><span class="rr-pill-label">Ø Rang</span></div>
+          <div class="rr-pill"><span class="rr-pill-val" style="color:#f25c8a">${t.avg != null ? t.avg.toFixed(1) : '–'}</span><span class="rr-pill-label">Ø Rang</span></div>
           <div class="rr-pill"><span class="rr-pill-val" style="color:#4caf81">${lastPoints != null ? lastPoints.toFixed(1) : '–'}</span><span class="rr-pill-label">Punkte ges.</span></div>
         </div>
       </div>
@@ -2969,7 +2969,7 @@ function _wrDrawChart(datasets, labels) {
       plugins: {
         legend: { display: datasets.length > 1, labels: { color: textColor, font: { size: 11, weight: '700' } } },
         tooltip: {
-          backgroundColor: surfaceColor, borderColor, borderWidth: 1, titleColor: textColor, bodyColor: '#e3a73a', padding: 10,
+          backgroundColor: surfaceColor, borderColor, borderWidth: 1, titleColor: textColor, bodyColor: '#20d3c2', padding: 10,
           callbacks: { label: c => c.raw === null ? `${c.dataset.label}: keine Daten` : `${c.dataset.label}: Rang ${c.raw}` }
         }
       },
@@ -3004,11 +3004,11 @@ function _wrRenderShareCard() {
   const datasets = teams.map((t, i) => ({ label: t.team, values: t.ranks, color: WR_COMPARE_COLORS[i] }));
 
   const th = drShareStyle === 'light' ? {
-    bg: '#f6f7f2', surface: '#ffffff', text: '#1f2b2d', muted: '#7d8c88',
-    accent: '#b9831f', border: '#d9e2dc', shadow: 'rgba(185,131,31,0.10)',
+    bg: '#f4f7fa', surface: '#ffffff', text: '#1b2533', muted: '#6f7f94',
+    accent: '#0f9e91', border: '#d5e0ea', shadow: 'rgba(15,158,145,0.10)',
   } : {
-    bg: '#0d1719', surface: '#142226', text: '#eef3f2', muted: '#87a0a0',
-    accent: '#e3a73a', border: '#2a4248', shadow: 'rgba(0,0,0,0.35)',
+    bg: '#0f1621', surface: '#172030', text: '#e9eef6', muted: '#8595ad',
+    accent: '#20d3c2', border: '#2c3b54', shadow: 'rgba(0,0,0,0.35)',
   };
 
   const titleText = isCompare ? '2026 Rolling Rankings · Vergleich' : teams[0].team;
@@ -3040,9 +3040,9 @@ function _wrRenderShareCard() {
         <div style="font-size:9px;color:${th.muted};margin-top:6px;letter-spacing:1px;text-transform:uppercase;">${label}</div>
       </div>`;
     statsHtml = `<div style="display:flex;gap:8px;margin-bottom:18px;">
-      ${pill(best, 'Bester Rang', '#e3a73a')}
+      ${pill(best, 'Bester Rang', '#20d3c2')}
       ${pill(worst, 'Schlechtester', '#d9695f')}
-      ${pill(t.avg != null ? t.avg.toFixed(1) : null, 'Ø Rang', '#3fa7a0')}
+      ${pill(t.avg != null ? t.avg.toFixed(1) : null, 'Ø Rang', '#f25c8a')}
     </div>`;
   }
 
@@ -3532,11 +3532,11 @@ function _fantasyBootlegRenderShareCard() {
   const colors = isCompare ? FPS_COMPARE_COLORS : ['#4a90e0'];
 
   const th = drShareStyle === 'light' ? {
-    bg: '#f6f7f2', surface: '#ffffff', text: '#1f2b2d', muted: '#7d8c88',
-    accent: '#b9831f', border: '#d9e2dc', shadow: 'rgba(185,131,31,0.10)',
+    bg: '#f4f7fa', surface: '#ffffff', text: '#1b2533', muted: '#6f7f94',
+    accent: '#0f9e91', border: '#d5e0ea', shadow: 'rgba(15,158,145,0.10)',
   } : {
-    bg: '#0d1719', surface: '#142226', text: '#eef3f2', muted: '#87a0a0',
-    accent: '#e3a73a', border: '#2a4248', shadow: 'rgba(0,0,0,0.35)',
+    bg: '#0f1621', surface: '#172030', text: '#e9eef6', muted: '#8595ad',
+    accent: '#20d3c2', border: '#2c3b54', shadow: 'rgba(0,0,0,0.35)',
   };
 
   const titleText = isCompare ? '🎯 Bootleg Power Score · Vergleich' : `🎯 ${entries[0].name}`;
@@ -3733,7 +3733,7 @@ function _drawBootlegChart(season, teamAbbr) {
   const textColor = styles.getPropertyValue('--text') || '#333';
   const mutedColor = styles.getPropertyValue('--muted') || '#888';
   const borderColor = styles.getPropertyValue('--border') || '#ddd';
-  const accentColor = (styles.getPropertyValue('--accent') || '#e3a73a').trim();
+  const accentColor = (styles.getPropertyValue('--accent') || '#20d3c2').trim();
   const isCompare = entries.length > 1;
   const colors = isCompare ? BOOTLEG_COMPARE_COLORS : [accentColor];
 
@@ -3835,14 +3835,14 @@ function _nflBootlegRenderShareCard() {
   const nflMeta = abbr => _bootlegAllTeams(season).find(t => t.abbr === abbr) || { name: abbr, abbr };
   const entries = _bootlegEntriesFor(list, 'abbr', ids).map(e => ({ ...e, name: nflMeta(e.abbr).name }));
   const isCompare = entries.length > 1;
-  const colors = isCompare ? BOOTLEG_COMPARE_COLORS : ['#e3a73a'];
+  const colors = isCompare ? BOOTLEG_COMPARE_COLORS : ['#20d3c2'];
 
   const th = drShareStyle === 'light' ? {
-    bg: '#f6f7f2', surface: '#ffffff', text: '#1f2b2d', muted: '#7d8c88',
-    accent: '#b9831f', border: '#d9e2dc', shadow: 'rgba(185,131,31,0.10)',
+    bg: '#f4f7fa', surface: '#ffffff', text: '#1b2533', muted: '#6f7f94',
+    accent: '#0f9e91', border: '#d5e0ea', shadow: 'rgba(15,158,145,0.10)',
   } : {
-    bg: '#0d1719', surface: '#142226', text: '#eef3f2', muted: '#87a0a0',
-    accent: '#e3a73a', border: '#2a4248', shadow: 'rgba(0,0,0,0.35)',
+    bg: '#0f1621', surface: '#172030', text: '#e9eef6', muted: '#8595ad',
+    accent: '#20d3c2', border: '#2c3b54', shadow: 'rgba(0,0,0,0.35)',
   };
 
   const titleText = isCompare ? '🎯 Bootleg Power Score · Vergleich' : `🎯 ${entries[0].name}`;

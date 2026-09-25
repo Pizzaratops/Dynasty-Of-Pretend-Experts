@@ -1,5 +1,7 @@
 # Dynasty of Pretend Experts HQ 🧐🏈
 
+**🔗 Live-Seite: [pizzaratops.github.io/Dynasty-Of-Pretend-Experts](https://pizzaratops.github.io/Dynasty-Of-Pretend-Experts/)**
+
 Liga-HQ für die Sleeper-Dynasty-Liga **Dynasty of Pretend Experts** (Sleeper League ID
 `1312799736218017792`, 14 Teams, PPR, 1QB, Median-Spiel). Ein 1:1-Umbau von
 [Bear Witch Project HQ](https://github.com/Pizzaratops/Bear-Witch-Project-HQ), aber statt ESPN
