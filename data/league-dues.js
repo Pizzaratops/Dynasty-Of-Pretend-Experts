@@ -2,14 +2,7 @@
 //  LEAGUE_DUES — Liga-Beiträge nach Saison, manuell gepflegt
 // ============================================================
 //  Traegt nur ein, WER SCHON BEZAHLT HAT (LEAGUE_DUES_PAID). Alles, was
-//  hier nicht als bezahlt eingetragen ist, wird automatisch berechnet:
-//
-//   - Fuer die aktuelle Saison (CURRENT_DUES_YEAR) gilt ohne Eintrag
-//     automatisch "muss zahlen" -- jeder zahlt jedes Jahr.
-//   - Fuer Zukunftsjahre gilt "offen", AUSSER das Team taucht in
-//     FUTURE_PICKS (data/trades.js, automatisch aus Sleeper) fuer dieses
-//     Jahr auf (als urspruenglicher Besitzer "from" ODER als aktueller
-//     Besitzer "owner" eines getradeten Picks) -- dann "muss zahlen".
+//  hier nicht eingetragen ist, gilt als "offen".
 //
 //  Zum Eintragen einer Zahlung: { team, year } ergaenzen. team = die
 //  Team-ID aus data/teams.js (= Sleeper-Username in Kleinbuchstaben, z.B.
@@ -21,17 +14,38 @@ const DUES_YEARS = [2026, 2027, 2028, 2029];
 const CURRENT_DUES_YEAR = 2026;
 
 const LEAGUE_DUES_PAID = [
-  // { team: "milchreis", year: 2026 },
+  // Blowout Arctic Yetis: bis einschl. 2029
+  { team: "bomba12", year: 2026 },
+  { team: "bomba12", year: 2027 },
+  { team: "bomba12", year: 2028 },
+  { team: "bomba12", year: 2029 },
+  // Berlin Lightning Sloths: bis einschl. 2029
+  { team: "jiggydee2312", year: 2026 },
+  { team: "jiggydee2312", year: 2027 },
+  { team: "jiggydee2312", year: 2028 },
+  { team: "jiggydee2312", year: 2029 },
+  // Tokyo Titi Twisters: bis einschl. 2029
+  { team: "milchreis", year: 2026 },
+  { team: "milchreis", year: 2027 },
+  { team: "milchreis", year: 2028 },
+  { team: "milchreis", year: 2029 },
+  // San José Salamancas: bis einschl. 2028
+  { team: "lovethecheesehead", year: 2026 },
+  { team: "lovethecheesehead", year: 2027 },
+  { team: "lovethecheesehead", year: 2028 },
+  // 2027: alle ausser SvenNYG, AmericanWildfireGrizzlies, AngryDucks
+  { team: "dickvanhurik", year: 2027 },
+  { team: "teambeermode", year: 2027 },
+  { team: "dseinn", year: 2027 },
+  { team: "giantmarv", year: 2027 },
+  { team: "r4xon", year: 2027 },
+  { team: "danfre", year: 2027 },
+  { team: "unicornsruegen", year: 2027 },
 ];
 
-// Rueckgabe: "paid" | "owes" | "not-relevant"
+// Rueckgabe: "paid" | "open"
 function leagueDuesStatus(teamName, year) {
   const team = (typeof LEAGUE_TEAMS !== 'undefined' ? LEAGUE_TEAMS : []).find(t => t.name === teamName);
   const keys = [teamName, team && team.id].filter(Boolean);
-  const paid = LEAGUE_DUES_PAID.some(d => keys.includes(d.team) && d.year === year);
-  if (paid) return "paid";
-  if (year <= CURRENT_DUES_YEAR) return "owes";
-  const picks = (typeof FUTURE_PICKS !== 'undefined' ? (FUTURE_PICKS[year] || []) : []);
-  const involved = picks.some(p => p.from === teamName || p.owner === teamName);
-  return involved ? "owes" : "not-relevant";
+  return LEAGUE_DUES_PAID.some(d => keys.includes(d.team) && d.year === year) ? "paid" : "open";
 }

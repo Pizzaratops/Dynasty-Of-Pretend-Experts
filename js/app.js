@@ -37,6 +37,8 @@ function navigate(pageId, opts) {
   document.querySelectorAll('[data-page]').forEach(el => {
     el.classList.toggle('active', el.getAttribute('data-page') === pageId);
   });
+  _markNavActive(pageId, opts);
+  _renderSectionTabs(pageId);
 
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
   closeMobileNav();
@@ -67,6 +69,7 @@ let _suppressHistoryPush = false;
 
 const ROUTE_HANDLERS = {
   home: () => goHome(),
+  dues: () => showDues(),
   roster: (teamId) => showRoster(teamId),
   draftboard: () => showDraftboard(),
   dynastyboard: () => showDynastyBoard(),
@@ -138,6 +141,113 @@ function showTrade() { navigate('trade'); renderTrade(); }
 function showTradeHistory() { navigate('tradehistory'); renderTradeHistory(); }
 function showStatusReport() { navigate('statusreport'); renderStatusReport(); }
 function showErklaerung() { navigate('erklaerung'); renderErklaerung(); }
+
+/* ---------- Navigation: Bereiche + Unter-Tabs ----------
+   Die Hauptleiste zeigt nur BEREICHE. Zusammengehoerige Seiten (z.B.
+   Tabelle / Verlauf / Wochen) erscheinen als Tabs oben auf der Seite,
+   statt jede einzeln in der Leiste zu haben. */
+const NAV_SECTIONS = [
+  { key: 'home', label: '🏠 Home', pages: [['home', 'Home', () => goHome()]] },
+  { key: 'tabelle', label: '📈 Tabelle', pages: [
+    ['standings', '📈 Tabelle', () => showStandings()],
+    ['seasonrolling', '📊 Verlauf', () => showSeasonRolling()],
+    ['weekbyweek', '🗓️ Wochenpunkte', () => showWeekByWeek()],
+  ] },
+  { key: 'matchups', label: '⚔️ Matchups', pages: [['matchups', 'Matchups', () => showMatchups()]] },
+  { key: 'teams', label: '🧍 Teams', teams: true, pages: [['roster', 'Team', null]] },
+  { key: 'draft', label: '📋 Draft & Picks', pages: [
+    ['draftboard', '📋 Rookie Draft', () => showDraftboard()],
+    ['futureboards', '🔮 Pick-Besitz', () => showFutureBoards()],
+  ] },
+  { key: 'trades', label: '⚖️ Trades', pages: [
+    ['trade', '⚖️ Trade Analyzer', () => showTrade()],
+    ['tradehistory', '📜 Trade History', () => showTradeHistory()],
+  ] },
+  { key: 'dynasty', label: '🏆 Dynasty', pages: [
+    ['dynastyboard', '🏆 Dynasty Board', () => showDynastyBoard()],
+    ['rolling', '📈 Rolling Rankings', () => showRolling()],
+    ['teamaverages', '📐 Team-Schnitt', () => showTeamAverages()],
+  ] },
+  { key: 'players', label: '📊 Spieler', pages: [
+    ['playerrankings', '📊 Rankings', () => showPlayerRankings()],
+    ['playerprojections', '🔮 Projections', () => showPlayerProjections()],
+    ['nflteams', '🏈 NFL-Teams', () => showNFLTeams()],
+    ['nflrankings', '🏟️ NFL Power Rankings', () => showNflRankings()],
+  ] },
+  { key: 'liga', label: '📜 Liga', pages: [
+    ['erklaerung', '📜 Regeln', () => showErklaerung()],
+    ['dues', '💰 Beiträge', () => showDues()],
+    ['leaguehistory', '🏛️ Historie', () => showLeagueHistory()],
+  ] },
+];
+const _PAGE_ALIAS = { nflteamdetail: 'nflteams' };
+
+function _sectionOf(pageId) {
+  const pid = _PAGE_ALIAS[pageId] || pageId;
+  return NAV_SECTIONS.find(s => s.pages.some(p => p[0] === pid)) || null;
+}
+function _navGo(key) {
+  const sec = NAV_SECTIONS.find(s => s.key === key);
+  if (sec && sec.pages[0][2]) sec.pages[0][2]();
+}
+function _navGoPage(pageId) {
+  for (const s of NAV_SECTIONS) { const p = s.pages.find(x => x[0] === pageId); if (p && p[2]) return p[2](); }
+}
+
+function buildNav() {
+  const teamItems = (cls) => LEAGUE_TEAMS.map(t =>
+    `<button class="${cls}" data-page="roster" data-team="${t.id}" onclick="showRoster('${t.id}')">${t.emoji} ${t.name}</button>`).join('');
+  const desk = document.getElementById('navDesktop');
+  if (desk) desk.innerHTML = NAV_SECTIONS.map(s => s.teams
+    ? `<div class="snav-group"><button class="snav-group-btn" data-section="${s.key}">${s.label} <span class="snav-arrow">▾</span></button>
+         <div class="snav-dropdown snav-dropdown-teams">${teamItems('snav-dropdown-item')}</div></div>`
+    : `<button class="snav-single" data-section="${s.key}" onclick="_navGo('${s.key}')">${s.label}</button>`).join('');
+  const mob = document.getElementById('mobileNavDropdown');
+  if (mob) mob.innerHTML = NAV_SECTIONS.map(s => {
+    if (s.teams) return `<div class="subnav-mobile-group"><div class="subnav-mobile-label">${s.label}</div><div class="subnav-mobile-grid">${teamItems('subnav-mobile-btn')}</div></div>`;
+    if (s.pages.length === 1) return `<button class="subnav-mobile-btn subnav-mobile-top" data-section="${s.key}" onclick="_navGo('${s.key}')">${s.label}</button>`;
+    return `<div class="subnav-mobile-group"><div class="subnav-mobile-label">${s.label}</div>${s.pages.map(p =>
+      `<button class="subnav-mobile-btn" data-page="${p[0]}" onclick="_navGoPage('${p[0]}')">${_tabLabel(p)}</button>`).join('')}</div>`;
+  }).join('') + `<button class="subnav-mobile-btn subnav-mobile-top" data-page="statusreport" onclick="showStatusReport()">🚨 Status Report</button>`;
+}
+
+function _tabLabel(p) {
+  if (p[0] === 'draftboard' && typeof DRAFT_SEASON !== 'undefined' && DRAFT_SEASON) return `📋 Rookie Draft ${DRAFT_SEASON}`;
+  if (p[0] === 'seasonrolling' && typeof LEAGUE_SEASON !== 'undefined') return `📊 Verlauf ${LEAGUE_SEASON}`;
+  return p[1];
+}
+
+// Tab-Leiste oben auf jeder Seite eines Bereichs mit mehreren Seiten
+function _renderSectionTabs(pageId) {
+  const page = document.getElementById('page-' + pageId);
+  if (!page) return;
+  let bar = page.querySelector(':scope > .section-tabs');
+  const sec = _sectionOf(pageId);
+  if (!sec || sec.pages.length < 2 || sec.teams) { if (bar) bar.remove(); return; }
+  if (!bar) { bar = document.createElement('div'); bar.className = 'section-tabs'; page.insertBefore(bar, page.firstChild); }
+  const cur = _PAGE_ALIAS[pageId] || pageId;
+  bar.innerHTML = sec.pages.map(p =>
+    `<button class="section-tab${p[0] === cur ? ' active' : ''}" onclick="_navGoPage('${p[0]}')">${_tabLabel(p)}</button>`).join('');
+}
+
+function _markNavActive(pageId, opts) {
+  const sec = _sectionOf(pageId);
+  document.querySelectorAll('[data-section]').forEach(el => {
+    el.classList.toggle('active', !!sec && el.getAttribute('data-section') === sec.key);
+  });
+  const teamId = opts && opts.teamId;
+  document.querySelectorAll('[data-team]').forEach(el => {
+    el.classList.toggle('active', pageId === 'roster' && el.getAttribute('data-team') === teamId);
+  });
+  const lbl = document.getElementById('mobileNavLabel');
+  if (lbl) {
+    let txt = sec ? sec.label : '🧐 Menü';
+    if (pageId === 'roster' && teamId) { const t = LEAGUE_TEAMS.find(x => x.id === teamId); if (t) txt = `${t.emoji} ${t.name}`; }
+    else if (sec && sec.pages.length > 1) { const p = sec.pages.find(x => x[0] === (_PAGE_ALIAS[pageId] || pageId)); if (p) txt = `${sec.label} · ${_tabLabel(p).replace(/^\S+\s/, '')}`; }
+    else if (pageId === 'statusreport') txt = '🚨 Status Report';
+    lbl.textContent = txt;
+  }
+}
 
 function toggleMobileNav() {
   document.getElementById('mobileNavDropdown').classList.toggle('open');
@@ -2155,9 +2265,8 @@ function renderDues() {
   };
   wrap.innerHTML = `
     <div class="info-banner">
-      <b>✅ Bezahlt</b> — Beitrag für diese Saison beglichen.
-      <b>⚠️ Muss zahlen</b> — laufende Saison, oder ein Pick aus diesem Jahr wurde bereits getradet (siehe Future Draft Boards), Beitrag ist also schon fällig.
-      <b>offen</b> — Saison liegt noch in der Zukunft und ist für dieses Team noch nicht relevant.
+      <b>✅ Bezahlt</b> — Beitrag für diese Saison beglichen. <b>offen</b> — noch nicht bezahlt.
+      ${(() => { const n = LEAGUE_TEAMS.length; return DUES_YEARS.map(y => `${y}: <b>${LEAGUE_TEAMS.filter(t => leagueDuesStatus(t.name, y) === 'paid').length}/${n}</b>`).join(' · '); })()}
     </div>
     <div class="board-table-wrap">
       <table class="board">
