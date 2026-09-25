@@ -1,0 +1,66 @@
+name: Matchup Projections Snapshot
+
+# Sichert einmal pro Woche (Mittwoch, nach den taeglichen Roster-/
+# Projections-Syncs) die aktuelle Vorab-Projektion fuer die naechste noch
+# nicht gespielte Woche nach data/matchup-snapshots.js -- geraeteunabhaengig
+# und dauerhaft im Repo, im Gegensatz zum lokalen Browser-Fallback.
+#
+# Ruft KEINE API auf (nur Berechnung aus bereits im Repo vorhandenen,
+# von den anderen Sync-Workflows synchronisierten Daten) -- braucht daher
+# keine Secrets.
+#
+# Ueberschreibt nie einen bereits vorhandenen Wochen-Snapshot (siehe
+# scripts/snapshot-projections.js), ein manueller Re-Run ist also
+# gefahrlos.
+
+on:
+  schedule:
+    - cron: "0 8 * * 3"   # Mittwoch 10:00 Berlin (Sommerzeit)
+    - cron: "0 9 * * 3"   # Mittwoch 10:00 Berlin (Winterzeit)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Matchup Projections Snapshot
+        run: node scripts/snapshot-projections.js
+
+      - name: Commit & Push falls geändert
+        run: |
+          git config user.name "dpe-hq-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/matchup-snapshots.js
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen -- nichts zu committen."
+            exit 0
+          fi
+          git commit -m "chore: matchup projections snapshot"
+          # Mehrere Sync-Workflows laufen zeitlich dicht beieinander und
+          # committen unabhaengig voneinander -- der Push kann daher
+          # gelegentlich abgelehnt werden, weil zwischenzeitlich ein
+          # anderer Workflow schon gepusht hat (non-fast-forward). Da
+          # jeder Workflow nur seine eigene(n) Datei(en) aendert, ist ein
+          # Rebase auf den neuen Stand so gut wie nie konfliktbehaftet --
+          # deshalb bei einem fehlgeschlagenen Push einfach den aktuellen
+          # Stand holen, den eigenen Commit draufsetzen und erneut pushen.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push fehlgeschlagen (Versuch $i/5) -- vermutlich hat ein anderer Sync-Workflow zeitgleich gepusht. Hole aktuellen Stand und versuche erneut..."
+            git fetch origin main
+            git rebase origin/main
+            sleep $((RANDOM % 8 + 3))
+          done
+          echo "Push nach 5 Versuchen weiterhin fehlgeschlagen -- bitte Workflow-Log prüfen."
+          exit 1
