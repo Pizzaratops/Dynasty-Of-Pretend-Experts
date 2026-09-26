@@ -29,6 +29,10 @@ const LEAGUE_DUES_PAID = [
   // San José Salamancas: bis einschl. 2028
   { team: "lovethecheesehead", year: 2027 },
   { team: "lovethecheesehead", year: 2028 },
+  // RioRainRats: bis einschl. 2028
+  { team: "teambeermode", year: 2028 },
+  // dseinn: bis einschl. 2028
+  { team: "dseinn", year: 2028 },
   // 2027: alle ausser SvenNYG, AmericanWildfireGrizzlies, AngryDucks
   { team: "dickvanhurik", year: 2027 },
   { team: "teambeermode", year: 2027 },
