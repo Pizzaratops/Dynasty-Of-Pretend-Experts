@@ -5052,5 +5052,6 @@ function renderErklaerung() {
     ]))}
     ${card('📊 Scoring', Object.entries(groups).map(([g, rows]) => `<div class="section-label" style="margin-top:6px">${g}</div>` + kv(rows)).join(''))}
     ${typeof maExplainHtml === 'function' ? card('⚔️ Matchup Advantage', maExplainHtml()) : ''}
+    ${typeof airYardsExplainHtml === 'function' ? card('📏 Air Yards (Player DNA)', airYardsExplainHtml()) : ''}
   `;
 }
