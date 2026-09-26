@@ -4494,29 +4494,59 @@ function renderPlayerProjections() {
 }
 
 /* ---------- Trade History ---------- */
+let _thSeason = 'all';
+function setTradeHistorySeason(v) { _thSeason = v; renderTradeHistory(); }
+
+// Sleeper-Trades (TRADES) + manuell gepflegte Alt-Trades (TRADES_HISTORY)
+// in ein gemeinsames Format bringen, neueste zuerst.
+function _allTradesForHistory() {
+  const cur = (typeof LEAGUE_SEASON !== 'undefined' ? Number(LEAGUE_SEASON) : 2026);
+  const out = TRADES.map(t => ({
+    season: cur, date: t.date, week: t.week, sleeper: true,
+    sides: t.multi ? t.multi.map(m => ({ team: m.team, gives: m.gives }))
+                   : [{ team: t.teamA, gives: t.teamAGives }, { team: t.teamB, gives: t.teamBGives }],
+  }));
+  if (typeof TRADES_HISTORY !== 'undefined') {
+    const nameOf = id => (LEAGUE_TEAMS.find(x => x.id === id) || {}).name || id;
+    const bySeason = {};
+    TRADES_HISTORY.forEach(t => { (bySeason[t.season] = bySeason[t.season] || []).push(t); });
+    Object.keys(bySeason).map(Number).sort((x, y) => y - x).forEach(season => {
+      const list = bySeason[season];
+      list.slice().reverse().forEach((t, i) => out.push({
+        season, nr: list.length - i, total: list.length, note: t.note,
+        sides: [{ team: nameOf(t.a), gives: t.aGives }, { team: nameOf(t.b), gives: t.bGives }],
+      }));
+    });
+  }
+  return out;
+}
+
 function renderTradeHistory() {
   const wrap = document.getElementById('tradehistoryContent');
-  if (!TRADES.length) {
-    wrap.innerHTML = emptyState('Noch keine Trades', 'In dieser Saison wurde in Sleeper noch nichts getradet.');
+  const all = _allTradesForHistory();
+  if (!all.length) {
+    wrap.innerHTML = emptyState('Noch keine Trades', 'Es wurde noch nichts getradet.');
     return;
   }
+  const seasons = [...new Set(all.map(t => t.season))].sort((a, b) => b - a);
+  if (_thSeason !== 'all' && !seasons.includes(Number(_thSeason))) _thSeason = 'all';
+  const list = _thSeason === 'all' ? all : all.filter(t => t.season === Number(_thSeason));
+  const seasonLabel = y => (typeof TRADES_HISTORY_SEASONS !== 'undefined' && TRADES_HISTORY_SEASONS[y]) || `Saison ${y}`;
   const teamEmoji = name => (LEAGUE_TEAMS.find(t => t.name === name) || {}).emoji || '🏈';
 
   // Trade-Counter: wie oft taucht jedes Team als Handelspartner auf
   const counts = {};
   LEAGUE_TEAMS.forEach(t => { counts[t.name] = 0; });
-  TRADES.forEach(t => {
-    (t.multi ? t.multi.map(m => m.team) : [t.teamA, t.teamB]).forEach(n => { counts[n] = (counts[n] || 0) + 1; });
-  });
+  list.forEach(t => t.sides.forEach(sd => { counts[sd.team] = (counts[sd.team] || 0) + 1; }));
   const ranked = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  const maxCount = ranked.length ? ranked[0][1] : 1;
+  const maxCount = ranked.length && ranked[0][1] ? ranked[0][1] : 1;
 
   const counterHtml = `
     <div class="trade-counter-box">
-      <div class="section-label" style="margin-top:0">🔥 Trade-Aktivität</div>
+      <div class="section-label" style="margin-top:0">🔥 Trade-Aktivität${_thSeason === 'all' ? ' · All-Time' : ' · ' + _thSeason}</div>
       ${ranked.map(([name, n]) => {
         const team = LEAGUE_TEAMS.find(t => t.name === name);
-        const pct = maxCount ? Math.round((n / maxCount) * 100) : 0;
+        const pct = Math.round((n / maxCount) * 100);
         return `
           <div class="trade-counter-row">
             <div class="trade-counter-label">${team ? team.emoji : '🏈'} ${name}</div>
@@ -4526,26 +4556,39 @@ function renderTradeHistory() {
       }).join('')}
     </div>`;
 
+  const card = t => `
+    <div class="player-row" style="align-items:flex-start;flex-direction:column;gap:6px;padding:14px;">
+      <div style="font-size:11px;color:var(--muted);font-weight:700">${t.sleeper
+        ? `${formatTradeDate(t.date)}${t.week != null ? ` · Woche ${t.week}` : ''}`
+        : `${seasonLabel(t.season)} · Trade ${t.nr} von ${t.total}`}</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;width:100%">
+        ${t.sides.map(side => `
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:800;margin-bottom:4px">${teamEmoji(side.team)} ${side.team} gibt:</div>
+          ${side.gives.length ? side.gives.map(a => `<div class="player-team">• ${a}</div>`).join('') : '<div class="player-team" style="opacity:.6">— nichts —</div>'}
+        </div>`).join('')}
+      </div>
+      ${t.note ? `<div class="player-team" style="font-style:italic;opacity:.8">ℹ️ ${t.note}</div>` : ''}
+    </div>`;
+
+  let chronik = '';
+  seasons.filter(y => _thSeason === 'all' || y === Number(_thSeason)).forEach(y => {
+    const items = list.filter(t => t.season === y);
+    if (!items.length) return;
+    const src = items[0].sleeper ? 'aus Sleeper' : 'vor Sleeper, manuell erfasst';
+    chronik += `<div class="section-label">${seasonLabel(y)} · ${items.length} Trades <span style="text-transform:none;letter-spacing:0;font-weight:600">(${src})</span></div>` + items.map(card).join('');
+  });
+
+  const btn = (v, label) => `<button class="db-pos-btn${String(_thSeason) === String(v) ? ' active' : ''}" onclick="setTradeHistorySeason('${v}')">${label}</button>`;
   wrap.innerHTML = `
     <div class="info-banner">
-      Alle ${TRADES.length} Trades der Saison, <b>automatisch aus Sleeper</b> synchronisiert — inkl. Draft-Picks
-      und FAAB. Picks mit „via“ gehörten ursprünglich einem anderen Team.
+      ${all.length} Trades seit Ligagründung. Die aktuelle Saison kommt <b>automatisch aus Sleeper</b> (mit Datum),
+      ältere Saisons sind manuell erfasst und chronologisch nummeriert. Picks mit „via“ gehörten ursprünglich einem anderen Team.
     </div>
+    <div class="db-pos-filters" style="margin:14px 0 14px">${btn('all', 'Alle')}${seasons.map(y => btn(y, String(y))).join('')}</div>
     <div class="trade-history-layout">
       <div class="trade-history-main">
-        <div class="section-label" style="margin-top:0">Chronik</div>
-        ${TRADES.map(t => `
-          <div class="player-row" style="align-items:flex-start;flex-direction:column;gap:6px;padding:14px;">
-            <div style="font-size:11px;color:var(--muted);font-weight:700">${formatTradeDate(t.date)}${t.week != null ? ` · Woche ${t.week}` : ''}</div>
-            <div style="display:flex;gap:18px;flex-wrap:wrap;width:100%">
-              ${(t.multi || [{ team: t.teamA, gives: t.teamAGives }, { team: t.teamB, gives: t.teamBGives }]).map(side => `
-              <div style="flex:1;min-width:200px">
-                <div style="font-weight:800;margin-bottom:4px">${teamEmoji(side.team)} ${side.team} gibt:</div>
-                ${side.gives.length ? side.gives.map(a => `<div class="player-team">• ${a}</div>`).join('') : '<div class="player-team" style="opacity:.6">— nichts —</div>'}
-              </div>`).join('')}
-            </div>
-          </div>
-        `).join('')}
+        ${chronik.replace('<div class="section-label">', '<div class="section-label" style="margin-top:0">')}
         <div class="page-sub" style="margin-top:10px">Wer aktuell welchen Zukunfts-Pick besitzt, steht auf der Seite <b>Future Draft Boards</b> (${_futureYears().join('–')}).</div>
       </div>
       <div class="trade-history-side">${counterHtml}</div>
