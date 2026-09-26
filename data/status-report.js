@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-09-25T22:53:17.850Z",
+  "generatedAt": "2026-09-26T02:15:36.305Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.7,
           "last3AvgPoints": 15.6,
-          "projPoints": 13.6
+          "projPoints": 13.7
         },
         {
           "name": "Brian Robinson",
@@ -258,7 +258,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8,
           "last3AvgPoints": 5.5,
-          "projPoints": 6.3
+          "projPoints": 6.4
         }
       ],
       "flaggedCount": 0
@@ -1330,7 +1330,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8,
           "last3AvgPoints": 5.5,
-          "projPoints": 6.3
+          "projPoints": 6.4
         }
       ],
       "flaggedCount": 0
