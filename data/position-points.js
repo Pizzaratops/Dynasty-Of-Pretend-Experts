@@ -102,7 +102,7 @@ const POSITION_POINTS = {
    "lovethecheesehead": {
     "qbPts": 0,
     "rbPts": 4,
-    "wrPts": 42.5,
+    "wrPts": 44.6,
     "tePts": 0,
     "kPts": 12,
     "defPts": 4

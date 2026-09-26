@@ -287,7 +287,7 @@ const FANTASY_POWER_SCORE = {
             "pointsAgainst": 130.52,
             "qbPts": 0,
             "rbPts": 4,
-            "wrPts": 42.5,
+            "wrPts": 44.6,
             "tePts": 0
           },
           "ranks": {
@@ -558,7 +558,7 @@ const FANTASY_POWER_SCORE = {
             "pointsAgainst": 130.52,
             "qbPts": 0,
             "rbPts": 4,
-            "wrPts": 42.5,
+            "wrPts": 44.6,
             "tePts": 0
           },
           "ranks": {
@@ -839,7 +839,7 @@ const FANTASY_POWER_SCORE = {
             "pointsAgainst": 125.1,
             "qbPts": 0,
             "rbPts": 7.5,
-            "wrPts": 44,
+            "wrPts": 45.05,
             "tePts": 8.7
           },
           "ranks": {
