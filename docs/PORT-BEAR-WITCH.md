@@ -205,4 +205,32 @@ jetzt die Fantasy-Position (WR). Vorher fielen seine Punkte aus `POSITION_POINTS
 Bear Witch nutzt ESPN `defaultPositionId`, der Fall dort ggf. separat prüfen.
 
 ---
+
+## Feature 4: Scheme-Tendenzen (Erweiterung von Feature 1)
+
+**Referenz-Commit in DPE:** `721cd56`
+
+**Was es ist:** Auf der Matchup-Advantage-Seite unter den FPA-Kacheln ein Abschnitt „🧠 Scheme-Tendenzen“, je Richtung
+(Offense A vs Defense B): Blitz, Stacked Box (8+), Play Action, Screen, Motion. Pro Zeile die Häufigkeit der entscheidenden
+Seite (mit Rang und Liga-Schnitt), die EPA/Play der Gegenseite in der Situation gegen sonst und eine Einschätzung ▲/▼
+(nur wenn die Tendenz >110 % des Liga-Schnitts ist und der EPA-Unterschied >0,05, ab 10 Plays). Erklärung ist in
+`maExplainHtml()` enthalten.
+
+**Daten:** zusätzlich nflverse `ftn_charting/ftn_charting_<season>.csv` (FTN, wöchentlich aktualisiert), Join über
+`nflverse_game_id` + `nflverse_play_id` = pbp `game_id` + `play_id`. Fehlt die Datei, fällt der Abschnitt weg.
+Die Coverage-Schalen (Cover 0–6) aus `pbp_participation` sind für die laufende Saison **nicht** verfügbar (Stand 26.09.2026: 404),
+deshalb Blitz/Box statt Coverage.
+
+### Port
+Keine neuen Dateien und keine neuen Andock-Stellen. Wenn Feature 1 von **diesem** Commit (oder später) kopiert wird, ist alles
+drin. Wurde Feature 1 schon vom älteren Commit portiert, diese drei Stände neu übernehmen:
+- `scripts/sync-matchup-advantage.js` (neuer Abschnitt „Scheme-Tendenzen (FTN-Charting)“, Feld `scheme` in der Ausgabe)
+- `js/matchup-advantage.js` (`MA_SCHEME_TXT`, `_maSchemeRow`, `_maSchemeBlock`, Einbau in `renderNflMatchup`, Text in `maExplainHtml`)
+- CSS: im Matchup-Advantage-Block der Unterabschnitt `/* Scheme-Tendenzen (FTN) */` (vor `/* Spieler-Badge … */`)
+
+### Prüfen
+- Sync-Log: „FTN-Charting <season>: N Plays gejoint.“
+- Referenz (26.09.2026, bis W3): CHI-Defense Blitz 38,8 % (#8, Liga 31,4 %), PHI-Offense vs Blitz +0,12 (22) / ohne +0,20.
+
+---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
