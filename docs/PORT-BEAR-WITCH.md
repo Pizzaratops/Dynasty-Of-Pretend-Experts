@@ -112,4 +112,49 @@ keine ESPN-Abhängigkeit → in Bear Witch identisch lauffähig.
 - Stichprobe: Passing EPA eines Teams gegen eine bekannte Quelle (z. B. rbsdm.com) plausibel.
 
 ---
+
+## Feature 2: Air Yards · Tiefenprofil (Karte im Player-DNA-Profil)
+
+**Referenz-Commit in DPE:** `c4a3920`
+
+**Was es ist:** Im Profil jedes Spielers unter Player DNA eine Karte „📏 Air Yards“: geglättete Kurve (Anteil der
+Targets je Yard-Tiefe, bei QBs Passversuche) gegen den Schnitt aller Spieler der Position, aDOT gegen Ø, und 5 Zonen
+(Hinter LOS / Kurz 0–9 / Mittel 10–19 / Tief 20–29 / Bombe 30+) als Balken mit Ø. Laufende und Vorsaison.
+Plus Erklärtext auf der Regeln-Seite. Spieler-ID = nflverse `gsis_id`, dieselbe wie in `data/player-dna.js`.
+
+**Daten:** nflverse `play_by_play_<season>.csv.gz` (zeilenweise gestreamt, nur nötige Spalten) + `players/players.csv`
+(Positionen). Keine Secrets. Abgeschlossene Saisons werden aus der bestehenden `data/air-yards.js` übernommen.
+
+### 2a. Dateien 1:1 kopieren
+- `scripts/sync-air-yards.js`: unverändert
+- `js/air-yards.js`: unverändert (`airYardsMount`, `airYardsExplainHtml`; lädt `data/air-yards.js` selbst nach)
+- `.github/workflows/sync-air-yards.yml`: kopieren, **`dpe-hq-bot` → `bear-witch-project-hq-bot`**
+- CSS: Block ab `/* ---------- AIR YARDS (js/air-yards.js, Karte im Player-DNA-Profil) ---------- */` bis zum
+  nächsten `/* ----------`-Kommentar bzw. Dateiende (inkl. der zwei `@media`-Blöcke) ans Ende der Bear-Witch-CSS
+- `data/air-yards.js`: **nicht kopieren**, in Bear Witch per `node scripts/sync-air-yards.js` erzeugen (ca. 5 s, 76 KB)
+
+### 2b. Andock-Stellen in Bear Witch
+`js/player-dna.js` ist in Bear Witch bis auf Texte identisch mit DPE (Stand 26.09.2026 per diff geprüft).
+1. **`js/player-dna.js` → `_dnaRenderMain()`**: im Template direkt vor `<div class="dna-matches">` einfügen:
+   `<div id="dnaAirYards"></div>`
+2. **Gleiche Funktion**, direkt nach `_dnaDrawChart(entries, cats);`:
+   ```js
+   // Air-Yards-Tiefenprofil (js/air-yards.js), falls geladen
+   if (typeof airYardsMount === 'function') airYardsMount('dnaAirYards', me.id, pos, season, me.n);
+   ```
+3. **`index.html`**: `<script src="js/air-yards.js"></script>` nach `js/player-dna.js` (bzw. nach
+   `js/matchup-advantage.js`, falls Feature 1 schon portiert). **Kein** Script-Tag für `data/air-yards.js` (Lazy Load).
+4. **Regeln-Seite (`renderErklaerung`, handgeschriebenes HTML)**: am Ende des Template-Strings anhängen:
+   ```js
+   ${typeof airYardsExplainHtml === 'function' ? `<div class="board-table-wrap" style="padding:18px 20px;margin-bottom:16px;"><h3 style="margin:0 0 10px;font-size:16px;">📏 Air Yards (Player DNA)</h3>${airYardsExplainHtml()}</div>` : ''}
+   ```
+   Der Text nennt „Spieler → Player DNA“. Falls das Menü in Bear Witch anders heißt, den ersten Satz in
+   `airYardsExplainHtml()` anpassen.
+
+### 2c. Prüfen
+- Sync-Ausgabe: „Saison <Vorjahr>: ~450 Spieler, 18 Wochen“ und „Saison <aktuell>: …“; beim zweiten Lauf „aus bestehender Datei übernommen“.
+- Referenzwerte 2026 bis Woche 3 (Stand 26.09.): Jalen Hurts aDOT 8,34 / 30+ 6,5 %, Caleb Williams 7,95 / 3,6 %.
+- Headless: `openPlayerDna('Jalen Hurts','QB')` → `#dnaAirYards` enthält die Karte, keine `pageerror`; auch bei 390 px Breite.
+
+---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
