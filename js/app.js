@@ -2157,6 +2157,7 @@ function renderMatchupDetail() {
     </div>
     <div class="page-sub" style="text-align:center;margin:6px 0 14px">${subLine}</div>
     ${!played ? `<div style="text-align:center;margin-bottom:12px"><button class="db-pos-btn" onclick="_manualSnapshot()">📸 Eigenen Snapshot erzwingen (überschreibt Server-Wert)</button></div>` : ''}
+    ${typeof fuUnitCompareHtml === 'function' ? fuUnitCompareHtml({ season, week, homeId, awayId, homeName: home.name, awayName: away.name, homeStarters: homeProj.starters, awayStarters: awayProj.starters, played }) : ''}
     <div class="mdt-rows">${rows.join('')}</div>
   `;
 }
@@ -5053,5 +5054,6 @@ function renderErklaerung() {
     ${card('📊 Scoring', Object.entries(groups).map(([g, rows]) => `<div class="section-label" style="margin-top:6px">${g}</div>` + kv(rows)).join(''))}
     ${typeof maExplainHtml === 'function' ? card('⚔️ Matchup Advantage', maExplainHtml()) : ''}
     ${typeof airYardsExplainHtml === 'function' ? card('📏 Air Yards (Player DNA)', airYardsExplainHtml()) : ''}
+    ${typeof fuExplainHtml === 'function' ? card('📊 Unit-Vergleich (Matchups)', fuExplainHtml()) : ''}
   `;
 }

@@ -1002,3 +1002,31 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
   .ay-svg .ay-me { stroke-width: 4; }
   .ay-svg .ay-avg { stroke-width: 3; stroke-dasharray: 5 5; }
 }
+
+/* ---------- FANTASY UNITS (js/fantasy-units.js, Unit-Vergleich im Matchup-Detail) ---------- */
+.fu-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 0 0 16px; }
+.fu-title { font-size: 12.5px; font-weight: 800; letter-spacing: .3px; margin-bottom: 6px; }
+.fu-teams { display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px; font-weight: 800; margin-bottom: 4px; }
+.fu-team-home { color: var(--accent); } .fu-team-away { color: var(--accent2); text-align: right; }
+.fu-row { display: grid; grid-template-columns: 74px 44px minmax(60px, 1fr) 44px 74px; align-items: center; gap: 8px; padding: 5px 0; }
+.fu-head { padding: 0 0 2px; font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: .4px; text-transform: uppercase; }
+.fu-l { text-align: right; } .fu-r { text-align: left; }
+.fu-season { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fu-wk { font-size: 13.5px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.fu-mid { display: flex; flex-direction: column; align-items: stretch; gap: 2px; }
+.fu-label { text-align: center; font-size: 10.5px; font-weight: 800; color: var(--muted); letter-spacing: .5px; }
+.fu-track { position: relative; height: 8px; background: var(--surface); border-radius: 5px; }
+.fu-center { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 2px; margin-left: -1px; background: var(--border); }
+.fu-fill { position: absolute; top: 0; bottom: 0; border-radius: 5px; }
+.fu-fill-home { background: var(--accent); }
+.fu-fill-away { background: var(--accent2); }
+.fu-rank { display: inline-block; font-size: 10px; font-weight: 800; padding: 0 4px; border-radius: 4px; background: var(--surface); color: var(--muted); }
+.fu-rank.fu-top { background: rgba(76,175,129,.18); color: var(--green); }
+.fu-rank.fu-low { background: rgba(217,105,95,.16); color: var(--red); }
+.fu-verdict { font-size: 12px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+.fu-foot { font-size: 10.5px; color: var(--muted); margin-top: 6px; }
+@media (max-width: 480px) {
+  .fu-row { grid-template-columns: 58px 38px minmax(40px, 1fr) 38px 58px; gap: 5px; }
+  .fu-season { font-size: 11px; }
+  .fu-long { display: none; }
+}
