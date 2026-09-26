@@ -126,7 +126,7 @@ Plus Erklärtext auf der Regeln-Seite. Spieler-ID = nflverse `gsis_id`, dieselbe
 (Positionen). Keine Secrets. Abgeschlossene Saisons werden aus der bestehenden `data/air-yards.js` übernommen.
 
 ### 2a. Dateien 1:1 kopieren
-- `scripts/sync-air-yards.js`: unverändert
+- `scripts/sync-air-yards.js`: unverändert. Ab Feature-5-Commit braucht es `scripts/lib/pbp-stream.js` (siehe Feature 5)
 - `js/air-yards.js`: unverändert (`airYardsMount`, `airYardsExplainHtml`; lädt `data/air-yards.js` selbst nach)
 - `.github/workflows/sync-air-yards.yml`: kopieren, **`dpe-hq-bot` → `bear-witch-project-hq-bot`**
 - CSS: Block ab `/* ---------- AIR YARDS (js/air-yards.js, Karte im Player-DNA-Profil) ---------- */` bis zum
@@ -231,6 +231,53 @@ drin. Wurde Feature 1 schon vom älteren Commit portiert, diese drei Stände neu
 ### Prüfen
 - Sync-Log: „FTN-Charting <season>: N Plays gejoint.“
 - Referenz (26.09.2026, bis W3): CHI-Defense Blitz 38,8 % (#8, Liga 31,4 %), PHI-Offense vs Blitz +0,12 (22) / ohne +0,20.
+
+---
+
+## Feature 5: Spielstil · FTN-Charting (Karte im Player-DNA-Profil)
+
+**Referenz-Commit in DPE:** `6a5a0c3`
+
+**Was es ist:** Unter der Air-Yards-Karte im Player-DNA-Profil eine Karte „🎯 Spielstil · FTN-Charting“ mit Kacheln.
+QB: EPA vs Blitz (mit „ohne Blitz“), Interception-worthy-Quote, ◇ Play-Action-Anteil (mit EPA mit/ohne PA), ◇ Out of Pocket, ◇ Throwaways.
+WR/TE/RB: Drop-Quote, Contested Catch, Created Receptions, ◇ Contested-Anteil, ◇ Fangbare Targets, ◇ Screen-Anteil.
+Bewertete Werte bekommen ein Perzentil gegen alle Spieler der Position mit Mindest-Volumen, ◇-Stilwerte nur den Positionsschnitt.
+Laufende und Vorsaison. Plus Erklärtext auf der Regeln-Seite.
+
+**Daten:** nflverse `ftn_charting_<season>.csv` + `play_by_play_<season>.csv.gz` + `players.csv`. Gespeichert werden Zähler,
+die Quoten rechnet die Seite. Keine Secrets.
+
+**Wichtig, gemeinsame Lib:** Mit diesem Commit liegt der gestreamte pbp-Parser in **`scripts/lib/pbp-stream.js`**, und
+`scripts/sync-air-yards.js` (Feature 2) benutzt ihn auch. Wer Feature 2 von **diesem oder einem späteren** Commit kopiert, muss
+`scripts/lib/pbp-stream.js` mitnehmen. Die Air-Yards-Ausgabe ist durch den Umbau byte-identisch geblieben (per Diff geprüft).
+
+### 5a. Dateien 1:1 kopieren
+- `scripts/lib/pbp-stream.js` (falls noch nicht da)
+- `scripts/sync-player-style.js`: unverändert
+- `js/player-style.js`: unverändert (`playerStyleMount`, `playerStyleExplainHtml`; lädt `data/player-style.js` selbst nach;
+  nutzt für Hinweistexte die Klasse `.ay-note` aus dem Air-Yards-CSS, also Feature 2 zuerst portieren)
+- `.github/workflows/sync-player-style.yml`: kopieren, **`dpe-hq-bot` → `bear-witch-project-hq-bot`**
+- CSS: Block ab `/* ---------- PLAYER STYLE (js/player-style.js, FTN-Karte im Player-DNA-Profil) ---------- */` bis Dateiende
+- `data/player-style.js`: **nicht kopieren**, per `node scripts/sync-player-style.js` erzeugen (~6 s, ~77 KB)
+
+### 5b. Andock-Stellen in Bear Witch
+1. **`js/player-dna.js` → `_dnaRenderMain()`**: direkt nach `<div id="dnaAirYards"></div>` (Feature 2) einfügen: `<div id="dnaStyle"></div>`
+2. **Gleiche Funktion**, nach dem `airYardsMount(...)`-Aufruf:
+   ```js
+   // FTN-Spielstil (js/player-style.js), falls geladen
+   if (typeof playerStyleMount === 'function') playerStyleMount('dnaStyle', me.id, pos, season, me.n);
+   ```
+3. **`index.html`**: `<script src="js/player-style.js"></script>` hinter die anderen Feature-Module (kein Tag für die Daten-Datei)
+4. **Regeln-Seite (handgeschriebenes HTML)**:
+   ```js
+   ${typeof playerStyleExplainHtml === 'function' ? `<div class="board-table-wrap" style="padding:18px 20px;margin-bottom:16px;"><h3 style="margin:0 0 10px;font-size:16px;">🎯 Spielstil (Player DNA)</h3>${playerStyleExplainHtml()}</div>` : ''}
+   ```
+
+### 5c. Prüfen
+- Sync-Log: „Saison <Vorjahr>: ~447 Spieler, ~19700 QB-Dropbacks mit FTN, 18 Wochen“; zweiter Lauf „aus bestehender Datei übernommen“.
+- Referenzwerte (unabhängig aus Rohdaten nachgerechnet): Justin Jefferson 2025 tgt 140, fangbar 95, Drops 6, contested 29/10 gefangen,
+  created 10. Jalen Hurts 2026 bis W3: 22 Dropbacks vs Blitz, EPA +0,12, ohne +0,20.
+- Headless: `openPlayerDna('Jalen Hurts','QB')` → `#dnaStyle` mit Kacheln, keine `pageerror`, auch bei 390 px.
 
 ---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
