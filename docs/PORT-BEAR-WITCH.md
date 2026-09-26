@@ -157,4 +157,52 @@ Plus Erklärtext auf der Regeln-Seite. Spieler-ID = nflverse `gsis_id`, dieselbe
 - Headless: `openPlayerDna('Jalen Hurts','QB')` → `#dnaAirYards` enthält die Karte, keine `pageerror`; auch bei 390 px Breite.
 
 ---
+
+## Feature 3: Unit-Vergleich im Fantasy-Matchup-Detail
+
+**Referenz-Commit in DPE:** `fef0a81`
+
+**Was es ist:** Im Matchup-Detail (Klick auf ein Fantasy-Matchup) oberhalb der Slot-Liste ein Block „📊 Unit-Vergleich“:
+je Position der Saison-Schnitt der Starter-Punkte pro Woche mit Liga-Rang für beide Teams, dazu die Projektion
+(vor dem Spiel) bzw. die echten Punkte (danach) dieser Woche als gespiegelter Balken (Türkis = Heim, Pink = Gast)
+und ein Fazit, wer wo vorne liegt. Plus Erklärtext auf der Regeln-Seite. **Kein Sync, reines Frontend.**
+
+**Daten in Bear Witch:** Es gibt dort **keine** `data/position-points.js`. Das Modul fällt automatisch auf
+`FANTASY_POWER_SCORE.weeks[w].weekly[].values.{qbPts,rbPts,wrPts,tePts}` zurück (in Bear Witch vorhanden, geladen per
+`<script src="data/fantasy-power-score.js">`). Dadurch gibt es dort für gespielte Wochen nur die Zeilen QB/RB/WR/TE. Bei der
+Projektion kommen K und DEF ohne Saisonwert dazu. Per Node-Test gegen die echte Bear-Witch-Datei vom 26.09.2026 geprüft.
+Optional für volle 6 Units: im ESPN-Sync (`scripts/sync-fantasy-position-score.js`, Bucket in Zeile ~168) `kPts`/`defPts`
+mitzählen und in `values` ausgeben. Die Positions-IDs für K/DST bei ESPN vorher prüfen.
+
+### 3a. Dateien 1:1 kopieren
+- `js/fantasy-units.js`: unverändert (`fuUnitCompareHtml`, `fuExplainHtml`)
+- CSS: Block ab `/* ---------- FANTASY UNITS (js/fantasy-units.js, Unit-Vergleich im Matchup-Detail) ---------- */`
+  bis zum nächsten `/* ----------`-Kommentar bzw. Dateiende (inkl. `@media (max-width: 480px)`)
+
+### 3b. Andock-Stellen in Bear Witch
+1. **`index.html`**: `<script src="js/fantasy-units.js"></script>` hinter die anderen Feature-Module. `data/fantasy-power-score.js`
+   ist dort schon eingebunden, prüfen, dass es **vor** `js/app.js` lädt.
+2. **`js/app.js` → `renderMatchupDetail()`**: im finalen `content.innerHTML`-Template direkt vor
+   `<div class="mdt-rows">${rows.join('')}</div>` (Bear Witch ca. Zeile 1973):
+   ```js
+   ${typeof fuUnitCompareHtml === 'function' ? fuUnitCompareHtml({ season, week, homeId, awayId, homeName: home.name, awayName: away.name, homeStarters: homeProj.starters, awayStarters: awayProj.starters, played }) : ''}
+   ```
+   Prüfen, dass `season`, `week`, `homeId`, `awayId`, `home`, `away`, `homeProj`, `awayProj`, `played` in der Funktion so heißen
+   (in DPE ja; Bear Witch hat `teamWeekProjection(home, …)` in Zeile ~1852, sieht identisch aus). `season` muss zu
+   `FANTASY_POWER_SCORE.season` passen (String/Zahl egal).
+3. **Regeln-Seite (`renderErklaerung`, handgeschriebenes HTML)**:
+   ```js
+   ${typeof fuExplainHtml === 'function' ? `<div class="board-table-wrap" style="padding:18px 20px;margin-bottom:16px;"><h3 style="margin:0 0 10px;font-size:16px;">📊 Unit-Vergleich (Matchups)</h3>${fuExplainHtml()}</div>` : ''}
+   ```
+
+### 3c. Prüfen
+- Headless: `showMatchups(); openMatchupDetail(<home>,<away>,<Woche>)` für eine gespielte und eine offene Woche → `.fu-box` vorhanden, keine `pageerror`, auch bei 390 px.
+- Bei gespielten Wochen: Summe der Unit-Werte ≈ Teampunkte minus K/DST (Bear Witch).
+
+### Nebenbei in DPE gefixt (nicht portieren, Sleeper-spezifisch)
+`scripts/lib/sleeper-core.js` → `describePlayer`: Zwei-Wege-Spieler wie Travis Hunter (Sleeper `position: "DB"`) bekommen
+jetzt die Fantasy-Position (WR). Vorher fielen seine Punkte aus `POSITION_POINTS` und er stand als „DB“ im Kader.
+Bear Witch nutzt ESPN `defaultPositionId`, der Fall dort ggf. separat prüfen.
+
+---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
