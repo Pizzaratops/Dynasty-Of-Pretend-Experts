@@ -316,4 +316,35 @@ nur für PPR getestet.
 - `maOpenHelp()` öffnet das Fenster, `maOpenHelp('rzTd')` springt zur Karte, keine `pageerror`, auch bei 390 px.
 
 ---
+
+## Feature 7: Vorjahres-Mix für Unit-Stats + Gesamt-Fazit mit Stärke und Vegas-Abgleich (Update von Feature 1)
+
+**Referenz-Commit in DPE:** `4f7c11f`
+
+**Was sich ändert (Begründung: Spielebenen-Backtest in `docs/BACKTEST-MATCHUP-BADGES.md`):**
+1. **Sync:** Play-by-Play wird jetzt **gestreamt** (`scripts/lib/pbp-stream.js`, siehe Feature 5) und nur mit den nötigen Spalten gehalten,
+   für laufende Saison **und Vorjahr**. Unit-Werte = (g·Saison + 4·Vorjahr)/(g+4), g = Spiele des Teams. Ränge und Anzeige nutzen den Mix,
+   Einzelwerte in `offSeason/defSeason/offPrior/defPrior`. Neue Felder: `unitPriorK`, `priorSeason`, `verdictCalibration`, `verdictVsVegas`.
+   Die ungenutzten Helfer `httpsGetBuffer`/`zlib` sind entfernt.
+2. **Seite:** Box „🧭 Gesamt-Fazit“ über den Blöcken. Netto über beide Richtungen, **klarer** (≥ 3) bzw. **leichter** Vorteil, historische
+   Trefferquote der Saisonphase, Abgleich mit dem Vegas-Favoriten (grün = einig, rot = Vegas widerspricht). Bei gespielten Spielen gibt es
+   einen Hinweis, dass die Werte das Spiel schon enthalten. Tooltips an den Werten zeigen Saison und Vorjahr.
+3. **Legende:** Karte „Gesamt-Fazit & Stärke“ mit Kalibrierungstabelle, neue Kapitel „Kann man damit Spiele vorhersagen?“ (mit Zahlen) und
+   „Warum Mix mit Vorjahr?“. Regeln-Text ergänzt.
+
+### Port
+Keine neuen Andock-Stellen. Von **diesem** Commit neu übernehmen:
+- `scripts/sync-matchup-advantage.js` (braucht jetzt `scripts/lib/pbp-stream.js`)
+- `js/matchup-advantage.js` (komplett)
+- CSS: im Matchup-Advantage-Block die neuen Regeln `/* Gesamt-Fazit (Matchup Advantage) */` inkl. `.ma-cal`, `.ma-ov-*`
+  (einfacher: ganzen Block ab `/* ---------- MATCHUP ADVANTAGE` neu kopieren und die Blöcke ab `/* Gesamt-Fazit` am Dateiende mitnehmen)
+
+**Hinweis Bear Witch:** Die Kalibrierungszahlen gelten für die NFL allgemein (unabhängig von der Liga), können also 1:1 bleiben.
+
+### Prüfen
+- Sync-Log: „Play-by-Play: N Plays <Saison>, ~46000 Plays <Vorjahr> (Vorjahr).“, Laufzeit ~5 s.
+- Referenz (simulierter Stand vor Woche 3 2026, = Backtest): GB-Off Ränge 9/30/17/6 vs ATL-Def 10/12/7/14; ATL-Off 32/20/18/18 vs GB-Def 22/7/12/2.
+- PHI @ CHI Woche 3 2026 (Stand 26.09.): „Klarer Vorteil CHI, Netto +3“ + roter Hinweis „Vegas sieht PHI vorne“.
+
+---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
