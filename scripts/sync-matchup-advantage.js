@@ -83,13 +83,13 @@ async function main() {
   const season = Math.max(...games.map(g => Number(g.season)));
   const seasonGames = games.filter(g => Number(g.season) === season);
   const played = seasonGames.filter(g => g.home_score !== '' && g.away_score !== '');
-  if (!played.length) {
-    console.log(`Season ${season}: noch kein Spiel gespielt -- nichts geschrieben.`);
-    return;
-  }
+  // Vor dem ersten Spiel einer Saison: Unit-Stats und Scheme aus dem Vorjahr
+  // (statSeason), damit die Seite in Woche 1 nicht leer ist.
+  const statSeason = played.length ? season : season - 1;
+  if (!played.length) console.log(`Season ${season}: noch kein Spiel -- Unit-Stats aus ${statSeason}.`);
 
   // ---------- Play-by-Play ----------
-  const pbpGz = await httpsGetBuffer(`${REL}/pbp/play_by_play_${season}.csv.gz`);
+  const pbpGz = await httpsGetBuffer(`${REL}/pbp/play_by_play_${statSeason}.csv.gz`);
   const pbp = parseCsv(zlib.gunzipSync(pbpGz).toString('utf8')).filter(p => p.season_type === 'REG');
 
   const acc = {};
@@ -142,21 +142,41 @@ async function main() {
       : { abbr, games: 0, off: {}, def: {}, rzTrips: { off: 0, def: 0 } };
   });
 
-  // ---------- Fantasy Points Allowed ----------
-  const spw = parseCsv(await httpsGetText(`${REL}/stats_player/stats_player_week_${season}.csv`))
-    .filter(r => r.season_type === 'REG' && FPA_POS.includes(r.position) && r.opponent_team);
-  const fpa = {}; // abbr -> pos -> sum
-  const fpaGames = {}; // abbr -> Set(week)
-  for (const r of spw) {
-    const opp = normTeam(r.opponent_team);
-    fpa[opp] = fpa[opp] || {};
-    fpa[opp][r.position] = (fpa[opp][r.position] || 0) + (Number(r.fantasy_points_ppr) || 0);
-    (fpaGames[opp] = fpaGames[opp] || new Set()).add(r.week);
+  // ---------- Fantasy Points Allowed (Stufenplan) ----------
+  // Backtest 2021-2025 (siehe docs/BACKTEST-MATCHUP-BADGES.md): nach nur
+  // einem Spiel ist die Saison-FPA wertlos (Woche 2: Gruen-Rot-Abstand
+  // 0,05 Punkte), das Vorjahr der Defense traegt dagegen Signal. Daher:
+  //   0 Spiele -> Vorjahr, 1 Spiel -> (1*Saison + 12*Vorjahr)/13,
+  //   ab 2 Spielen -> laufende Saison.
+  const FPA_PRIOR_K = 12;
+  async function fpaFor(yr) {
+    let rows;
+    try { rows = parseCsv(await httpsGetText(`${REL}/stats_player/stats_player_week_${yr}.csv`)); }
+    catch (e) { return null; }
+    const sum = {}, games = {};
+    rows.filter(r => r.season_type === 'REG' && FPA_POS.includes(r.position) && r.opponent_team).forEach(r => {
+      const opp = normTeam(r.opponent_team);
+      (sum[opp] = sum[opp] || {})[r.position] = ((sum[opp] || {})[r.position] || 0) + (Number(r.fantasy_points_ppr) || 0);
+      (games[opp] = games[opp] || new Set()).add(r.week);
+    });
+    const per = {};
+    Object.keys(sum).forEach(a => { per[a] = { g: games[a].size }; FPA_POS.forEach(pos => { per[a][pos] = (sum[a][pos] || 0) / games[a].size; }); });
+    return per;
   }
+  const fpaCur = played.length ? (await fpaFor(season)) || {} : {};
+  const fpaPrior = (await fpaFor(season - 1)) || {};
+  const r1 = v => (v == null ? null : Math.round(v * 10) / 10);
   teams.forEach(t => {
-    const n = fpaGames[t.abbr] ? fpaGames[t.abbr].size : 0;
-    t.fpa = {};
-    FPA_POS.forEach(pos => { t.fpa[pos] = n ? Math.round(((fpa[t.abbr] || {})[pos] || 0) / n * 10) / 10 : null; });
+    const c = fpaCur[t.abbr], pr = fpaPrior[t.abbr];
+    const g = c ? c.g : 0;
+    t.fpaGames = g;
+    t.fpaMethod = g === 0 ? 'Vorjahr' : g === 1 && pr ? 'Mix' : 'Saison';
+    t.fpa = {}; t.fpaCur = {}; t.fpaPrior = {};
+    FPA_POS.forEach(pos => {
+      const cv = c ? c[pos] : null, pv = pr ? pr[pos] : null;
+      t.fpaCur[pos] = r1(cv); t.fpaPrior[pos] = r1(pv);
+      t.fpa[pos] = r1(g === 0 ? pv : g === 1 && pv != null ? (cv + FPA_PRIOR_K * pv) / (1 + FPA_PRIOR_K) : cv);
+    });
   });
 
   // ---------- Ränge ----------
@@ -179,7 +199,7 @@ async function main() {
   // Saison noch nicht gecharted), bleibt "scheme" einfach leer.
   let schemeLeague = null;
   try {
-    const ftn = parseCsv(await httpsGetText(`${REL}/ftn_charting/ftn_charting_${season}.csv`));
+    const ftn = parseCsv(await httpsGetText(`${REL}/ftn_charting/ftn_charting_${statSeason}.csv`));
     const byPlay = new Map(ftn.map(r => [`${r.nflverse_game_id}#${r.nflverse_play_id}`, r]));
     const T = v => v === 'TRUE' || v === '1' || v === 'true';
     // k: Tendenz, who: welche Seite entscheidet die Haeufigkeit
@@ -239,9 +259,9 @@ async function main() {
       teams.forEach(t => { if (t.scheme && t.scheme[d.who][k]) t.scheme[d.who][k].rank = r[t.abbr] || null; });
     });
     schemeLeague = Object.fromEntries(Object.entries(SCH).map(([k, d]) => [k, { ...d, rate: L[k] && L[k].N ? r4(L[k].n / L[k].N) : null }]));
-    console.log(`FTN-Charting ${season}: ${byPlay.size} Plays gejoint.`);
+    console.log(`FTN-Charting ${statSeason}: ${byPlay.size} Plays gejoint.`);
   } catch (e) {
-    console.log(`FTN-Charting ${season} nicht verfügbar (${e.message}) -- Scheme-Tendenzen übersprungen.`);
+    console.log(`FTN-Charting ${statSeason} nicht verfügbar (${e.message}) -- Scheme-Tendenzen übersprungen.`);
   }
 
   // ---------- Spielplan ----------
@@ -259,10 +279,10 @@ async function main() {
   });
   const weeks = Object.keys(schedule).map(Number).sort((a, b) => a - b);
   const currentWeek = weeks.find(w => schedule[w].some(g => g.homeScore == null)) || weeks[weeks.length - 1];
-  const throughWeek = Math.max(...pbp.map(p => Number(p.week)));
+  const throughWeek = statSeason === season ? Math.max(...pbp.map(p => Number(p.week))) : 0;
 
   const data = {
-    season, throughWeek, currentWeek, syncedAt: new Date().toISOString(),
+    season, statSeason, throughWeek, currentWeek, fpaPriorK: FPA_PRIOR_K, syncedAt: new Date().toISOString(),
     metrics: METRICS, fpaPositions: FPA_POS, scheme: schemeLeague,
     teams: Object.fromEntries(teams.map(t => [t.abbr, t])),
     schedule,
@@ -286,7 +306,7 @@ async function main() {
 const MATCHUP_ADVANTAGE = ${JSON.stringify(data)};
 `;
   fs.writeFileSync(OUT, out, 'utf8');
-  console.log(`${OUT}: Season ${season}, Daten bis Woche ${throughWeek}, aktuelle Woche ${currentWeek}, ${teams.filter(t => t.games).length} Teams.`);
+  console.log(`${OUT}: Season ${season}, Unit-Stats ${statSeason}${throughWeek ? ' bis Woche ' + throughWeek : ''}, aktuelle Woche ${currentWeek}, ${teams.filter(t => t.games).length} Teams, FPA-Methode: ${[...new Set(teams.map(t => t.fpaMethod))].join('/')}.`);
 }
 
 main().then(() => process.exit(0)).catch(err => {
