@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-09-26T17:29:10.222Z",
+  "generatedAt": "2026-09-26T20:16:35.097Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -148,7 +148,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.3
+          "projPoints": 9.2
         },
         {
           "name": "David Njoku",
@@ -281,7 +281,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 8,
-          "projPoints": 7.3
+          "projPoints": 7.5
         },
         {
           "name": "Eddy Pineiro",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.8,
           "last3AvgPoints": 8.4,
-          "projPoints": 12.5
+          "projPoints": 12.6
         },
         {
           "name": "Colston Loveland",
@@ -425,7 +425,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.3
+          "projPoints": 9.2
         },
         {
           "name": "Denzel Boston",
@@ -513,7 +513,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.7,
           "last3AvgPoints": 18,
-          "projPoints": 15.7
+          "projPoints": 15.9
         },
         {
           "name": "Rhamondre Stevenson",
@@ -746,7 +746,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.2,
           "last3AvgPoints": 2.2,
-          "projPoints": null
+          "projPoints": 12.3
         },
         {
           "name": "Joe Milton",
@@ -845,7 +845,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1,
           "last3AvgPoints": 1,
-          "projPoints": 2.3
+          "projPoints": 2.2
         },
         {
           "name": "Makai Lemon",
@@ -856,7 +856,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.4,
           "last3AvgPoints": 1.2,
-          "projPoints": 5
+          "projPoints": 5.1
         },
         {
           "name": "Sam Roush",
@@ -1209,7 +1209,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.3
+          "projPoints": 9.2
         },
         {
           "name": "Omar Cooper",
@@ -1474,7 +1474,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.7,
           "last3AvgPoints": 6.8,
-          "projPoints": 8.1
+          "projPoints": 8
         },
         {
           "name": "Nicholas Singleton",
@@ -1662,7 +1662,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.8,
           "last3AvgPoints": 14.1,
-          "projPoints": 7.6
+          "projPoints": 6.9
         },
         {
           "name": "Jeremiyah Love",
