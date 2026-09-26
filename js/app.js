@@ -23,7 +23,7 @@ const PAGES = [
   'home', 'roster', 'dues', 'draftboard', 'keepers', 'dynastyboard', 'rolling', 'teamaverages', 'weekbyweek',
   'playerrankings', 'playerprojections', 'nflteams', 'nflteamdetail', 'futureboards',
   'standings', 'leaguehistory', 'seasonrolling', 'nflrankings', 'matchups', 'trade', 'tradehistory',
-  'statusreport', 'erklaerung', 'playerdna'
+  'statusreport', 'erklaerung', 'playerdna', 'nflmatchup'
 ];
 
 function navigate(pageId, opts) {
@@ -91,6 +91,7 @@ const ROUTE_HANDLERS = {
   statusreport: () => showStatusReport(),
   erklaerung: () => showErklaerung(),
   playerdna: () => showPlayerDna(),
+  nflmatchup: () => showNflMatchup(),
 };
 
 function _routeTo(pageId, teamId, nflCode, leagueId) {
@@ -176,6 +177,7 @@ const NAV_SECTIONS = [
   ] },
   { key: 'nfl', label: '🏈 NFL', pages: [
     ['nflrankings', '🏟️ Power Rankings', () => showNflRankings()],
+    ['nflmatchup', '⚔️ Matchup Advantage', () => showNflMatchup()],
     ['nflteams', '🏈 Team-Roster', () => showNFLTeams()],
   ] },
   { key: 'liga', label: '📜 Liga', pages: [
@@ -575,7 +577,10 @@ function _rosterGroupHtml(label, list) {
     const tags = (p.isStarter ? ' ⭐' : '') + (p.rookie ? ' 🐣' : '');
     const dna = ['QB', 'RB', 'WR', 'TE'].includes(p.pos)
       ? `<button class="dna-open-btn" title="Player DNA" onclick="openPlayerDna('${escapeJs(p.name)}','${p.pos}')">🧬</button>` : '';
-    return playerRowHtml({ name: p.name + tags, nfl: p.nfl, pos: p.pos, status: p.status }).replace(/<\/div>\s*$/, dna + '</div>');
+    // Matchup-Advantage-Badge fuer die aktuelle NFL-Woche (js/matchup-advantage.js)
+    const ma = (typeof maPlayerBadge === 'function' && typeof MATCHUP_ADVANTAGE !== 'undefined' && p.nfl)
+      ? maPlayerBadge(p.pos, p.nfl, MATCHUP_ADVANTAGE.currentWeek) : '';
+    return playerRowHtml({ name: p.name + tags, nfl: p.nfl, pos: p.pos, status: p.status }).replace(/<\/div>\s*$/, ma + dna + '</div>');
   }).join('');
 }
 
@@ -2058,12 +2063,20 @@ function renderMatchupDetail() {
     snap.starters.forEach(s => { if (s.name) snapMeanByName[s.name] = s.mean; });
   });
 
+  // Matchup-Advantage-Badge (js/matchup-advantage.js), falls geladen
+  // Projektions-Starter tragen kein NFL-Team -> per Name aus den Live-Kadern
+  const _nflByName = {};
+  Object.values(typeof ROSTERS_LIVE !== 'undefined' ? ROSTERS_LIVE : {}).forEach(r => r.forEach(x => { if (x.nfl) _nflByName[x.name] = x.nfl; }));
+  const _maBadge = (pl, wk) => {
+    const nfl = pl.nfl || _nflByName[pl.name];
+    return (typeof maPlayerBadge === 'function' && nfl) ? maPlayerBadge(pl.pos, nfl, wk) : '';
+  };
   const playerCell = (p, align) => {
     if (!p) return `<div class="mdt-cell mdt-empty" style="text-align:${align}">—</div>`;
     if (!played) {
       return `<div class="mdt-cell" style="text-align:${align}">
         <div class="mdt-player-name">${p.name}</div>
-        <div class="mdt-player-meta">${p.pos}${p.nfl ? ' · ' + p.nfl : ''}</div>
+        <div class="mdt-player-meta">${p.pos}${(p.nfl || _nflByName[p.name]) ? ' · ' + (p.nfl || _nflByName[p.name]) : ''}${_maBadge(p, week)}</div>
         <div class="mdt-player-val">${p.ms.mean.toFixed(1)} <small>proj.</small></div>
       </div>`;
     }
@@ -2072,7 +2085,7 @@ function renderMatchupDetail() {
     if (actual == null) {
       return `<div class="mdt-cell" style="text-align:${align}">
         <div class="mdt-player-name">${p.name}</div>
-        <div class="mdt-player-meta">${p.pos}${p.nfl ? ' · ' + p.nfl : ''}</div>
+        <div class="mdt-player-meta">${p.pos}${(p.nfl || _nflByName[p.name]) ? ' · ' + (p.nfl || _nflByName[p.name]) : ''}${_maBadge(p, week)}</div>
         <div class="mdt-player-val">— <small>kein Wert</small></div>
       </div>`;
     }
@@ -2080,7 +2093,7 @@ function renderMatchupDetail() {
       // Kein Vorab-Snapshot vorhanden -> nur Ist-Wert zeigen.
       return `<div class="mdt-cell" style="text-align:${align}">
         <div class="mdt-player-name">${p.name}</div>
-        <div class="mdt-player-meta">${p.pos}${p.nfl ? ' · ' + p.nfl : ''}</div>
+        <div class="mdt-player-meta">${p.pos}${(p.nfl || _nflByName[p.name]) ? ' · ' + (p.nfl || _nflByName[p.name]) : ''}${_maBadge(p, week)}</div>
         <div class="mdt-player-val">${actual.toFixed(1)} <small>Punkte</small></div>
       </div>`;
     }
@@ -2089,7 +2102,7 @@ function renderMatchupDetail() {
     const deltaLabel = (delta >= 0 ? '+' : '') + delta.toFixed(1);
     return `<div class="mdt-cell" style="text-align:${align}">
       <div class="mdt-player-name">${p.name}</div>
-      <div class="mdt-player-meta">${p.pos}${p.nfl ? ' · ' + p.nfl : ''}</div>
+      <div class="mdt-player-meta">${p.pos}${(p.nfl || _nflByName[p.name]) ? ' · ' + (p.nfl || _nflByName[p.name]) : ''}${_maBadge(p, week)}</div>
       <div class="mdt-player-val2row">
         <div class="mdt-val-row"><small>Proj.</small> ${snapMean.toFixed(1)}</div>
         <div class="mdt-val-row"><small>Ist</small> <b>${actual.toFixed(1)}</b> <span class="mdt-delta ${deltaClass}">${deltaLabel}</span></div>
@@ -5038,5 +5051,6 @@ function renderErklaerung() {
       ['Aktuelle NFL-Woche', L.nflWeek], ['Zuletzt final gewertet', L.lastScoredWeek ? `Woche ${L.lastScoredWeek}` : '—'],
     ]))}
     ${card('📊 Scoring', Object.entries(groups).map(([g, rows]) => `<div class="section-label" style="margin-top:6px">${g}</div>` + kv(rows)).join(''))}
+    ${typeof maExplainHtml === 'function' ? card('⚔️ Matchup Advantage', maExplainHtml()) : ''}
   `;
 }
