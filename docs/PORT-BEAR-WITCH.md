@@ -280,4 +280,40 @@ die Quoten rechnet die Seite. Keine Secrets.
 - Headless: `openPlayerDna('Jalen Hurts','QB')` → `#dnaStyle` mit Kacheln, keine `pageerror`, auch bei 390 px.
 
 ---
+
+## Feature 6: Badge-Modell nach Backtest + Legende „📖 Stats erklärt“ (Update von Feature 1)
+
+**Referenz-Commit in DPE:** `f0e1986`
+
+**Was sich ändert (Begründung: `docs/BACKTEST-MATCHUP-BADGES.md` in DPE, 5-Jahres-Backtest + Stabilitätsmessung):**
+1. **Stufenplan für Fantasy Points Allowed** im Sync: 0 Spiele → Vorjahr, 1 Spiel → (Saison + 12 × Vorjahr)/13, ab 2 Spielen → Saison.
+   Neue Felder je Team: `fpaCur`, `fpaPrior`, `fpaGames`, `fpaMethod` ('Vorjahr' | 'Mix' | 'Saison'). `fpa`/`fpaRank` sind jetzt die gestuften Werte.
+   Vor dem ersten Saisonspiel bricht der Sync nicht mehr ab, sondern nimmt Unit-Stats und Scheme aus dem Vorjahr (`statSeason`).
+   Die Seite zeigt dann ein Banner.
+2. **WR-Badges und WR-FPA-Kacheln ohne Farbe** (`MA_BADGE_NEUTRAL_POS = ['WR']`), Tooltips mit Basis und Effektgröße.
+3. **Red-Zone-TD % zählt nicht mehr ins Fazit** (`MA_NOISY = ['rzTd']`), die Zeile wird gedimmt.
+4. **Legende:** Button „📖 Stats erklärt“ und ⓘ an jeder Unit-, FPA- und Scheme-Zeile öffnen ein Fenster (`maOpenHelp(key)`) mit
+   Karten (Was / Warum / Live-Beispiel) und gemessener Stabilität. Das Fenster nutzt die **Modal-CSS von Player DNA**
+   (`.dna-modal`, `.dna-help-*`, `.dna-info`, `.dna-help-btn`). Die gibt es in Bear Witch, weil `player-dna.js` dort identisch ist.
+5. Regeln-Text (`maExplainHtml`) entsprechend aktualisiert.
+
+### Port
+Keine neuen Andock-Stellen. Von **diesem** Commit neu übernehmen:
+- `scripts/sync-matchup-advantage.js` (Abschnitt „Fantasy Points Allowed (Stufenplan)“, `statSeason`)
+- `js/matchup-advantage.js` (komplett; neu u. a. `_maBadgeClass`, `MA_GLOSSARY*`, `maOpenHelp`, `maCloseHelp`)
+- CSS im Matchup-Advantage-Block: `.ma-fpa-basis` und `.ma-row-noisy` (bzw. den ganzen Block ab
+  `/* ---------- MATCHUP ADVANTAGE` bis vor `/* ---------- AIR YARDS` neu kopieren)
+- optional `docs/BACKTEST-MATCHUP-BADGES.md` und `scripts/research/` (nur Doku, läuft nicht auf der Seite)
+
+**Bear-Witch-Besonderheit:** Die Stabilitätszahlen und Backtest-Aussagen in `MA_GLOSSARY*` gelten ligaunabhängig
+(NFL-Daten, PPR). Falls Bear Witch **nicht PPR** wertet, im Tooltip und Glossar „PPR“ anpassen. Das Badge-Signal wurde
+nur für PPR getestet.
+
+### Prüfen
+- Sync-Log endet mit „FPA-Methode: Saison“ (ab Woche 3), „Mix“ (nach Woche 1) bzw. „Vorjahr“ (vor Woche 1).
+- Referenz (DPE, simulierter Stand vor Woche 2 2026): CIN gegen TE Mix #1 (19,7), DAL gegen WR Mix #1 (38,0), PIT gegen RB Mix #22 (20,6).
+  Das ist identisch mit dem Backtest.
+- `maOpenHelp()` öffnet das Fenster, `maOpenHelp('rzTd')` springt zur Karte, keine `pageerror`, auch bei 390 px.
+
+---
 *Weitere Features werden unten angehängt, jeweils mit eigenem Referenz-Commit.*
