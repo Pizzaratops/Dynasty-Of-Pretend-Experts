@@ -236,7 +236,7 @@ drin. Wurde Feature 1 schon vom älteren Commit portiert, diese drei Stände neu
 
 ## Feature 5: Spielstil · FTN-Charting (Karte im Player-DNA-Profil)
 
-**Referenz-Commit in DPE:** `6a5a0c3`
+**Referenz-Commit in DPE:** `1fd987f`
 
 **Was es ist:** Unter der Air-Yards-Karte im Player-DNA-Profil eine Karte „🎯 Spielstil · FTN-Charting“ mit Kacheln.
 QB: EPA vs Blitz (mit „ohne Blitz“), Interception-worthy-Quote, ◇ Play-Action-Anteil (mit EPA mit/ohne PA), ◇ Out of Pocket, ◇ Throwaways.
