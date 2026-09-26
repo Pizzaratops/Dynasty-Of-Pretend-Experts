@@ -49,7 +49,13 @@
   // (players/nfl, oder das "player"-Feld der stats/projections-Endpoints).
   function describePlayer(id, p, canon) {
     p = p || {};
-    const pos = p.position || (p.fantasy_positions && p.fantasy_positions[0]) || '?';
+    // Zwei-Wege-Spieler (z.B. Travis Hunter: position "DB", fantasy_positions
+    // ["WR","DB"]) -> die Fantasy-relevante Offensiv-Position nehmen, sonst
+    // fallen seine Punkte aus POSITION_POINTS und er steht als "DB" im Kader.
+    const FANTASY_POS = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
+    const fps = p.fantasy_positions || [];
+    const pos = FANTASY_POS.includes(p.position) ? p.position
+      : (fps.find(x => FANTASY_POS.includes(x)) || p.position || fps[0] || '?');
     if (pos === 'DEF' || /^[A-Z]{2,3}$/.test(String(id))) {
       const nick = p.last_name || String(id);
       return { name: `${nick} D/ST`, pos: 'D/ST', nfl: p.team || String(id) };
