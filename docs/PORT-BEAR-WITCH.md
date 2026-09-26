@@ -6,7 +6,7 @@ aktivieren kannst.
 
 - Quelle (öffentlich): `https://github.com/Pizzaratops/Dynasty-Of-Pretend-Experts`
 - Ziel: `https://github.com/Pizzaratops/Bear-Witch-Project-HQ` (Push-Zugriff über `add_repo`, Branch `main`)
-- Dateien zum 1:1-Kopieren holst du per `git clone --depth 1` der Quelle (oder `raw.githubusercontent.com/.../<Referenz-Commit>/<pfad>`).
+- Dateien zum 1:1-Kopieren holst du per `git clone` der Quelle **ohne `--depth 1`** (sonst sind ältere Referenz-Commits nicht erreichbar), dann `git show <Referenz-Commit>:<pfad>`, oder direkt `raw.githubusercontent.com/Pizzaratops/Dynasty-Of-Pretend-Experts/<Referenz-Commit>/<pfad>`.
   Immer den **Referenz-Commit** des jeweiligen Features nehmen, nicht blind `main`.
 
 ## Grundsätzliche Unterschiede der beiden Repos
