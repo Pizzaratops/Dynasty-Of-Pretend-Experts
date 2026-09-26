@@ -148,6 +148,63 @@ function _maFpaBlock(D, defA, offA) {
     </div>`;
 }
 
+// ---------- Scheme-Tendenzen (FTN-Charting) ----------
+// Je Tendenz: wie oft macht es die Seite, die es entscheidet (Defense: Blitz,
+// Stacked Box; Offense: Play Action, Screen, Motion), und wie gut ist die
+// Gegenseite genau in dieser Situation (EPA/Play) gegenueber sonst.
+const MA_SCHEME_TXT = {
+  blitz: { freq: 'blitzt', splitX: 'vs Blitz', splitNo: 'ohne' },
+  box8: { freq: 'stellt 8+ in die Box', splitX: 'Läufe vs 8+', splitNo: 'sonst' },
+  pa: { freq: 'nutzt Play Action', splitX: 'lässt zu mit PA', splitNo: 'ohne' },
+  screen: { freq: 'wirft Screens', splitX: 'lässt zu bei Screens', splitNo: 'sonst' },
+  motion: { freq: 'nutzt Motion', splitX: 'lässt zu mit Motion', splitNo: 'ohne' },
+};
+const MA_SCHEME_MIN_N = 10;
+
+function _maSchemeRow(D, k, offA, defA) {
+  const d = D.scheme[k], txt = MA_SCHEME_TXT[k];
+  if (!d || !txt) return '';
+  const decider = d.who === 'def' ? defA : offA;
+  const other = d.who === 'def' ? offA : defA;
+  const otherSide = d.who === 'def' ? 'off' : 'def';
+  const f = (D.teams[decider].scheme || {})[d.who] && D.teams[decider].scheme[d.who][k];
+  const sp = (D.teams[other].scheme || {})[otherSide] && D.teams[other].scheme[otherSide][k];
+  if (!f || !sp) return '';
+  const often = f.rate > d.rate * 1.1, rare = f.rate < d.rate * 0.9;
+  const enough = sp.n >= MA_SCHEME_MIN_N && sp.epaX != null && sp.epaNo != null;
+  const delta = enough ? sp.epaX - sp.epaNo : 0;
+  // + delta: Offense (bzw. die gegnerische Offense bei Def-Splits) ist in der Situation besser
+  let verdict = '<span class="ma-sv ma-sv-n">–</span>';
+  if (!enough) verdict = '<span class="ma-sv ma-sv-n" title="Unter ' + MA_SCHEME_MIN_N + ' Plays in der Situation">wenig Daten</span>';
+  else if (often && delta > 0.05) verdict = `<span class="ma-sv" style="color:${_maColor(offA)};border-color:${_maColor(offA)}">▲ ${offA}</span>`;
+  else if (often && delta < -0.05) verdict = `<span class="ma-sv" style="color:${_maColor(defA)};border-color:${_maColor(defA)}">▼ ${defA}</span>`;
+  else if (rare) verdict = '<span class="ma-sv ma-sv-n" title="Kommt bei diesem Team selten vor">selten</span>';
+  const fmtE = v => (v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(2));
+  const sideName = s => (s === 'off' ? 'Offense' : 'Defense');
+  return `
+    <div class="ma-srow">
+      <div class="ma-slabel">${d.label}</div>
+      <div class="ma-sfreq"><b style="color:${_maColor(decider)}">${decider}</b> ${txt.freq} <b>${(f.rate * 100).toFixed(1)}%</b> <span class="ma-rank ${f.rank && f.rank <= 8 ? 'ma-hi' : ''}">#${f.rank ?? '–'}</span><small>Liga ${(d.rate * 100).toFixed(1)}%</small></div>
+      <div class="ma-ssplit"><b style="color:${_maColor(other)}">${other}</b> ${sideName(otherSide)} ${txt.splitX} <b>${fmtE(sp.epaX)}</b> <small>(${sp.n})</small> · ${txt.splitNo} <b>${fmtE(sp.epaNo)}</b></div>
+      <div class="ma-sverdict">${verdict}</div>
+    </div>`;
+}
+
+function _maSchemeBlock(D, offA, defA) {
+  if (!D.scheme || !D.teams[offA].scheme || !D.teams[defA].scheme) return '';
+  const rows = Object.keys(D.scheme).map(k => _maSchemeRow(D, k, offA, defA)).join('');
+  if (!rows) return '';
+  return `
+    <div class="ma-block">
+      <div class="ma-block-head">
+        <span style="color:${_maColor(offA)}">${offA} OFFENSE</span>
+        <span class="ma-vs">vs</span>
+        <span style="color:${_maColor(defA)}">${defA} DEFENSE</span>
+      </div>
+      ${rows}
+    </div>`;
+}
+
 function renderNflMatchup() {
   const wrap = document.getElementById('nflmatchupContent');
   const D = _maData();
@@ -215,6 +272,12 @@ function renderNflMatchup() {
       ${_maFpaBlock(D, g.home, g.away)}
       ${_maFpaBlock(D, g.away, g.home)}
     </div>
+    ${D.scheme && D.teams[g.away].scheme ? `
+    <div class="ma-section-title">🧠 Scheme-Tendenzen <span>FTN-Charting · EPA/Play in der Situation gegen sonst · ab ${MA_SCHEME_MIN_N} Plays</span></div>
+    <div class="ma-grid" style="margin-top:8px">
+      ${_maSchemeBlock(D, g.away, g.home)}
+      ${_maSchemeBlock(D, g.home, g.away)}
+    </div>` : ''}
     <div class="page-sub" style="margin-top:14px">Balken zeigen, wessen Rang besser ist und wie deutlich: Je weiter der Knopf zur Seite wandert, desto größer der Vorteil. Details unter <b>Liga → Regeln → Matchup Advantage</b>.</div>
   `;
 }
@@ -237,5 +300,13 @@ function maExplainHtml() {
     <p style="margin:0 0 10px;font-size:13px">Jede Kategorie hat einen Liga-Rang von 1 bis 32, wobei <b>1 immer die beste Unit</b> ist. Der Balken vergleicht den Offense-Rang mit dem Defense-Rang des Gegners: Je weiter der Knopf zur Seite eines Teams wandert, desto größer dessen Vorteil (Rang 1 gegen Rang 32 = ganz außen). Grüne Ränge sind Top 8, rote Ränge 25–32. Unter jedem Block steht, wer in mehr Kategorien klar vorne liegt (Rangabstand über ca. 3 Plätze).</p>
     <div class="section-label">Fantasy Points Allowed &amp; Spieler-Badges</div>
     <p style="margin:0 0 10px;font-size:13px">Die Kacheln darunter zeigen, wie viele PPR-Fantasy-Punkte eine Defense pro Spiel an QB, RB, WR und TE zulässt. Hier ist <b>Rang 1 = lässt die meisten Punkte zu</b>, also das leichteste Matchup für gegnerische Spieler. Dieser Rang erscheint als Badge neben jedem QB/RB/WR/TE im <b>Matchup-Detail</b> (Klick auf ein Fantasy-Matchup) und in den <b>Team-Kadern</b>: <span class="ma-boost ma-good">▲ vs XXX #3</span> gutes Matchup (Top 8), <span class="ma-boost">• @ XXX #15</span> neutral, <span class="ma-boost ma-bad">▼ @ XXX #30</span> hartes Matchup (Rang 25–32). Tooltip mit Details beim Drüberfahren.</p>
+    <div class="section-label">🧠 Scheme-Tendenzen</div>
+    <p style="margin:0 0 8px;font-size:13px">Darunter steht, <b>wie</b> die Teams spielen (Quelle: FTN-Charting, jeder Spielzug von Hand erfasst). Pro Zeile: wie oft die Seite, die es entscheidet, etwas tut (mit Rang, 1 = am häufigsten, und Liga-Schnitt), und wie gut die Gegenseite genau in dieser Situation ist (EPA/Play) im Vergleich zu sonst, mit Anzahl Plays in Klammern.</p>
+    <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;line-height:1.5">
+      <li style="margin-bottom:4px"><b>Blitz</b>: Anteil der Dropbacks, bei denen mindestens ein zusätzlicher Blitzer kommt. Daneben die EPA der Offense gegen Blitz bzw. ohne.</li>
+      <li style="margin-bottom:4px"><b>Stacked Box (8+)</b>: Anteil der Läufe gegen 8 oder mehr Verteidiger in der Box. Daneben die Lauf-EPA der Offense dagegen.</li>
+      <li style="margin-bottom:4px"><b>Play Action / Screen / Motion</b>: wie oft die Offense das einsetzt. Daneben, was die Defense in genau diesen Spielzügen zulässt.</li>
+    </ul>
+    <p style="margin:0 0 10px;font-size:13px">Rechts die Einschätzung: <b>▲ Team</b> bzw. <b>▼ Team</b> erscheint nur, wenn die entscheidende Seite es <b>überdurchschnittlich oft</b> tut (über 110 % des Liga-Schnitts) <b>und</b> die Gegenseite in der Situation um mehr als 0,05 EPA/Play besser bzw. schlechter ist als sonst. Beispiel: „CHI blitzt 38,8 % (Liga 31,4 %), PHI-Offense vs Blitz +0,12 gegen +0,20 ohne → ▼ CHI“. „selten“ = das Team macht es unterdurchschnittlich oft, „wenig Daten“ = unter 10 Plays in der Situation.</p>
     <p style="margin:0;font-size:12px;color:var(--muted)">Wichtig: Das ist beobachtete Leistung, keine Prognose. Verletzungen, Wetter und Spielplanstärke sind nicht eingerechnet, und in den ersten Wochen ist die Stichprobe klein.</p>`;
 }

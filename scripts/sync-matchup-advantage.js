@@ -13,6 +13,10 @@
 //
 //    FANTASY POINTS ALLOWED (PPR) je Position QB/RB/WR/TE pro Spiel
 //
+//    SCHEME-TENDENZEN (FTN-Charting): Blitz, Stacked Box 8+, Play Action,
+//      Screen, Motion -- je Team Haeufigkeit + EPA in/ausserhalb der
+//      Situation, fuer Offense und Defense
+//
 //  Ränge: 1 = beste Unit. Offense: hoher Wert = gut (außer sackRate).
 //  Defense: niedriger zugelassener Wert = gut (außer sackRate: hohe
 //  Sack-Quote = gut). fpaRank: 1 = lässt die MEISTEN Punkte zu
@@ -22,7 +26,8 @@
 //  den Spieler-Matchup-Boost auf der Fantasy-Matchups-Seite).
 //
 //  Quelle: nflverse (play_by_play_<season>.csv.gz,
-//  stats_player_week_<season>.csv, games.csv). Keine Secrets.
+//  stats_player_week_<season>.csv, games.csv, ftn_charting_<season>.csv).
+//  Keine Secrets.
 //
 //  Schreibt data/matchup-advantage.js -> MATCHUP_ADVANTAGE
 //  Usage:  node scripts/sync-matchup-advantage.js
@@ -168,6 +173,77 @@ async function main() {
     teams.forEach(t => { (t.fpaRank = t.fpaRank || {})[pos] = r[t.abbr] || null; });
   });
 
+  // ---------- Scheme-Tendenzen (FTN-Charting) ----------
+  // FTN (ueber nflverse) liefert je Spielzug Blitzer, Box-Count, Play Action,
+  // Screen, Motion. Join ueber (game_id, play_id). Fehlt die Datei (neue
+  // Saison noch nicht gecharted), bleibt "scheme" einfach leer.
+  let schemeLeague = null;
+  try {
+    const ftn = parseCsv(await httpsGetText(`${REL}/ftn_charting/ftn_charting_${season}.csv`));
+    const byPlay = new Map(ftn.map(r => [`${r.nflverse_game_id}#${r.nflverse_play_id}`, r]));
+    const T = v => v === 'TRUE' || v === '1' || v === 'true';
+    // k: Tendenz, who: welche Seite entscheidet die Haeufigkeit
+    const SCH = {
+      blitz: { who: 'def', label: 'Blitz', universe: 'dropback' },
+      box8: { who: 'def', label: 'Stacked Box (8+)', universe: 'rush' },
+      pa: { who: 'off', label: 'Play Action', universe: 'dropback' },
+      screen: { who: 'off', label: 'Screen', universe: 'pass' },
+      motion: { who: 'off', label: 'Motion', universe: 'play' },
+    };
+    const S = {}; const L = {};
+    const SS = (abbr, side, k) => {
+      S[abbr] = S[abbr] || { off: {}, def: {} };
+      return (S[abbr][side][k] = S[abbr][side][k] || { n: 0, N: 0, ex: 0, eo: 0 });
+    };
+    for (const p of pbp) {
+      if (!p.posteam || !p.defteam || p.epa === '' || p.epa === 'NA' || p.two_point_attempt === '1') continue;
+      if (p.play_type !== 'pass' && p.play_type !== 'run') continue;
+      const f = byPlay.get(`${p.game_id}#${p.play_id}`);
+      if (!f) continue;
+      const epa = Number(p.epa);
+      const inU = {
+        dropback: p.qb_dropback === '1',
+        rush: p.rush === '1' && p.qb_scramble !== '1',
+        pass: p.pass_attempt === '1' && p.sack !== '1',
+        play: p.pass === '1' || p.rush === '1',
+      };
+      const box = Number(f.n_defense_box) || 0;
+      const flag = {
+        blitz: f.n_blitzers !== '' ? Number(f.n_blitzers) > 0 : null,
+        box8: box > 0 ? box >= 8 : null,
+        pa: f.is_play_action !== '' ? T(f.is_play_action) : null,
+        screen: f.is_screen_pass !== '' ? T(f.is_screen_pass) : null,
+        motion: f.is_motion !== '' ? T(f.is_motion) : null,
+      };
+      Object.entries(SCH).forEach(([k, d]) => {
+        if (!inU[d.universe] || flag[k] == null) return;
+        const lk = (L[k] = L[k] || { n: 0, N: 0 }); lk.N++; if (flag[k]) lk.n++;
+        [[normTeam(p.posteam), 'off'], [normTeam(p.defteam), 'def']].forEach(([abbr, side]) => {
+          const c = SS(abbr, side, k);
+          c.N++;
+          if (flag[k]) { c.n++; c.ex += epa; } else c.eo += epa;
+        });
+      });
+    }
+    // Ausgabe: rate = n/N, epaX = EPA/Play in der Situation, epaNo = sonst
+    const fin = c => ({ n: c.n, N: c.N, rate: c.N ? r4(c.n / c.N) : null, epaX: c.n ? r4(c.ex / c.n) : null, epaNo: c.N - c.n ? r4(c.eo / (c.N - c.n)) : null });
+    teams.forEach(t => {
+      const s = S[t.abbr];
+      if (!s) return;
+      t.scheme = { off: {}, def: {} };
+      ['off', 'def'].forEach(side => Object.keys(SCH).forEach(k => { if (s[side][k]) t.scheme[side][k] = fin(s[side][k]); }));
+    });
+    // Rang der Haeufigkeit (1 = macht es am haeufigsten) auf der entscheidenden Seite
+    Object.entries(SCH).forEach(([k, d]) => {
+      const r = rankBy(teams.filter(t => t.scheme && t.scheme[d.who][k]), t => t.scheme[d.who][k].rate, 'high');
+      teams.forEach(t => { if (t.scheme && t.scheme[d.who][k]) t.scheme[d.who][k].rank = r[t.abbr] || null; });
+    });
+    schemeLeague = Object.fromEntries(Object.entries(SCH).map(([k, d]) => [k, { ...d, rate: L[k] && L[k].N ? r4(L[k].n / L[k].N) : null }]));
+    console.log(`FTN-Charting ${season}: ${byPlay.size} Plays gejoint.`);
+  } catch (e) {
+    console.log(`FTN-Charting ${season} nicht verfügbar (${e.message}) -- Scheme-Tendenzen übersprungen.`);
+  }
+
   // ---------- Spielplan ----------
   const schedule = {};
   seasonGames.forEach(g => {
@@ -187,7 +263,7 @@ async function main() {
 
   const data = {
     season, throughWeek, currentWeek, syncedAt: new Date().toISOString(),
-    metrics: METRICS, fpaPositions: FPA_POS,
+    metrics: METRICS, fpaPositions: FPA_POS, scheme: schemeLeague,
     teams: Object.fromEntries(teams.map(t => [t.abbr, t])),
     schedule,
   };

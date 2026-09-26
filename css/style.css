@@ -944,6 +944,23 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
 .ma-fpa-cell.ma-bad { box-shadow: inset 0 0 0 1.5px var(--red); }
 .ma-fpa-cell.ma-bad .ma-fpa-r { color: var(--red); }
 
+/* Scheme-Tendenzen (FTN) */
+.ma-section-title { margin-top: 22px; font-size: 14px; font-weight: 800; }
+.ma-section-title span { font-size: 11px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+.ma-srow { display: grid; grid-template-columns: 92px 1fr auto; grid-template-areas: "label freq verdict" "label split verdict"; column-gap: 10px; row-gap: 2px; align-items: center; padding: 8px 0; border-top: 1px solid var(--border); }
+.ma-slabel { grid-area: label; font-size: 12px; font-weight: 800; }
+.ma-sfreq { grid-area: freq; font-size: 12px; }
+.ma-sfreq small { color: var(--muted); margin-left: 6px; }
+.ma-ssplit { grid-area: split; font-size: 11.5px; color: var(--muted); }
+.ma-ssplit b { color: var(--text); font-variant-numeric: tabular-nums; }
+.ma-sverdict { grid-area: verdict; }
+.ma-sv { display: inline-block; font-size: 10.5px; font-weight: 900; padding: 2px 6px; border: 1.5px solid; border-radius: 6px; white-space: nowrap; }
+.ma-sv-n { border-color: var(--border); color: var(--muted); font-weight: 700; }
+.ma-rank.ma-hi { background: var(--accent-light); color: var(--accent); }
+@media (max-width: 600px) {
+  .ma-srow { grid-template-columns: 1fr auto; grid-template-areas: "label verdict" "freq freq" "split split"; }
+}
+
 /* Spieler-Badge (Fantasy-Matchup-Boost) */
 .ma-boost { display: inline-block; font-size: 10px; font-weight: 800; padding: 1px 5px; border-radius: 5px; margin-left: 6px; white-space: nowrap; vertical-align: middle; cursor: help; background: var(--surface2); color: var(--muted); }
 .ma-boost.ma-good { background: rgba(76,175,129,.18); color: var(--green); }
