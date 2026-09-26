@@ -55,3 +55,13 @@ for s in range(2021,2026):
     df = X[(X.season==s)&(X.phase=='W2-4')]
     out.append(dict(saison=s, n=len(df), **{f'k={k}': su(df, f'k{k}') for k in [0,4,8]}))
 print('\nNur Woche 2-4, je Saison:'); print(pd.DataFrame(out).to_string(index=False))
+
+# Kalibrierung fuer die Seite: Trefferquote je |Netto| und Phase (k=4)
+X['absn'] = X.k4.abs(); X['stufe'] = np.where(X.absn >= 3, 'klar (>=3)', np.where(X.absn >= 1, 'leicht (1-2)', 'keiner'))
+out = []
+for ph in ['W1', 'W2-4', 'W5-8', 'W9+']:
+    df = X[X.phase == ph] if ph != 'W1' else X.iloc[0:0]
+    for st in ['leicht (1-2)', 'klar (>=3)']:
+        d = df[df.stufe == st]
+        if len(d): out.append(dict(phase=ph, stufe=st, n=len(d), anteil=round(len(d) / len(df) * 100), treffer=round((np.sign(d.k4) == np.sign(d.result)).mean() * 100, 1)))
+print('\nKalibrierung k=4:'); print(pd.DataFrame(out).to_string(index=False))

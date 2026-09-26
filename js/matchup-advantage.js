@@ -107,6 +107,67 @@ function maSetWeek(w) { maState.week = Number(w); maState.game = null; renderNfl
 function maSetGame(i) { maState.game = Number(i); renderNflMatchup(); }
 
 // Ein Vergleichsblock: Offense-Team gegen Defense-Team
+// Vorteile eines Blocks (Offense offA gegen Defense defA), wie im Fazit gezaehlt
+function _maEdges(D, offA, defA) {
+  const off = D.teams[offA], def = D.teams[defA];
+  let oe = 0, de = 0;
+  D.metrics.forEach(m => {
+    if (MA_NOISY.includes(m.key)) return;
+    const oR = off.offRank[m.key], dR = def.defRank[m.key];
+    if (oR == null || dR == null) return;
+    const adv = (dR - oR) / 31;
+    if (adv > 0.1) oe++; else if (adv < -0.1) de++;
+  });
+  return { oe, de };
+}
+function _maPhase(week) { return week <= 1 ? 'W1' : week <= 4 ? 'W2-4' : week <= 8 ? 'W5-8' : 'W9+'; }
+const MA_PHASE_TXT = { W1: 'Woche 1', 'W2-4': 'Woche 2–4', 'W5-8': 'Woche 5–8', 'W9+': 'ab Woche 9' };
+
+// Gesamt-Fazit ueber beide Richtungen: Netto = (Heim-Off-Vorteile - Gast-Def-Vorteile)
+// - (Gast-Off-Vorteile - Heim-Def-Vorteile). Staerke + historische Trefferquote.
+function _maOverallHtml(D, g, week) {
+  const h = _maEdges(D, g.home, g.away), a = _maEdges(D, g.away, g.home);
+  const net = (h.oe - h.de) - (a.oe - a.de);
+  const fav = net > 0 ? g.home : net < 0 ? g.away : null;
+  const strength = Math.abs(net) >= 3 ? 'klar' : Math.abs(net) >= 1 ? 'leicht' : null;
+  const ph = _maPhase(week);
+  const cal = D.verdictCalibration && D.verdictCalibration[ph];
+  const c = cal && strength ? cal[strength] : null;
+  const fmtP = v => String(v.toFixed(1)).replace('.', ',') + ' %';
+  const played = g.homeScore != null;
+  let head, body;
+  if (!fav) {
+    head = '<span class="ma-ov-tag">Kein Vorteil</span> Beide Seiten gleich viele Vorteile';
+    body = 'Das Tool gibt hier keine Tendenz ab (bei ca. 10 % der Spiele).';
+  } else {
+    head = `<span class="ma-ov-tag ${strength === 'klar' ? 'ma-ov-strong' : ''}" style="--tc:${_maColor(fav)}">${strength === 'klar' ? 'Klarer' : 'Leichter'} Vorteil</span> <b style="color:${_maColor(fav)}">${fav}</b> <span class="ma-ov-net">Netto +${Math.abs(net)} ${Math.abs(net) === 1 ? 'Kategorie' : 'Kategorien'}</span>`;
+    body = c ? `Historisch lag das Tool mit einem <b>${strength === 'klar' ? 'klaren' : 'leichten'}</b> Vorteil in ${MA_PHASE_TXT[ph]} in <b>${fmtP(c.hit)}</b> der Spiele richtig (${c.n} Spiele 2021–2025)${cal.vegas ? `, der Vegas-Favorit in ${fmtP(cal.vegas)}` : ''}.${strength === 'leicht' && c.hit < 58 ? ' Das ist kaum besser als ein Münzwurf.' : ''}` : '';
+  }
+  // Abgleich mit Vegas (spread > 0 = Heimteam favorisiert)
+  let vegasHtml = '';
+  const VV = D.verdictVsVegas;
+  if (fav && VV && g.spread != null && g.spread !== 0) {
+    const vFav = g.spread > 0 ? g.home : g.away;
+    const line = `${vFav} −${Math.abs(g.spread)}`;
+    vegasHtml = vFav === fav
+      ? `<div class="ma-ov-vegas ma-ov-agree">✅ Vegas sieht es genauso (${line}). Wenn Tool und Vegas einig sind, stimmte der Tipp historisch in ${fmtP(strength === 'klar' ? VV.agree.klarHit : VV.agree.hit)} der Fälle (${strength === 'klar' ? VV.agree.klarN : VV.agree.n} Spiele).</div>`
+      : `<div class="ma-ov-vegas ma-ov-disagree">⚠️ Vegas sieht <b>${vFav}</b> vorne (${line}). Wenn Tool und Vegas uneins sind, lag historisch <b>Vegas in ${fmtP(VV.disagree.vegasHit)}</b> richtig, das Tool nur in ${fmtP(strength === 'klar' ? VV.disagree.klarToolHit : VV.disagree.toolHit)} (${strength === 'klar' ? VV.disagree.klarN : VV.disagree.n} Spiele). Im Zweifel also Vegas glauben.</div>`;
+  }
+  const res = played ? `<div class="ma-ov-res">Ergebnis: ${g.away} ${g.awayScore} : ${g.homeScore} ${g.home}. Achtung: Die Werte enthalten dieses Spiel bereits, also kein fairer Rückblick.</div>` : '';
+  return `
+    <div class="ma-overall">
+      <div class="ma-ov-head">🧭 Gesamt-Fazit: ${head} <a class="dna-info" onclick="maOpenHelp('verdict')" title="Erklärung">ⓘ</a></div>
+      <div class="ma-ov-body">${body} Nicht zum Wetten geeignet: gegen den Spread trifft das Tool nicht besser als der Zufall.</div>
+      ${vegasHtml}
+      ${res}
+    </div>`;
+}
+
+function _maMixTip(D, t, side, m) {
+  const sv = t[side + 'Season'] ? t[side + 'Season'][m.key] : null, pv = t[side + 'Prior'] ? t[side + 'Prior'][m.key] : null;
+  const k = D.unitPriorK || 4;
+  return `Angezeigt: Mix aus Saison und Vorjahr (Vorjahr zählt wie ${k} Spiele). Saison ${D.season}: ${_maFmt(sv, m.fmt)} (${t.games} Sp.) · Vorjahr ${D.priorSeason || D.season - 1}: ${_maFmt(pv, m.fmt)}`;
+}
 function _maUnitBlock(D, offA, defA) {
   const off = D.teams[offA], def = D.teams[defA];
   let offEdges = 0, defEdges = 0;
@@ -124,9 +185,9 @@ function _maUnitBlock(D, offA, defA) {
     return `
       <div class="ma-row${MA_NOISY.includes(m.key) ? ' ma-row-noisy' : ''}">
         <div class="ma-label">${m.label} <a class="dna-info" onclick="maOpenHelp('${m.key}')" title="Erklärung">ⓘ</a>${takenCreated}</div>
-        <div class="ma-val ma-val-l">${_maFmt(off.off[m.key], m.fmt)} ${_maRankChip(oR)}</div>
+        <div class="ma-val ma-val-l" title="${_maMixTip(D, off, 'off', m)}">${_maFmt(off.off[m.key], m.fmt)} ${_maRankChip(oR)}</div>
         <div class="ma-track"><div class="ma-center"></div>${fill}${knob}</div>
-        <div class="ma-val ma-val-r">${_maRankChip(dR)} ${_maFmt(def.def[m.key], m.fmt)}</div>
+        <div class="ma-val ma-val-r" title="${_maMixTip(D, def, 'def', m)}">${_maRankChip(dR)} ${_maFmt(def.def[m.key], m.fmt)}</div>
       </div>`;
   }).join('');
   const verdict = offEdges > defEdges
@@ -263,7 +324,7 @@ function renderNflMatchup() {
         ${weeks.map(w => `<option value="${w}"${w === week ? ' selected' : ''}>Woche ${w}${w === D.currentWeek ? ' (aktuell)' : ''}</option>`).join('')}
       </select>
       <button class="dna-help-btn" onclick="maOpenHelp()">📖 Stats erklärt</button>
-      <span class="ma-note">${D.statSeason && D.statSeason !== D.season ? `Noch keine Spiele ${D.season}: Unit-Stats aus der Saison ${D.statSeason}` : `Stats Saison ${D.season} bis Woche ${D.throughWeek}`} · Ränge 1–32, 1 = beste Unit</span>
+      <span class="ma-note">${D.statSeason && D.statSeason !== D.season ? `Noch keine Spiele ${D.season}: Unit-Stats aus der Saison ${D.statSeason}` : `Stats Saison ${D.season} bis Woche ${D.throughWeek}`} · Mix mit Vorjahr (zählt wie ${D.unitPriorK || 4} Spiele) · Ränge 1–32, 1 = beste Unit</span>
     </div>
     <div class="ma-games">${gameBtns}</div>
 
@@ -279,6 +340,7 @@ function renderNflMatchup() {
     ${D.statSeason && D.statSeason !== D.season ? `<div class="info-banner" style="margin-top:12px">📅 Die Saison ${D.season} hat noch nicht begonnen. Alle Werte stammen aus ${D.statSeason}; Kader- und Trainerwechsel sind darin nicht berücksichtigt.</div>` : ''}
     ${smallSample ? `<div class="info-banner" style="margin-top:12px">⚠️ Kleine Stichprobe: Nach wenigen Spielen schwanken Ränge stark. Das ist beobachtete Leistung, keine verletzungsbereinigte Prognose.</div>` : ''}
 
+    ${_maOverallHtml(D, g, week)}
     <div class="ma-grid">
       ${_maUnitBlock(D, g.away, g.home)}
       ${_maUnitBlock(D, g.home, g.away)}
@@ -313,6 +375,8 @@ function maExplainHtml() {
     </ul>
     <div class="section-label">So liest du die Balken</div>
     <p style="margin:0 0 10px;font-size:13px">Jede Kategorie hat einen Liga-Rang von 1 bis 32, wobei <b>1 immer die beste Unit</b> ist. Der Balken vergleicht den Offense-Rang mit dem Defense-Rang des Gegners: Je weiter der Knopf zur Seite eines Teams wandert, desto größer dessen Vorteil (Rang 1 gegen Rang 32 = ganz außen). Grüne Ränge sind Top 8, rote Ränge 25–32. Unter jedem Block steht, wer in mehr Kategorien klar vorne liegt (Rangabstand über ca. 3 Plätze). <b>Red-Zone-TD %</b> zählt dabei nicht mit, weil der Wert laut Messung fast reiner Zufall ist. Alle Stats mit Beispielen und gemessener Stabilität erklärt der Button <b>📖 Stats erklärt</b> bzw. das ⓘ an jeder Zeile.</p>
+    <div class="section-label">🧭 Gesamt-Fazit &amp; Mix mit Vorjahr</div>
+    <p style="margin:0 0 10px;font-size:13px">Über den Blöcken steht das <b>Gesamt-Fazit</b> für beide Richtungen zusammen, mit Stärke: <b>klarer Vorteil</b> ab 3 Kategorien Netto, sonst <b>leichter Vorteil</b>. Dazu steht, wie oft das Tool in dieser Saisonphase historisch richtig lag. Test über 1.279 Spiele 2021–2025: klar 65–69 %, leicht 52–61 %, Vegas-Favorit 67 %. Sind sich Tool und Vegas einig, trifft der Tipp in 69 %. Widerspricht Vegas, lag Vegas in 64 % richtig, und die Seite zeigt dann einen Warnhinweis. Gegen den Spread gibt es keinen Vorteil. Alle Unit-Werte sind ein <b>Mix aus Saison und Vorjahr</b>: Das Vorjahr zählt wie 4 Spiele und verliert dann an Gewicht. Das hat die Trefferquote am Saisonanfang von 52 % auf 63 % gehoben. Saison- und Vorjahreswert stehen im Tooltip.</p>
     <div class="section-label">Fantasy Points Allowed &amp; Spieler-Badges</div>
     <p style="margin:0 0 8px;font-size:13px">Die Kacheln darunter zeigen, wie viele PPR-Fantasy-Punkte eine Defense pro Spiel an QB, RB, WR und TE zulässt. Hier ist <b>Rang 1 = lässt die meisten Punkte zu</b>, also das leichteste Matchup für gegnerische Spieler. Dieser Rang erscheint als Badge neben jedem QB/RB/WR/TE im <b>Matchup-Detail</b> und in den <b>Team-Kadern</b>: <span class="ma-boost ma-good">▲ vs XXX #3</span> gutes Matchup (Top 8), <span class="ma-boost">• @ XXX #15</span> neutral, <span class="ma-boost ma-bad">▼ @ XXX #30</span> hartes Matchup (Rang 25–32).</p>
     <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;line-height:1.5">
@@ -417,8 +481,11 @@ function maOpenHelp(focusKey) {
       <div class="dna-help-basics">
         <details${focusKey ? '' : ' open'}><summary>⚔️ Wie lese ich die Balken?</summary><div>Jede Zeile vergleicht den <b>Liga-Rang der Offense</b> (links) mit dem <b>Liga-Rang der gegnerischen Defense</b> (rechts). Rang 1 ist immer die beste Unit, grün sind Top 8, rot die Ränge 25–32. Der Knopf wandert zur Seite des Teams mit dem besseren Rang, und zwar umso weiter, je größer der Abstand ist (Rang 1 gegen Rang 32 = ganz außen). Unter jedem Block steht, wer in mehr Kategorien klar vorne liegt (Rangabstand über ca. 3 Plätze).</div></details>
         <details><summary>📏 Was heißt „Stabilität r“?</summary><div>Wir haben für jede Kennzahl gemessen, wie ähnlich die Teamwerte in den ungeraden und geraden Wochen 2025 waren. <b>r nahe 1</b> heißt: Das ist eine echte Eigenschaft des Teams. <b>r nahe 0</b> heißt: Das schwankt zufällig und sagt wenig über das nächste Spiel. Faustregel: ab 0,6 stabil, 0,4–0,6 mittel, 0,2–0,4 wacklig, darunter fast Zufall. Offense-Werte sind meist stabiler als Defense-Werte, und Stil-Werte (Blitz, Motion) am stabilsten.</div></details>
-        <details><summary>🎯 Kann man damit Spiele vorhersagen?</summary><div>Nur sehr begrenzt, und das ist auch nicht der Zweck. Das Tool zeigt, wo Stärken auf Schwächen treffen. Früh in der Saison beruht alles auf 1–3 Spielen. Beispiel <b>ATL @ GB, Woche 3 2026</b>: Vor dem Spiel hatte Atlanta das schlechteste Passspiel der Liga, und GB lag in 4 von 5 Kategorien vorne. Atlanta gewann trotzdem 35:14, vor allem mit +0,31 EPA pro Lauf gegen die angeblich sechstbeste Laufdefense. Die Spieler-Badges sind über 5 Jahre getestet: ein kleiner, echter Effekt, mehr nicht.</div></details>
+        <details><summary>🎯 Kann man damit Spiele vorhersagen?</summary><div>Getestet an allen 1.279 Spielen 2021–2025, jeweils nur mit Daten vor dem Spiel: Das Gesamt-Fazit tippt den Sieger in <b>62 %</b> der Fälle richtig. Immer das Heimteam zu tippen bringt 54 %, der <b>Vegas-Favorit 67 %</b>. Ein <b>klarer Vorteil</b> (3+ Kategorien Netto) trifft 65–69 %, ab Woche 9 auf Vegas-Niveau. Ein <b>leichter Vorteil</b> ist dagegen kaum mehr als ein Münzwurf. <b>Gegen den Spread</b> trifft keine Variante besser als der Zufall, alles Wissen steckt schon in der Line. Zum Wetten ist das Tool also nicht geeignet. Beispiel <b>ATL @ GB, Woche 3 2026</b>: Das Tool sah GB klar vorne, Atlanta gewann 35:14.</div></details>
+        <details><summary>🔀 Warum „Mix mit Vorjahr“?</summary><div>Nach 1–3 Spielen sind Teamwerte fast Zufall. Deshalb mischt die Seite die Saisonwerte mit dem Vorjahr, das anfangs wie <b>4 Spiele</b> zählt und dann automatisch an Gewicht verliert (nach 12 Spielen noch 25 %). Im Test stieg die Trefferquote in Woche 2–4 dadurch von 52 % auf 63 %, und zwar in allen fünf Saisons. Später in der Saison ändert sich praktisch nichts. Die Einzelwerte (Saison und Vorjahr) stehen im Tooltip, wenn man mit der Maus über einen Wert fährt.</div></details>
       </div>
+      <div class="dna-help-title">🧭 Gesamt-Fazit</div>
+      <div class="dna-help-grid">${card('verdict', '● Gesamt-Fazit & Stärke', 'Backtest 2021–2025 · 1.279 Spiele', `<p><b>Was ist das?</b> Beide Richtungen zusammen: (Vorteile der Heim-Offense − Vorteile der Gast-Defense) − (Vorteile der Gast-Offense − Vorteile der Heim-Defense). Gezählt werden die 4 Kategorien ohne Red Zone. Ab 3 Kategorien Netto heißt es <b>klarer</b>, bei 1–2 <b>leichter</b> Vorteil.</p><p><b>Wie oft stimmt es?</b></p>${D && D.verdictCalibration ? `<table class="ma-cal"><tr><th></th><th>leicht</th><th>klar</th><th>Vegas-Fav.</th></tr>${Object.entries(D.verdictCalibration).map(([ph, c]) => `<tr><td>${MA_PHASE_TXT[ph]}</td><td>${c.leicht.hit.toFixed(1).replace('.', ',')} %</td><td><b>${c.klar.hit.toFixed(1).replace('.', ',')} %</b></td><td>${c.vegas ? c.vegas.toFixed(1).replace('.', ',') + ' %' : '–'}</td></tr>`).join('')}</table>` : ''}${D && D.verdictVsVegas ? `<p><b>Und im Vergleich zu Vegas?</b> Sind sich Tool und Vegas-Favorit einig, stimmt der Tipp in ${D.verdictVsVegas.agree.hit.toFixed(1).replace('.', ',')} % (bei klarem Vorteil ${D.verdictVsVegas.agree.klarHit.toFixed(1).replace('.', ',')} %). Sind sie uneins, liegt <b>Vegas in ${D.verdictVsVegas.disagree.vegasHit.toFixed(1).replace('.', ',')} %</b> richtig, selbst gegen einen klaren Vorteil des Tools.</p>` : ''}<p class="dna-help-ex"><b>Faustregel:</b> Nur ein klarer Vorteil ist ernst zu nehmen, und am meisten, wenn Vegas es genauso sieht. Widerspricht Vegas, eher Vegas glauben. Gegen den Spread bringt das Tool keinen Vorteil.</p>`)}</div>
       <div class="dna-help-title">⚔️ Unit gegen Unit <span>● = zählt ins Fazit · ◇ = nur zur Info</span></div>
       <div class="dna-help-grid">${unitCards}</div>
       <div class="dna-help-title">🏈 Fantasy <span>Grundlage der Spieler-Badges</span></div>

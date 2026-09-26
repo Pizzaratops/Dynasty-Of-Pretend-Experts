@@ -47,6 +47,7 @@ Scheme (FTN): Motion 0,77 · Blitz 0,69 · Play Action 0,60 · Screen 0,49 · St
 FPA (halbe Saison / Jahr-zu-Jahr 2024→25): QB 0,30/0,25 · RB 0,07/0,20 · WR 0,23/**−0,08** · TE 0,28/0,24.
 
 ## Umgesetzt
+0. **Unit-Stats mit Vorjahres-Mix** (k = 4) für Ränge, Anzeige und Fazit; **Gesamt-Fazit** mit Stärke (leicht/klar), Trefferquote und Vegas-Abgleich.
 1. **Stufenplan** für FPA im Sync: 0 Spiele → Vorjahr, 1 Spiel → (Saison + 12 × Vorjahr) / 13, ab 2 Spielen → Saison.
    Vor dem ersten Saisonspiel nutzt der Sync die Unit-Stats und das Scheme des Vorjahres (Hinweis-Banner auf der Seite).
 2. **WR-Badges ohne Farbe** (Rang bleibt, Tooltip erklärt warum).
@@ -76,6 +77,21 @@ Getippt wird das Team mit dem höheren Netto an Vorteilen, bei Gleichstand kein 
 - **Kein Mehrwert gegenüber Vegas:** Gegen den Spread trifft keine Variante über Break-even (alle 47–49 %, Break-even 52,4 %).
   Die Korrelation des Fazits mit „Ergebnis minus Spread“ ist 0,02. Alles, was das Tool weiß, steckt schon in der Line. **Nicht zum Wetten benutzen.**
 - Vegas-Spread allein korreliert mit dem Ergebnis r = 0,47, das Seiten-Fazit r = 0,31 (mit Vorjahres-Mix 0,34).
+
+### Kalibrierung des Gesamt-Fazits (Vorjahres-Mix k = 4) – so auf der Seite angezeigt
+
+| Phase | leicht (Netto 1–2) | klar (Netto ≥ 3) | Vegas-Favorit |
+|---|---|---|---|
+| Woche 1 (nur Vorjahr) | 55,9 % (34) | 76,3 % (38) | – |
+| Woche 2–4 | 61,1 % (90) | 64,8 % (122) | 61,5 % |
+| Woche 5–8 | 55,7 % (115) | 65,8 % (155) | 67,4 % |
+| Woche 9+ | 51,8 % (247) | 68,5 % (428) | 68,2 % |
+
+**Tool gegen Vegas** (Spiele mit Tipp und Spread):
+- einig: 69,1 % richtig (919 Spiele), bei klarem Vorteil 71,9 % (616)
+- uneinig: **Vegas 63,9 %** richtig, Tool 36,1 % (238). Mit klarem Tool-Vorteil trifft das Tool nur 34,8 % (89).
+
+→ Die Seite zeigt Stärke, historische Trefferquote je Phase und einen Hinweis, ob Vegas zustimmt oder widerspricht.
 
 ## Einzelbeispiel Spielebene: ATL @ GB, Woche 3 2026
 Mit Vorjahres-Mix hätte das Fazit ebenfalls GB (Netto +3) getippt. Das Ergebnis war ein Außenseitersieg, den keine Variante erkannt hätte.

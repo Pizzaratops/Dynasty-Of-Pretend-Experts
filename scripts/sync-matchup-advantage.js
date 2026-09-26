@@ -25,7 +25,11 @@
 //  Dazu der komplette REG-Spielplan der Saison (für Wochen-Auswahl und
 //  den Spieler-Matchup-Boost auf der Fantasy-Matchups-Seite).
 //
-//  Quelle: nflverse (play_by_play_<season>.csv.gz,
+//  Unit-Werte sind ein Mix aus laufender Saison und Vorjahr: (g*Saison +
+//  4*Vorjahr)/(g+4), g = bisherige Spiele (Backtest siehe docs/BACKTEST-
+//  MATCHUP-BADGES.md). offSeason/offPrior etc. enthalten die Einzelwerte.
+//
+//  Quelle: nflverse (play_by_play_<season>.csv.gz + Vorjahr,
 //  stats_player_week_<season>.csv, games.csv, ftn_charting_<season>.csv).
 //  Keine Secrets.
 //
@@ -35,9 +39,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const zlib = require('zlib');
-const https = require('https');
 const { httpsGetText, parseCsv, normTeam, NFL_TEAM_META, GAMES_CSV_URL } = require('./lib/nflverse');
+const { streamPbp } = require('./lib/pbp-stream');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'data', 'matchup-advantage.js');
@@ -53,19 +56,21 @@ const METRICS = [
 ];
 const FPA_POS = ['QB', 'RB', 'WR', 'TE'];
 
-function httpsGetBuffer(url) {
-  return new Promise((resolve, reject) => {
-    https.get(url, { headers: { 'User-Agent': 'dpe-hq-bot' } }, res => {
-      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-        return httpsGetBuffer(res.headers.location).then(resolve, reject);
-      }
-      if (res.statusCode !== 200) { res.resume(); return reject(new Error(`HTTP ${res.statusCode} für ${url}`)); }
-      const chunks = [];
-      res.on('data', c => chunks.push(c));
-      res.on('end', () => resolve(Buffer.concat(chunks)));
-    }).on('error', reject);
-  });
-}
+// Trefferquote des Gesamt-Fazits je Staerke und Saisonphase, aus dem
+// Spielebenen-Backtest 2021-2025 mit Vorjahres-Mix k=4 (scripts/research/
+// backtest_games_prior_k.py). n = Anzahl Spiele. Vegas-Favorit zum Vergleich.
+const VERDICT_CALIBRATION = {
+  W1: { leicht: { hit: 55.9, n: 34 }, klar: { hit: 76.3, n: 38 }, vegas: null },
+  'W2-4': { leicht: { hit: 61.1, n: 90 }, klar: { hit: 64.8, n: 122 }, vegas: 61.5 },
+  'W5-8': { leicht: { hit: 55.7, n: 115 }, klar: { hit: 65.8, n: 155 }, vegas: 67.4 },
+  'W9+': { leicht: { hit: 51.8, n: 247 }, klar: { hit: 68.5, n: 428 }, vegas: 68.2 },
+};
+// Fazit (mit Vorjahres-Mix) gegen den Vegas-Favoriten, 2021-2025 ab Woche 2
+const VERDICT_VS_VEGAS = {
+  agree: { hit: 69.1, n: 919, klarHit: 71.9, klarN: 616 },
+  disagree: { vegasHit: 63.9, toolHit: 36.1, n: 238, klarToolHit: 34.8, klarN: 89 },
+};
+
 
 const r4 = n => Math.round(n * 10000) / 10000;
 const mean = (s, n) => (n ? s / n : null);
@@ -88,58 +93,94 @@ async function main() {
   const statSeason = played.length ? season : season - 1;
   if (!played.length) console.log(`Season ${season}: noch kein Spiel -- Unit-Stats aus ${statSeason}.`);
 
-  // ---------- Play-by-Play ----------
-  const pbpGz = await httpsGetBuffer(`${REL}/pbp/play_by_play_${statSeason}.csv.gz`);
-  const pbp = parseCsv(zlib.gunzipSync(pbpGz).toString('utf8')).filter(p => p.season_type === 'REG');
-
-  const acc = {};
-  const A = abbr => (acc[abbr] = acc[abbr] || {
-    off: { passN: 0, passEpa: 0, rushN: 0, rushEpa: 0, db: 0, sacks: 0, plays: 0, expl: 0, rzDrives: new Set(), rzTd: new Set() },
-    def: { passN: 0, passEpa: 0, rushN: 0, rushEpa: 0, db: 0, sacks: 0, plays: 0, expl: 0, rzDrives: new Set(), rzTd: new Set() },
-    games: new Set(),
-  });
-
-  for (const p of pbp) {
-    if (!p.posteam || !p.defteam) continue;
-    const off = normTeam(p.posteam), def = normTeam(p.defteam);
-    A(off).games.add(p.game_id); A(def).games.add(p.game_id);
-    const sides = [A(off).off, A(def).def];
-
-    // Red Zone: Drive-Ebene
-    if (p.drive_inside20 === '1' && p.fixed_drive) {
-      const dk = `${p.game_id}#${p.fixed_drive}`;
-      sides.forEach(s => s.rzDrives.add(dk));
-      if (p.fixed_drive_result === 'Touchdown') sides.forEach(s => s.rzTd.add(dk));
-    }
-
-    if (p.two_point_attempt === '1' || p.epa === '' || p.epa === 'NA') continue;
-    if (p.play_type !== 'pass' && p.play_type !== 'run') continue;
-    const epa = Number(p.epa), yds = Number(p.yards_gained) || 0;
-    const isPass = p.pass === '1', isRush = p.rush === '1';
-    if (!isPass && !isRush) continue;
-
-    sides.forEach(s => {
-      s.plays++;
-      if (isPass) { s.passN++; s.passEpa += epa; }
-      else { s.rushN++; s.rushEpa += epa; }
-      if (p.qb_dropback === '1') { s.db++; if (p.sack === '1') s.sacks++; }
-      if ((isPass && p.sack !== '1' && yds >= 20) || (isRush && yds >= 10)) s.expl++;
+  // ---------- Play-by-Play (gestreamt, nur benoetigte Spalten) ----------
+  // Laufende Saison + Vorjahr. Unit-Werte = Mix: (g*Saison + K*Vorjahr)/(g+K),
+  // g = bisherige Spiele des Teams. Backtest 2021-2025 (docs/BACKTEST-
+  // MATCHUP-BADGES.md): Fazit-Trefferquote Woche 2-4 51,7 % -> 63,2 %, in
+  // allen fuenf Saisons besser; spaete Saison unveraendert.
+  const UNIT_PRIOR_K = 4;
+  const PBP_FIELDS = ['game_id', 'play_id', 'season_type', 'week', 'posteam', 'defteam', 'pass', 'rush', 'qb_dropback',
+    'qb_scramble', 'pass_attempt', 'sack', 'epa', 'yards_gained', 'play_type', 'two_point_attempt', 'fixed_drive',
+    'fixed_drive_result', 'drive_inside20'];
+  async function loadPbpSlim(yr) {
+    const rows = [];
+    await streamPbp(yr, (c, ix) => {
+      if (c[ix.season_type] !== 'REG') return;
+      const o = {}; PBP_FIELDS.forEach(f => { o[f] = c[ix[f]]; }); rows.push(o);
     });
+    return rows;
+  }
+  function aggregate(rows) {
+    const acc = {};
+    const A = abbr => (acc[abbr] = acc[abbr] || {
+      off: { passN: 0, passEpa: 0, rushN: 0, rushEpa: 0, db: 0, sacks: 0, plays: 0, expl: 0, rzDrives: new Set(), rzTd: new Set() },
+      def: { passN: 0, passEpa: 0, rushN: 0, rushEpa: 0, db: 0, sacks: 0, plays: 0, expl: 0, rzDrives: new Set(), rzTd: new Set() },
+      games: new Set(),
+    });
+    for (const p of rows) {
+      if (!p.posteam || !p.defteam || p.posteam === 'NA' || p.defteam === 'NA') continue;
+      const off = normTeam(p.posteam), def = normTeam(p.defteam);
+      A(off).games.add(p.game_id); A(def).games.add(p.game_id);
+      const sides = [A(off).off, A(def).def];
+      // Red Zone: Drive-Ebene
+      if (p.drive_inside20 === '1' && p.fixed_drive) {
+        const dk = `${p.game_id}#${p.fixed_drive}`;
+        sides.forEach(s => s.rzDrives.add(dk));
+        if (p.fixed_drive_result === 'Touchdown') sides.forEach(s => s.rzTd.add(dk));
+      }
+      if (p.two_point_attempt === '1' || p.epa === '' || p.epa === 'NA') continue;
+      if (p.play_type !== 'pass' && p.play_type !== 'run') continue;
+      const epa = Number(p.epa), yds = Number(p.yards_gained) || 0;
+      const isPass = p.pass === '1', isRush = p.rush === '1';
+      if (!isPass && !isRush) continue;
+      sides.forEach(s => {
+        s.plays++;
+        if (isPass) { s.passN++; s.passEpa += epa; }
+        else { s.rushN++; s.rushEpa += epa; }
+        if (p.qb_dropback === '1') { s.db++; if (p.sack === '1') s.sacks++; }
+        if ((isPass && p.sack !== '1' && yds >= 20) || (isRush && yds >= 10)) s.expl++;
+      });
+    }
+    const finish = s => ({
+      passEpa: mean(s.passEpa, s.passN), rushEpa: mean(s.rushEpa, s.rushN), sackRate: mean(s.sacks, s.db),
+      explosive: mean(s.expl, s.plays), rzTd: s.rzDrives.size ? s.rzTd.size / s.rzDrives.size : null,
+    });
+    const out = {};
+    Object.entries(acc).forEach(([abbr, a]) => {
+      out[abbr] = { games: a.games.size, off: finish(a.off), def: finish(a.def), rzTrips: { off: a.off.rzDrives.size, def: a.def.rzDrives.size } };
+    });
+    return out;
   }
 
-  const finish = s => ({
-    passEpa: r4(mean(s.passEpa, s.passN)),
-    rushEpa: r4(mean(s.rushEpa, s.rushN)),
-    sackRate: r4(mean(s.sacks, s.db)),
-    explosive: r4(mean(s.expl, s.plays)),
-    rzTd: s.rzDrives.size ? r4(s.rzTd.size / s.rzDrives.size) : null,
-  });
+  const curRows = played.length ? await loadPbpSlim(season) : [];
+  const priorRows = await loadPbpSlim(season - 1);
+  const curAgg = aggregate(curRows), priorAgg = aggregate(priorRows);
+  // Fuer Scheme-Tendenzen und "Daten bis Woche": laufende Saison, vor dem ersten Spiel das Vorjahr
+  const pbp = played.length ? curRows : priorRows;
+  console.log(`Play-by-Play: ${curRows.length} Plays ${season}, ${priorRows.length} Plays ${season - 1} (Vorjahr).`);
 
+  const mix = (cv, pv, g) => {
+    if (cv == null && pv == null) return null;
+    if (pv == null) return cv;
+    if (cv == null || !g) return pv;
+    return (g * cv + UNIT_PRIOR_K * pv) / (g + UNIT_PRIOR_K);
+  };
+  const r4o = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v == null ? null : r4(v)]));
   const teams = Object.keys(NFL_TEAM_META).map(abbr => {
-    const a = acc[abbr];
-    return a
-      ? { abbr, games: a.games.size, off: finish(a.off), def: finish(a.def), rzTrips: { off: a.off.rzDrives.size, def: a.def.rzDrives.size } }
-      : { abbr, games: 0, off: {}, def: {}, rzTrips: { off: 0, def: 0 } };
+    const c = curAgg[abbr], pr = priorAgg[abbr];
+    const g = c ? c.games : 0;
+    const side = sd => {
+      const o = {};
+      METRICS.forEach(m => { o[m.key] = mix(c ? c[sd][m.key] : null, pr ? pr[sd][m.key] : null, g); });
+      return o;
+    };
+    return {
+      abbr, games: g,
+      off: r4o(side('off')), def: r4o(side('def')),               // Mix -> Raenge + Anzeige
+      offSeason: c ? r4o(c.off) : null, defSeason: c ? r4o(c.def) : null,
+      offPrior: pr ? r4o(pr.off) : null, defPrior: pr ? r4o(pr.def) : null,
+      rzTrips: c ? c.rzTrips : { off: 0, def: 0 },
+    };
   });
 
   // ---------- Fantasy Points Allowed (Stufenplan) ----------
@@ -282,7 +323,8 @@ async function main() {
   const throughWeek = statSeason === season ? Math.max(...pbp.map(p => Number(p.week))) : 0;
 
   const data = {
-    season, statSeason, throughWeek, currentWeek, fpaPriorK: FPA_PRIOR_K, syncedAt: new Date().toISOString(),
+    season, statSeason, throughWeek, currentWeek, fpaPriorK: FPA_PRIOR_K, unitPriorK: UNIT_PRIOR_K, priorSeason: season - 1,
+    verdictCalibration: VERDICT_CALIBRATION, verdictVsVegas: VERDICT_VS_VEGAS, syncedAt: new Date().toISOString(),
     metrics: METRICS, fpaPositions: FPA_POS, scheme: schemeLeague,
     teams: Object.fromEntries(teams.map(t => [t.abbr, t])),
     schedule,

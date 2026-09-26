@@ -1068,3 +1068,20 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
 .ps-sub { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.35; }
 .ps-foot { font-size: 11px; color: var(--muted); margin-top: 10px; }
 @media (max-width: 760px) { .ps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Gesamt-Fazit (Matchup Advantage) */
+.ma-overall { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.ma-ov-head { font-size: 14px; font-weight: 800; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.ma-ov-tag { font-size: 11px; font-weight: 900; padding: 2px 8px; border-radius: 6px; border: 1.5px solid var(--tc, var(--border)); color: var(--tc, var(--muted)); letter-spacing: .3px; text-transform: uppercase; }
+.ma-ov-tag.ma-ov-strong { background: var(--tc); color: #fff; }
+.ma-ov-net { font-size: 11.5px; font-weight: 600; color: var(--muted); }
+.ma-ov-body { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+.ma-ov-body b { color: var(--text); }
+.ma-ov-res { font-size: 12px; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); color: var(--muted); }
+.ma-cal { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 4px 0 8px; }
+.ma-cal th, .ma-cal td { padding: 4px 6px; border-bottom: 1px solid var(--border); text-align: right; }
+.ma-cal th:first-child, .ma-cal td:first-child { text-align: left; }
+.ma-cal th { font-size: 11px; color: var(--muted); font-weight: 700; }
+.ma-ov-vegas { font-size: 12.5px; margin-top: 6px; padding: 6px 10px; border-radius: 8px; line-height: 1.45; }
+.ma-ov-agree { background: rgba(76,175,129,.12); color: var(--text); }
+.ma-ov-disagree { background: rgba(217,105,95,.13); color: var(--text); }
