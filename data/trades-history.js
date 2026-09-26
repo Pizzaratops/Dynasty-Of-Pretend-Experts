@@ -24,7 +24,7 @@ const TRADES_HISTORY = [
   { season: 2024, a: "milchreis", aGives: ["Drake Maye", "2025 3rd (via Blowout Arctic Yetis)"], b: "jiggydee2312", bGives: ["2025 2nd"] },
   { season: 2024, a: "r4xon", aGives: ["Josh Jacobs", "2025 4th", "2026 4th", "2027 4th"], b: "lovethecheesehead", bGives: ["Braelon Allen", "2026 3rd", "2027 3rd"],
     note: "Pick-Swap: 4th gegen 3rd in 2026 und 2027" },
-  { season: 2024, a: "milchreis", aGives: ["Kyle Pitts Sr.", "2025 1st (via Tempelhof Thunder Turtles)"], b: "bomba12", bGives: ["Rome Odunze", "David Njoku", "2025 4th"],
+  { season: 2024, a: "milchreis", aGives: ["2025 1st (via Tempelhof Thunder Turtles)"], b: "bomba12", bGives: ["Kyle Pitts Sr.", "Rome Odunze", "David Njoku", "2025 4th"],
     note: "Konditional: TTT-1st 2025 oder eigener 1st 2026 — es wurde der TTT-1st 2025" },
   { season: 2024, a: "lovethecheesehead", aGives: ["Najee Harris", "2025 4th (via Husum Husos)"], b: "svennyg", bGives: ["2025 2nd (2.02)"] },
 
@@ -50,8 +50,8 @@ const TRADES_HISTORY = [
   { season: 2025, a: "danfre", aGives: ["Luther Burden III"], b: "milchreis", bGives: ["Kyle Pitts Sr."] },
   { season: 2025, a: "lovethecheesehead", aGives: ["2026 3rd (via Tempelhof Thunder Turtles)", "2026 4th"], b: "jiggydee2312", bGives: ["Stefon Diggs"] },
   { season: 2025, a: "milchreis", aGives: ["Xavier Worthy", "2026 3rd"], b: "unicornsruegen", bGives: ["Breece Hall"] },
-  { season: 2025, a: "giantmarv", aGives: ["C.J. Stroud", "Chuba Hubbard"], b: "jiggydee2312", bGives: ["Alvin Kamara"] },
-  { season: 2025, a: "danfre", aGives: ["Cooper Kupp"], b: "jiggydee2312", bGives: ["Evan Engram"] },
+  { season: 2025, a: "giantmarv", aGives: ["Alvin Kamara"], b: "jiggydee2312", bGives: ["C.J. Stroud", "Chuba Hubbard"] },
+  { season: 2025, a: "lovethecheesehead", aGives: ["Cooper Kupp"], b: "jiggydee2312", bGives: ["Evan Engram"] },
   { season: 2025, a: "giantmarv", aGives: ["Tory Horton"], b: "milchreis", bGives: ["Rhamondre Stevenson"] },
   { season: 2025, a: "dickvanhurik", aGives: ["T.J. Hockenson", "2026 3rd"], b: "unicornsruegen", bGives: ["Woody Marks"] },
   { season: 2025, a: "unicornsruegen", aGives: ["Chase Brown", "2026 2nd"], b: "lovethecheesehead", bGives: ["Marvin Harrison Jr.", "2026 3rd"] },
@@ -60,5 +60,7 @@ const TRADES_HISTORY = [
   { season: 2025, a: "lovethecheesehead", aGives: ["Chase Brown", "2027 4th"], b: "danfre", bGives: ["2027 1st"] },
   { season: 2025, a: "lovethecheesehead", aGives: ["2026 4th"], b: "unicornsruegen", bGives: ["Tyler Allgeier"] },
   { season: 2025, a: "lovethecheesehead", aGives: ["Jake Ferguson", "2026 3rd (via RioRainRats)"], b: "giantmarv", bGives: ["2026 2nd"] },
+  { season: 2025, a: "jiggydee2312", aGives: ["Rashee Rice"], b: "milchreis", bGives: ["Bhayshul Tuten", "Ricky Pearsall"],
+    note: "Genauer Zeitpunkt unbekannt, zwischen Rice zu den Sloths und dem Saisonende" },
   { season: 2025, a: "milchreis", aGives: ["Brock Purdy", "AJ Barner"], b: "r4xon", bGives: ["Colston Loveland"] },
 ];
