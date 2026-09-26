@@ -1047,3 +1047,22 @@ table.db-table td:nth-child(2) { text-align: left; font-weight: 600; }
   .fu-season { font-size: 11px; }
   .fu-long { display: none; }
 }
+
+/* ---------- PLAYER STYLE (js/player-style.js, FTN-Karte im Player-DNA-Profil) ---------- */
+.ps-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; margin-top: 16px; }
+.ps-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.ps-title { font-size: 13px; font-weight: 800; letter-spacing: .3px; }
+.ps-meta { font-size: 12px; color: var(--muted); }
+.ps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ps-tile { background: var(--surface2); border-radius: 10px; padding: 10px 12px; min-width: 0; }
+.ps-tile.ps-style { background: transparent; border: 1px dashed var(--border); }
+.ps-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .3px; }
+.ps-val { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; margin: 2px 0; display: flex; align-items: center; gap: 8px; }
+.ps-val.ps-thin { opacity: .55; }
+.ps-pct { font-size: 11px; font-weight: 800; padding: 1px 6px; border-radius: 6px; background: var(--surface); color: var(--muted); }
+.ps-pct.ps-good { background: rgba(76,175,129,.18); color: var(--green); }
+.ps-pct.ps-bad { background: rgba(217,105,95,.16); color: var(--red); }
+.ps-avg { font-size: 11px; color: var(--muted); }
+.ps-sub { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.35; }
+.ps-foot { font-size: 11px; color: var(--muted); margin-top: 10px; }
+@media (max-width: 760px) { .ps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
