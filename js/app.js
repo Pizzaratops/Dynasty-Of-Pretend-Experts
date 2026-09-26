@@ -263,11 +263,24 @@ function closeMobileNav() {
 
 /* Desktop-Dropdowns zusaetzlich per Klick (nicht nur :hover) bedienbar
    machen -- wichtig fuer Touch-Geraete mit breitem Viewport. */
+function _placeSnavDropdown(group) {
+  const btn = group.querySelector('.snav-group-btn');
+  const dd = group.querySelector('.snav-dropdown');
+  if (!btn || !dd) return;
+  const r = btn.getBoundingClientRect();
+  const w = Math.max(dd.offsetWidth || 220, 220);
+  dd.style.top = r.bottom + 'px';
+  dd.style.left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8)) + 'px';
+}
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.snav-group').forEach(group => {
     const btn = group.querySelector('.snav-group-btn');
     if (!btn) return;
+    group.addEventListener('mouseenter', () => _placeSnavDropdown(group));
+    const dd = group.querySelector('.snav-dropdown');
+    if (dd) dd.addEventListener('click', (e) => { e.stopPropagation(); group.classList.remove('open'); });
     btn.addEventListener('click', (e) => {
+      _placeSnavDropdown(group);
       e.stopPropagation();
       const wasOpen = group.classList.contains('open');
       document.querySelectorAll('.snav-group.open').forEach(g => g.classList.remove('open'));

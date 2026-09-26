@@ -138,8 +138,10 @@ a { color: inherit; text-decoration: none; }
 .snav-arrow { font-size: 10px; margin-left: 2px; }
 .snav-dropdown {
   display: none;
-  position: absolute;
-  top: 100%;
+  /* fixed statt absolute: .subnav-inner hat overflow-x:auto und wuerde
+     ein absolut positioniertes Dropdown abschneiden. Position setzt JS. */
+  position: fixed;
+  top: 0;
   left: 0;
   background: var(--surface);
   border: 1px solid var(--border);
