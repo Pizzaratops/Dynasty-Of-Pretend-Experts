@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-09-26T23:58:28.209Z",
+  "generatedAt": "2026-09-27T03:30:01.219Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -23,7 +23,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "CHI",
           "isStarter": false,
-          "status": "D",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 8.7,
           "last3AvgPoints": 23,
@@ -60,7 +60,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 7.3,
-          "projPoints": 7.8
+          "projPoints": 8.1
         },
         {
           "name": "Brian Thomas",
@@ -71,7 +71,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7,
           "last3AvgPoints": 7,
-          "projPoints": 9.1
+          "projPoints": 9
         },
         {
           "name": "Ricky Pearsall",
@@ -137,7 +137,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 8.7
+          "projPoints": 9.1
         },
         {
           "name": "Luther Burden",
@@ -148,7 +148,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.1
+          "projPoints": 9.6
         },
         {
           "name": "David Njoku",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.7,
           "last3AvgPoints": 15.6,
-          "projPoints": 13.7
+          "projPoints": 13.6
         },
         {
           "name": "Brian Robinson",
@@ -277,7 +277,7 @@ const STATUS_REPORT_DATA = {
           "pos": "K",
           "nfl": "CHI",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 8,
@@ -292,7 +292,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5,
           "last3AvgPoints": 7.5,
-          "projPoints": 8.5
+          "projPoints": 8.4
         },
         {
           "name": "Cameron Dicker",
@@ -336,7 +336,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18,
           "last3AvgPoints": 14,
-          "projPoints": 8.6
+          "projPoints": 8.5
         }
       ],
       "flaggedCount": 0
@@ -370,7 +370,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 7.3,
-          "projPoints": 7.8
+          "projPoints": 8.1
         },
         {
           "name": "Jalen Coker",
@@ -381,7 +381,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 24.2,
-          "projPoints": 14.5
+          "projPoints": 14.9
         },
         {
           "name": "Pat Bryant",
@@ -392,7 +392,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.6,
           "last3AvgPoints": 4.9,
-          "projPoints": 7.3
+          "projPoints": 7.4
         },
         {
           "name": "Quinshon Judkins",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.8,
           "last3AvgPoints": 8.4,
-          "projPoints": 12.6
+          "projPoints": 12.4
         },
         {
           "name": "Colston Loveland",
@@ -414,7 +414,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 8.7
+          "projPoints": 9.1
         },
         {
           "name": "Luther Burden",
@@ -425,7 +425,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.1
+          "projPoints": 9.6
         },
         {
           "name": "Denzel Boston",
@@ -436,7 +436,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 20.5,
           "last3AvgPoints": 17.2,
-          "projPoints": 9.9
+          "projPoints": 10.2
         },
         {
           "name": "Eli Stowers",
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.8,
           "last3AvgPoints": 20.4,
-          "projPoints": 24.5
+          "projPoints": 24.4
         },
         {
           "name": "Tua Tagovailoa",
@@ -509,7 +509,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "PHI",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 27.7,
           "last3AvgPoints": 18,
@@ -524,7 +524,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 10.6
+          "projPoints": 10.7
         },
         {
           "name": "Trey McBride",
@@ -535,7 +535,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18.1,
           "last3AvgPoints": 21.3,
-          "projPoints": 16.7
+          "projPoints": 16.8
         },
         {
           "name": "Sean Tucker",
@@ -613,7 +613,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.6,
           "last3AvgPoints": 20.2,
-          "projPoints": 12
+          "projPoints": 12.3
         },
         {
           "name": "Devaughn Vele",
@@ -646,7 +646,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 0.8,
           "last3AvgPoints": 0.8,
-          "projPoints": 7.1
+          "projPoints": 7.4
         },
         {
           "name": "Jeremiyah Love",
@@ -657,7 +657,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 9,
-          "projPoints": 12.6
+          "projPoints": 12.7
         },
         {
           "name": "KC Concepcion",
@@ -668,7 +668,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.2,
           "last3AvgPoints": 5.5,
-          "projPoints": 7.6
+          "projPoints": 7.8
         },
         {
           "name": "Patrick Mahomes",
@@ -723,7 +723,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.3,
           "last3AvgPoints": 15.1,
-          "projPoints": 12.8
+          "projPoints": 12.7
         }
       ],
       "flaggedCount": 0
@@ -746,7 +746,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.2,
           "last3AvgPoints": 2.2,
-          "projPoints": 12.2
+          "projPoints": 12.6
         },
         {
           "name": "Joe Milton",
@@ -801,7 +801,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.2,
           "last3AvgPoints": 11.3,
-          "projPoints": 10.4
+          "projPoints": 10.5
         },
         {
           "name": "Quinn Ewers",
@@ -867,7 +867,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.4,
           "last3AvgPoints": 1.4,
-          "projPoints": 1.3
+          "projPoints": 1.4
         },
         {
           "name": "Chris Brazzell",
@@ -900,7 +900,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.5,
           "last3AvgPoints": 4.8,
-          "projPoints": 8.3
+          "projPoints": 8.2
         },
         {
           "name": "Demarcus Robinson",
@@ -933,7 +933,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16,
           "last3AvgPoints": 9.1,
-          "projPoints": 10.1
+          "projPoints": 10
         },
         {
           "name": "Cooper Rush",
@@ -977,7 +977,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": -0.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 3.5
+          "projPoints": 3.4
         },
         {
           "name": "Colby Parkinson",
@@ -988,7 +988,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.5,
           "last3AvgPoints": 1.8,
-          "projPoints": 4.8
+          "projPoints": 4.9
         },
         {
           "name": "Tutu Atwell",
@@ -1010,7 +1010,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.3,
           "last3AvgPoints": 5.2,
-          "projPoints": 5.6
+          "projPoints": 5.7
         },
         {
           "name": "Brock Purdy",
@@ -1021,7 +1021,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28.5,
           "last3AvgPoints": 25.3,
-          "projPoints": 21.6
+          "projPoints": 21.4
         },
         {
           "name": "Rashid Shaheed",
@@ -1043,7 +1043,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.3,
           "last3AvgPoints": 15.1,
-          "projPoints": 12.8
+          "projPoints": 12.7
         },
         {
           "name": "Kayshon Boutte",
@@ -1077,14 +1077,14 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.3,
           "last3AvgPoints": 11.1,
-          "projPoints": 12.3
+          "projPoints": 12.2
         },
         {
           "name": "Caleb Williams",
           "pos": "QB",
           "nfl": "CHI",
           "isStarter": false,
-          "status": "D",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 8.7,
           "last3AvgPoints": 23,
@@ -1132,7 +1132,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 7.3,
-          "projPoints": 7.8
+          "projPoints": 8.1
         },
         {
           "name": "Tyrone Tracy",
@@ -1154,7 +1154,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 21.2,
           "last3AvgPoints": 18.5,
-          "projPoints": 14.6
+          "projPoints": 14.5
         },
         {
           "name": "Cam Skattebo",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 8.7
+          "projPoints": 9.1
         },
         {
           "name": "Luther Burden",
@@ -1209,7 +1209,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.1
+          "projPoints": 9.6
         },
         {
           "name": "Omar Cooper",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5,
           "last3AvgPoints": 7.5,
-          "projPoints": 8.5
+          "projPoints": 8.4
         },
         {
           "name": "Josh Jacobs",
@@ -1349,7 +1349,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "CHI",
           "isStarter": false,
-          "status": "D",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 8.7,
           "last3AvgPoints": 23,
@@ -1364,7 +1364,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 7.3,
-          "projPoints": 7.8
+          "projPoints": 8.1
         },
         {
           "name": "Troy Franklin",
@@ -1408,7 +1408,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 24.2,
-          "projPoints": 14.5
+          "projPoints": 14.9
         },
         {
           "name": "Woody Marks",
@@ -1507,7 +1507,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.2,
           "last3AvgPoints": 1.2,
-          "projPoints": 2.6
+          "projPoints": 2.5
         },
         {
           "name": "Hunter Henry",
@@ -1518,7 +1518,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7,
           "last3AvgPoints": 6.3,
-          "projPoints": 10.4
+          "projPoints": 10.3
         },
         {
           "name": "Demarcus Robinson",
@@ -1551,7 +1551,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 0.6,
-          "projPoints": 17.6
+          "projPoints": 17.5
         },
         {
           "name": "Brock Purdy",
@@ -1562,7 +1562,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28.5,
           "last3AvgPoints": 25.3,
-          "projPoints": 21.6
+          "projPoints": 21.4
         },
         {
           "name": "Jordan Mason",
@@ -1584,7 +1584,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.7,
           "last3AvgPoints": 7,
-          "projPoints": 9.2
+          "projPoints": 9.1
         },
         {
           "name": "Michael Mayer",
@@ -1640,7 +1640,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 8.7
+          "projPoints": 9.1
         },
         {
           "name": "TreVeyon Henderson",
@@ -1662,7 +1662,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.8,
           "last3AvgPoints": 14.1,
-          "projPoints": 7
+          "projPoints": 7.1
         },
         {
           "name": "Jeremiyah Love",
@@ -1673,7 +1673,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.5,
           "last3AvgPoints": 10.3,
-          "projPoints": 14.5
+          "projPoints": 14.6
         },
         {
           "name": "KC Concepcion",
@@ -1684,7 +1684,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.2,
           "last3AvgPoints": 8,
-          "projPoints": 9.4
+          "projPoints": 9.6
         },
         {
           "name": "Keenan Allen",
@@ -1706,7 +1706,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.4,
           "last3AvgPoints": 12.6,
-          "projPoints": 12.6
+          "projPoints": 12.5
         },
         {
           "name": "DJ Moore",
@@ -1750,7 +1750,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 12.1,
-          "projPoints": 16.8
+          "projPoints": 16.7
         },
         {
           "name": "Rachaad White",
@@ -1772,7 +1772,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.2,
           "last3AvgPoints": 15,
-          "projPoints": 16.1
+          "projPoints": 16
         },
         {
           "name": "Michael Mayer",
