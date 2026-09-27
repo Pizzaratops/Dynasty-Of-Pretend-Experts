@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-09-27T19:21:51.364Z",
+  "generatedAt": "2026-09-27T22:38:03.834Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.7,
           "last3AvgPoints": 15.6,
-          "projPoints": 13.6
+          "projPoints": 13.5
         },
         {
           "name": "Brian Robinson",
@@ -258,7 +258,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8,
           "last3AvgPoints": 5.5,
-          "projPoints": 6.4
+          "projPoints": 6.5
         }
       ],
       "flaggedCount": 0
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 3.1,
-          "projPoints": 8.4
+          "projPoints": 8.5
         },
         {
           "name": "Devin Singletary",
@@ -1121,7 +1121,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.2,
           "last3AvgPoints": 7.8,
-          "projPoints": 8.3
+          "projPoints": 8.2
         },
         {
           "name": "Brock Bowers",
@@ -1341,7 +1341,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8,
           "last3AvgPoints": 5.5,
-          "projPoints": 6.4
+          "projPoints": 6.5
         }
       ],
       "flaggedCount": 0
@@ -1386,7 +1386,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.7,
           "last3AvgPoints": 2.1,
-          "projPoints": 1.5
+          "projPoints": 1.6
         },
         {
           "name": "Ladd McConkey",
