@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-09-27T22:38:03.834Z",
+  "generatedAt": "2026-09-28T02:13:15.594Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -45,7 +45,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LV",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -221,7 +221,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYJ",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": 14.2,
           "last3AvgPoints": 17,
@@ -377,8 +377,8 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CAR",
           "isStarter": true,
-          "status": "Q",
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 24.2,
           "projPoints": 14.7
@@ -454,7 +454,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "NE",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 5.6,
@@ -571,7 +571,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 9.1
         }
       ],
-      "flaggedCount": 1
+      "flaggedCount": 2
     },
     {
       "id": "beyaz-sleeper-1401860041555881984",
@@ -620,8 +620,8 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CAR",
           "isStarter": true,
-          "status": "Q",
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 10.6,
           "last3AvgPoints": 20.2,
           "projPoints": 12.1
@@ -697,7 +697,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "BUF",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": -0.1,
           "last3AvgPoints": 9.2,
@@ -737,7 +737,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 12.8
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1318211269970399232",
@@ -753,7 +753,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "CHI",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 2.2,
           "last3AvgPoints": 2.2,
@@ -918,7 +918,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "SF",
           "isStarter": false,
-          "status": "D",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 8.5,
@@ -973,7 +973,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYG",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 6.4,
@@ -1006,11 +1006,11 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "LAR",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": 2.4,
           "last3AvgPoints": 2.4,
-          "projPoints": 0.7
+          "projPoints": null
         },
         {
           "name": "Cade Otton",
@@ -1128,7 +1128,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LV",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -1249,7 +1249,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "SF",
           "isStarter": false,
-          "status": "D",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": 6.4,
           "last3AvgPoints": 9.7,
@@ -1293,7 +1293,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYG",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 7.4,
@@ -1315,8 +1315,8 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYJ",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 14.2,
           "last3AvgPoints": 17,
           "projPoints": 15.9
@@ -1344,7 +1344,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 6.5
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1312748395584036864",
@@ -1415,8 +1415,8 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CAR",
           "isStarter": true,
-          "status": "Q",
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 24.2,
           "projPoints": 14.7
@@ -1503,7 +1503,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "PIT",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -1536,7 +1536,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "SF",
           "isStarter": false,
-          "status": "D",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": 6.4,
           "last3AvgPoints": 9.7,
@@ -1609,7 +1609,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 4.8
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1312955101303824384",
@@ -1713,8 +1713,8 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "SF",
           "isStarter": true,
-          "status": "Q",
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 8.4,
           "last3AvgPoints": 12.6,
           "projPoints": 12.6
@@ -1724,7 +1724,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "BUF",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": -0.1,
           "last3AvgPoints": 10.5,
@@ -1768,7 +1768,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "WAS",
           "isStarter": false,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 14.3,
           "last3AvgPoints": 9.5,
@@ -1808,7 +1808,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": null
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     }
   ]
 };
