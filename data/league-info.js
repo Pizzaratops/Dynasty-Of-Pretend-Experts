@@ -102,8 +102,8 @@ const LEAGUE_INFO = {
   "vetoVotesNeeded": 7,
   "tradeReviewDays": 0
  },
- "nflWeek": 3,
- "lastScoredWeek": 2,
+ "nflWeek": 4,
+ "lastScoredWeek": 3,
  "previousLeagueId": null,
- "syncedAt": "2026-09-29T01:57:08.990Z"
+ "syncedAt": "2026-09-29T08:30:17.089Z"
 };

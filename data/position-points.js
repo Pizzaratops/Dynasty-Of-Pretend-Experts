@@ -237,6 +237,120 @@ const POSITION_POINTS = {
     "kPts": 4,
     "defPts": 10
    }
+  },
+  "3": {
+   "milchreis": {
+    "qbPts": 22.22,
+    "rbPts": 25,
+    "wrPts": 82.16,
+    "tePts": 27.6,
+    "kPts": 6,
+    "defPts": 14
+   },
+   "bomba12": {
+    "qbPts": 16.94,
+    "rbPts": 28.2,
+    "wrPts": 62.1,
+    "tePts": 6.6,
+    "kPts": 10,
+    "defPts": 13
+   },
+   "svennyg": {
+    "qbPts": 18.94,
+    "rbPts": 14.6,
+    "wrPts": 43.6,
+    "tePts": 8.6,
+    "kPts": 9,
+    "defPts": 17
+   },
+   "jiggydee2312": {
+    "qbPts": 5.76,
+    "rbPts": 26.7,
+    "wrPts": 15.9,
+    "tePts": 40,
+    "kPts": 7,
+    "defPts": 8
+   },
+   "dickvanhurik": {
+    "qbPts": 20.44,
+    "rbPts": 34.9,
+    "wrPts": 67.1,
+    "tePts": 3.8,
+    "kPts": 4,
+    "defPts": 2
+   },
+   "teambeermode": {
+    "qbPts": 13.62,
+    "rbPts": 32.6,
+    "wrPts": 75.8,
+    "tePts": 12.7,
+    "kPts": 5,
+    "defPts": 1
+   },
+   "dseinn": {
+    "qbPts": 14.64,
+    "rbPts": 87.5,
+    "wrPts": 19,
+    "tePts": 6,
+    "kPts": 5,
+    "defPts": 4
+   },
+   "giantmarv": {
+    "qbPts": 11.68,
+    "rbPts": 19.4,
+    "wrPts": 29.3,
+    "tePts": 49.4,
+    "kPts": 12,
+    "defPts": 6
+   },
+   "r4xon": {
+    "qbPts": 31.28,
+    "rbPts": 47.9,
+    "wrPts": 56.5,
+    "tePts": 23.3,
+    "kPts": 13,
+    "defPts": 4
+   },
+   "danfre": {
+    "qbPts": 24.8,
+    "rbPts": 39.7,
+    "wrPts": 53.2,
+    "tePts": 8.9,
+    "kPts": 9,
+    "defPts": 9
+   },
+   "unicornsruegen": {
+    "qbPts": 22.58,
+    "rbPts": 27.1,
+    "wrPts": 35.2,
+    "tePts": 9.3,
+    "kPts": 10,
+    "defPts": 1
+   },
+   "lovethecheesehead": {
+    "qbPts": 0,
+    "rbPts": 0,
+    "wrPts": 18,
+    "tePts": 1.9,
+    "kPts": 1,
+    "defPts": 2
+   },
+   "americagrizlies": {
+    "qbPts": 19.46,
+    "rbPts": 15.3,
+    "wrPts": 30.3,
+    "tePts": 1.5,
+    "kPts": 6,
+    "defPts": 17
+   },
+   "angryducks": {
+    "qbPts": 25.14,
+    "rbPts": 21,
+    "wrPts": 67.5,
+    "tePts": 14.7,
+    "kPts": 10,
+    "defPts": 5
+   }
   }
  }
 };
