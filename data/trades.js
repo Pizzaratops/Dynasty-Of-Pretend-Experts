@@ -12,6 +12,35 @@
 
 const TRADES = [
  {
+  "date": "2026-09-29",
+  "week": 3,
+  "teamA": "Blowout Arctic Yetis",
+  "teamAGives": [
+   "2027 2nd",
+   "2027 1st (via dseinn)"
+  ],
+  "teamB": "UnicornsRuegen",
+  "teamBGives": [
+   "2027 3rd",
+   "2029 1st"
+  ],
+  "id": "1409136323897405440"
+ },
+ {
+  "date": "2026-09-29",
+  "week": 3,
+  "teamA": "South Steglitz Sharknados",
+  "teamAGives": [
+   "Woody Marks",
+   "2027 1st"
+  ],
+  "teamB": "UnicornsRuegen",
+  "teamBGives": [
+   "Kyren Williams"
+  ],
+  "id": "1410723745902981120"
+ },
+ {
   "date": "2026-09-25",
   "week": 3,
   "teamA": "Blowout Arctic Yetis",
@@ -383,7 +412,7 @@ const FUTURE_PICKS = {
   {
    "round": "1st",
    "from": "dseinn",
-   "owner": "Blowout Arctic Yetis"
+   "owner": "UnicornsRuegen"
   },
   {
    "round": "1st",
@@ -397,6 +426,11 @@ const FUTURE_PICKS = {
   },
   {
    "round": "1st",
+   "from": "South Steglitz Sharknados",
+   "owner": "UnicornsRuegen"
+  },
+  {
+   "round": "1st",
    "from": "Tempelhof Thunder Turtles",
    "owner": "Tokyo Titi Twisters"
   },
@@ -404,6 +438,11 @@ const FUTURE_PICKS = {
    "round": "1st",
    "from": "UnicornsRuegen",
    "owner": "Tokyo Titi Twisters"
+  },
+  {
+   "round": "2nd",
+   "from": "Blowout Arctic Yetis",
+   "owner": "UnicornsRuegen"
   },
   {
    "round": "2nd",
@@ -459,6 +498,11 @@ const FUTURE_PICKS = {
    "round": "3rd",
    "from": "Tokyo Titi Twisters",
    "owner": "UnicornsRuegen"
+  },
+  {
+   "round": "3rd",
+   "from": "UnicornsRuegen",
+   "owner": "Blowout Arctic Yetis"
   },
   {
    "round": "4th",
@@ -522,6 +566,11 @@ const FUTURE_PICKS = {
   {
    "round": "1st",
    "from": "Berlin Lightning Sloths",
+   "owner": "Blowout Arctic Yetis"
+  },
+  {
+   "round": "1st",
+   "from": "UnicornsRuegen",
    "owner": "Blowout Arctic Yetis"
   }
  ]
