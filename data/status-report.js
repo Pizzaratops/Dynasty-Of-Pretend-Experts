@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-03T17:39:58.190Z",
+  "generatedAt": "2026-10-03T20:17:06.858Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -359,7 +359,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.8,
           "last3AvgPoints": 5.4,
-          "projPoints": 8
+          "projPoints": 7.9
         },
         {
           "name": "Rome Odunze",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.5,
           "last3AvgPoints": 7.5,
-          "projPoints": 9
+          "projPoints": 8.9
         },
         {
           "name": "Lamar Jackson",
