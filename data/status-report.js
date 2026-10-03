@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-03T07:11:19.426Z",
+  "generatedAt": "2026-10-03T12:47:51.247Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 10.4,
-          "projPoints": 16.9
+          "projPoints": 17.1
         },
         {
           "name": "David Montgomery",
@@ -381,7 +381,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.8,
           "last3AvgPoints": 17.4,
-          "projPoints": 14.9
+          "projPoints": 15
         },
         {
           "name": "Pat Bryant",
@@ -723,7 +723,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 21.4,
-          "projPoints": 15.2
+          "projPoints": 15.3
         },
         {
           "name": "Parker Washington",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 1.4,
-          "projPoints": 2.3
+          "projPoints": 2.4
         },
         {
           "name": "Courtland Sutton",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.9,
           "last3AvgPoints": 3.4,
-          "projPoints": 10
+          "projPoints": 10.1
         },
         {
           "name": "Demarcus Robinson",
@@ -1297,7 +1297,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 10.4,
-          "projPoints": 16.9
+          "projPoints": 17.1
         },
         {
           "name": "Devin Singletary",
@@ -1430,7 +1430,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.8,
           "last3AvgPoints": 17.4,
-          "projPoints": 14.9
+          "projPoints": 15
         },
         {
           "name": "Woody Marks",
@@ -1717,7 +1717,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18.3,
           "last3AvgPoints": 9.7,
-          "projPoints": 8.7
+          "projPoints": 8.8
         },
         {
           "name": "Mike Evans",
