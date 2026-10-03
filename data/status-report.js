@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-03T00:47:26.371Z",
+  "generatedAt": "2026-10-03T07:11:19.426Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -535,7 +535,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 19.7,
-          "projPoints": 17.6
+          "projPoints": 17.5
         },
         {
           "name": "Sean Tucker",
@@ -878,7 +878,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.4,
           "last3AvgPoints": 2.3,
-          "projPoints": 7.7
+          "projPoints": 7.6
         },
         {
           "name": "Sam Roush",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 1.4,
-          "projPoints": 2.4
+          "projPoints": 2.3
         },
         {
           "name": "Courtland Sutton",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.9,
           "last3AvgPoints": 3.4,
-          "projPoints": 10.1
+          "projPoints": 10
         },
         {
           "name": "Demarcus Robinson",
