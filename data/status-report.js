@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-04T17:53:31.023Z",
+  "generatedAt": "2026-10-04T20:33:43.227Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -49,7 +49,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.6,
           "last3AvgPoints": 27.6,
-          "projPoints": 15.3
+          "projPoints": 15.2
         },
         {
           "name": "Rome Odunze",
@@ -336,7 +336,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17,
           "last3AvgPoints": 15,
-          "projPoints": 9.4
+          "projPoints": 9.5
         }
       ],
       "flaggedCount": 0
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.9,
           "last3AvgPoints": 22.9,
-          "projPoints": 21.2
+          "projPoints": 21.3
         },
         {
           "name": "DJ Moore",
@@ -939,7 +939,7 @@ const STATUS_REPORT_DATA = {
           "name": "Cooper Kupp",
           "pos": "WR",
           "nfl": "SEA",
-          "isStarter": true,
+          "isStarter": false,
           "status": null,
           "flag": false,
           "lastGamePoints": 12.6,
@@ -955,7 +955,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 23.2,
           "last3AvgPoints": 13.8,
-          "projPoints": 9.8
+          "projPoints": 9.9
         },
         {
           "name": "Johnny Mundt",
@@ -1043,13 +1043,13 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 31.3,
           "last3AvgPoints": 27.3,
-          "projPoints": 20.2
+          "projPoints": 20.4
         },
         {
           "name": "Rashid Shaheed",
           "pos": "WR",
           "nfl": "SEA",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 2.4,
@@ -1099,7 +1099,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.8,
           "last3AvgPoints": 12.7,
-          "projPoints": 14.1
+          "projPoints": 14
         },
         {
           "name": "Caleb Williams",
@@ -1143,7 +1143,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.6,
           "last3AvgPoints": 27.6,
-          "projPoints": 15.3
+          "projPoints": 15.2
         },
         {
           "name": "Rome Odunze",
@@ -1176,7 +1176,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 22.2,
           "last3AvgPoints": 19.7,
-          "projPoints": 15
+          "projPoints": 14.7
         },
         {
           "name": "Cam Skattebo",
@@ -1562,7 +1562,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.2,
           "last3AvgPoints": 11.6,
-          "projPoints": 15
+          "projPoints": 15.1
         },
         {
           "name": "Kyler Murray",
@@ -1573,7 +1573,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.4,
           "last3AvgPoints": 6,
-          "projPoints": 17.8
+          "projPoints": 17.9
         },
         {
           "name": "Brock Purdy",
@@ -1584,7 +1584,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 31.3,
           "last3AvgPoints": 27.3,
-          "projPoints": 20.2
+          "projPoints": 20.4
         },
         {
           "name": "Jordan Mason",
@@ -1617,7 +1617,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.2,
           "last3AvgPoints": 8.9,
-          "projPoints": 5.6
+          "projPoints": 5.5
         }
       ],
       "flaggedCount": 0
@@ -1728,7 +1728,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.4,
           "last3AvgPoints": 12.6,
-          "projPoints": 14
+          "projPoints": 14.1
         },
         {
           "name": "DJ Moore",
@@ -1805,7 +1805,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.2,
           "last3AvgPoints": 8.9,
-          "projPoints": 5.6
+          "projPoints": 5.5
         },
         {
           "name": "Zach Charbonnet",
