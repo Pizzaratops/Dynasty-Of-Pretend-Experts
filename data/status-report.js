@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-05T07:48:42.285Z",
+  "generatedAt": "2026-10-05T16:30:30.199Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -214,7 +214,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11,
           "last3AvgPoints": 7.6,
-          "projPoints": 4.3
+          "projPoints": 4.8
         },
         {
           "name": "Breece Hall",
@@ -635,7 +635,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.4,
           "last3AvgPoints": 10.2,
-          "projPoints": 8.4
+          "projPoints": 8.2
         },
         {
           "name": "Omarion Hampton",
@@ -1319,7 +1319,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11,
           "last3AvgPoints": 7.6,
-          "projPoints": 4.3
+          "projPoints": 4.8
         },
         {
           "name": "Breece Hall",
