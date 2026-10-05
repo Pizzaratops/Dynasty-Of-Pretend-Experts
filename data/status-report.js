@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-05T00:17:04.743Z",
+  "generatedAt": "2026-10-05T07:48:42.285Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -469,7 +469,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.4,
           "last3AvgPoints": 21.9,
-          "projPoints": 18.2
+          "projPoints": 18.6
         },
         {
           "name": "Chris Godwin",
@@ -723,7 +723,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 21.4,
-          "projPoints": 15.8
+          "projPoints": 16.1
         },
         {
           "name": "Parker Washington",
