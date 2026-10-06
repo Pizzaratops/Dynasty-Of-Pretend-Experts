@@ -351,6 +351,120 @@ const POSITION_POINTS = {
     "kPts": 10,
     "defPts": 5
    }
+  },
+  "4": {
+   "milchreis": {
+    "qbPts": 23.6,
+    "rbPts": 10.7,
+    "wrPts": 27.3,
+    "tePts": 32.3,
+    "kPts": 5,
+    "defPts": 3
+   },
+   "bomba12": {
+    "qbPts": 17,
+    "rbPts": 52.9,
+    "wrPts": 106.5,
+    "tePts": 16.5,
+    "kPts": 10,
+    "defPts": 4
+   },
+   "svennyg": {
+    "qbPts": 18.1,
+    "rbPts": 19.4,
+    "wrPts": 36.9,
+    "tePts": 7.7,
+    "kPts": 5,
+    "defPts": 8
+   },
+   "jiggydee2312": {
+    "qbPts": 27.16,
+    "rbPts": 20.6,
+    "wrPts": 24.6,
+    "tePts": 10.1,
+    "kPts": 18,
+    "defPts": 7
+   },
+   "dickvanhurik": {
+    "qbPts": 18.88,
+    "rbPts": 67.6,
+    "wrPts": 54.5,
+    "tePts": 13.4,
+    "kPts": 14,
+    "defPts": 12
+   },
+   "teambeermode": {
+    "qbPts": 13.52,
+    "rbPts": 38.7,
+    "wrPts": 62.4,
+    "tePts": 13,
+    "kPts": 16,
+    "defPts": 5
+   },
+   "dseinn": {
+    "qbPts": 21.46,
+    "rbPts": 72.1,
+    "wrPts": 55,
+    "tePts": 13.6,
+    "kPts": 19,
+    "defPts": 5
+   },
+   "giantmarv": {
+    "qbPts": 23.08,
+    "rbPts": 34.7,
+    "wrPts": 33.7,
+    "tePts": 27.1,
+    "kPts": 2,
+    "defPts": 9
+   },
+   "r4xon": {
+    "qbPts": 19.62,
+    "rbPts": 60.1,
+    "wrPts": 51.9,
+    "tePts": 11.9,
+    "kPts": 3,
+    "defPts": 6
+   },
+   "danfre": {
+    "qbPts": 15.94,
+    "rbPts": 57.8,
+    "wrPts": 24.2,
+    "tePts": 30.1,
+    "kPts": 16,
+    "defPts": 4
+   },
+   "unicornsruegen": {
+    "qbPts": 25.72,
+    "rbPts": 15.2,
+    "wrPts": 31.4,
+    "tePts": 41.4,
+    "kPts": 16,
+    "defPts": 7
+   },
+   "lovethecheesehead": {
+    "qbPts": 0,
+    "rbPts": 27.2,
+    "wrPts": 14.4,
+    "tePts": 5.4,
+    "kPts": 7,
+    "defPts": 6
+   },
+   "americagrizlies": {
+    "qbPts": 19.52,
+    "rbPts": 6.9,
+    "wrPts": 49.1,
+    "tePts": 11.2,
+    "kPts": 3,
+    "defPts": 9
+   },
+   "angryducks": {
+    "qbPts": 13.56,
+    "rbPts": 21.1,
+    "wrPts": 72.7,
+    "tePts": 9.1,
+    "kPts": 11,
+    "defPts": 8
+   }
   }
  }
 };
