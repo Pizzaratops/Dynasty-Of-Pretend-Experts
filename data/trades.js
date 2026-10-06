@@ -12,6 +12,20 @@
 
 const TRADES = [
  {
+  "date": "2026-10-06",
+  "week": 4,
+  "teamA": "South Steglitz Sharknados",
+  "teamAGives": [
+   "Anthony Richardson Sr.",
+   "2028 3rd"
+  ],
+  "teamB": "San José Salamancas",
+  "teamBGives": [
+   "Emanuel Wilson"
+  ],
+  "id": "1413231273677258752"
+ },
+ {
   "date": "2026-09-29",
   "week": 3,
   "teamA": "Blowout Arctic Yetis",
@@ -555,6 +569,11 @@ const FUTURE_PICKS = {
    "round": "3rd",
    "from": "San José Salamancas",
    "owner": "Husum Husos"
+  },
+  {
+   "round": "3rd",
+   "from": "South Steglitz Sharknados",
+   "owner": "San José Salamancas"
   },
   {
    "round": "3rd",
