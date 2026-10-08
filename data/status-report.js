@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-08T01:23:51.597Z",
+  "generatedAt": "2026-10-08T08:05:42.849Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 14.7,
-          "projPoints": 16.9
+          "projPoints": 16.8
         },
         {
           "name": "Brock Bowers",
@@ -281,7 +281,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11,
           "last3AvgPoints": 8.3,
-          "projPoints": 7.6
+          "projPoints": 7.5
         },
         {
           "name": "Eddy Pineiro",
@@ -359,7 +359,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 7.4,
-          "projPoints": 8.6
+          "projPoints": 8.7
         },
         {
           "name": "Rome Odunze",
@@ -436,7 +436,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.9,
           "last3AvgPoints": 13.8,
-          "projPoints": 10.7
+          "projPoints": 10.8
         },
         {
           "name": "Eli Stowers",
@@ -878,7 +878,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.2,
           "last3AvgPoints": 3.3,
-          "projPoints": 5.1
+          "projPoints": 5.2
         },
         {
           "name": "Sam Roush",
@@ -922,7 +922,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.7,
           "last3AvgPoints": 5.1,
-          "projPoints": 7.5
+          "projPoints": 7.6
         },
         {
           "name": "Demarcus Robinson",
@@ -1121,7 +1121,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 14.7,
-          "projPoints": 16.9
+          "projPoints": 16.8
         },
         {
           "name": "Will Shipley",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.6,
           "last3AvgPoints": 10,
-          "projPoints": 12.8
+          "projPoints": 12.7
         },
         {
           "name": "Tory Horton",
@@ -1684,7 +1684,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28,
           "last3AvgPoints": 13,
-          "projPoints": 9.7
+          "projPoints": 9.6
         },
         {
           "name": "Jeremiyah Love",
@@ -1706,7 +1706,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.4,
           "last3AvgPoints": 7.5,
-          "projPoints": 9.8
+          "projPoints": 9.9
         },
         {
           "name": "Keenan Allen",
@@ -1761,7 +1761,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 41.3,
           "last3AvgPoints": 32.3,
-          "projPoints": 19.5
+          "projPoints": 19.8
         },
         {
           "name": "Justin Herbert",
