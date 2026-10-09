@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-08T22:33:51.260Z",
+  "generatedAt": "2026-10-09T03:20:35.632Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -45,7 +45,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LV",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 20.6,
           "last3AvgPoints": 24.1,
@@ -126,7 +126,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.3,
           "last3AvgPoints": 8.3,
-          "projPoints": 10.4
+          "projPoints": 10.8
         },
         {
           "name": "Colston Loveland",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 21.6,
           "last3AvgPoints": 13.8,
-          "projPoints": 11.4
+          "projPoints": 11.5
         },
         {
           "name": "Colston Loveland",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.1,
           "last3AvgPoints": 7.8,
-          "projPoints": 10
+          "projPoints": 10.3
         },
         {
           "name": "Lamar Jackson",
@@ -775,7 +775,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "WAS",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 1.1,
@@ -801,7 +801,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.7,
           "last3AvgPoints": 3.5,
-          "projPoints": 3.4
+          "projPoints": 3.6
         },
         {
           "name": "Bhayshul Tuten",
@@ -841,7 +841,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "LAR",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 1.2,
           "last3AvgPoints": 6.7,
@@ -1032,7 +1032,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.7,
           "last3AvgPoints": 6.4,
-          "projPoints": 6.6
+          "projPoints": 6.9
         },
         {
           "name": "Brock Purdy",
@@ -1150,7 +1150,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LV",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 20.6,
           "last3AvgPoints": 24.1,
@@ -1220,7 +1220,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.3,
           "last3AvgPoints": 8.3,
-          "projPoints": 10.4
+          "projPoints": 10.8
         },
         {
           "name": "Colston Loveland",
@@ -1492,7 +1492,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "TEN",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 21.5,
           "last3AvgPoints": 13,
@@ -1540,7 +1540,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.2,
           "last3AvgPoints": 6.6,
-          "projPoints": 9.5
+          "projPoints": 9.4
         },
         {
           "name": "Demarcus Robinson",
@@ -1606,7 +1606,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 8.8,
-          "projPoints": 9.8
+          "projPoints": 9.7
         },
         {
           "name": "Michael Mayer",
@@ -1701,12 +1701,12 @@ const STATUS_REPORT_DATA = {
           "name": "KC Concepcion",
           "pos": "WR",
           "nfl": "CLE",
-          "isStarter": true,
+          "isStarter": false,
           "status": null,
           "flag": false,
           "lastGamePoints": 11.4,
           "last3AvgPoints": 7.5,
-          "projPoints": 9.8
+          "projPoints": 9.7
         },
         {
           "name": "Keenan Allen",
@@ -1745,7 +1745,7 @@ const STATUS_REPORT_DATA = {
           "name": "David Montgomery",
           "pos": "RB",
           "nfl": "HOU",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 4.3,
@@ -1757,7 +1757,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "DAL",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 41.3,
           "last3AvgPoints": 32.3,
