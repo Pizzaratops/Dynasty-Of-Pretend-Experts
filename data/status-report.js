@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-10T01:23:56.189Z",
+  "generatedAt": "2026-10-10T07:49:13.211Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 14.7,
-          "projPoints": 17
+          "projPoints": 16.9
         },
         {
           "name": "Brock Bowers",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 10.1,
-          "projPoints": 13.1
+          "projPoints": 13.2
         },
         {
           "name": "David Montgomery",
@@ -712,7 +712,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 5.4,
-          "projPoints": 9
+          "projPoints": 8.9
         },
         {
           "name": "Amon-Ra St. Brown",
@@ -779,7 +779,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 1.1,
-          "projPoints": 0.8
+          "projPoints": 0.7
         },
         {
           "name": "George Holani",
@@ -812,7 +812,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.1,
           "last3AvgPoints": 13.1,
-          "projPoints": 11.9
+          "projPoints": 11.8
         },
         {
           "name": "Quinn Ewers",
@@ -1121,7 +1121,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 14.7,
-          "projPoints": 17
+          "projPoints": 16.9
         },
         {
           "name": "Will Shipley",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.6,
           "last3AvgPoints": 10,
-          "projPoints": 12.7
+          "projPoints": 12.8
         },
         {
           "name": "Tory Horton",
@@ -1297,7 +1297,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 10.1,
-          "projPoints": 13.1
+          "projPoints": 13.2
         },
         {
           "name": "Devin Singletary",
@@ -1606,7 +1606,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 8.8,
-          "projPoints": 9.6
+          "projPoints": 9.7
         },
         {
           "name": "Michael Mayer",
