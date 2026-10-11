@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-11T16:52:54.608Z",
+  "generatedAt": "2026-10-11T21:08:36.127Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.6,
           "last3AvgPoints": 30.2,
-          "projPoints": 22.9
+          "projPoints": 23.2
         },
         {
           "name": "Denver Broncos",
@@ -469,7 +469,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 20.5,
           "last3AvgPoints": 23.2,
-          "projPoints": 21.5
+          "projPoints": 21.8
         },
         {
           "name": "Chris Godwin",
@@ -535,7 +535,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.1,
           "last3AvgPoints": 14.9,
-          "projPoints": 18
+          "projPoints": 18.1
         },
         {
           "name": "Sean Tucker",
@@ -602,13 +602,13 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.5,
           "last3AvgPoints": 12,
-          "projPoints": 11.6
+          "projPoints": 11.7
         },
         {
           "name": "Blake Corum",
           "pos": "RB",
           "nfl": "LAR",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 2.6,
@@ -668,7 +668,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.3,
           "last3AvgPoints": 11.5,
-          "projPoints": 9.1
+          "projPoints": 9.2
         },
         {
           "name": "Colston Loveland",
@@ -707,7 +707,7 @@ const STATUS_REPORT_DATA = {
           "name": "DJ Moore",
           "pos": "WR",
           "nfl": "BUF",
-          "isStarter": true,
+          "isStarter": false,
           "status": "Q",
           "flag": false,
           "lastGamePoints": 2.2,
@@ -734,7 +734,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.5,
           "last3AvgPoints": 17.4,
-          "projPoints": 17.6
+          "projPoints": 17.8
         },
         {
           "name": "Parker Washington",
@@ -873,7 +873,7 @@ const STATUS_REPORT_DATA = {
           "name": "Nicholas Singleton",
           "pos": "RB",
           "nfl": "TEN",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 0.2,
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15,
           "last3AvgPoints": 18.1,
-          "projPoints": 10.3
+          "projPoints": 10.4
         },
         {
           "name": "Johnny Mundt",
@@ -988,13 +988,13 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 3.7,
-          "projPoints": 7.3
+          "projPoints": 7.4
         },
         {
           "name": "Devin Singletary",
           "pos": "RB",
           "nfl": "NYG",
-          "isStarter": true,
+          "isStarter": false,
           "status": null,
           "flag": false,
           "lastGamePoints": null,
@@ -1054,7 +1054,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.6,
           "last3AvgPoints": 26.5,
-          "projPoints": 17.5
+          "projPoints": 17.6
         },
         {
           "name": "Rashid Shaheed",
@@ -1065,7 +1065,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.8,
           "last3AvgPoints": 6.5,
-          "projPoints": 5.7
+          "projPoints": 5.8
         },
         {
           "name": "Parker Washington",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.6,
           "last3AvgPoints": 30.2,
-          "projPoints": 22.9
+          "projPoints": 23.2
         },
         {
           "name": "Denver Broncos",
@@ -1408,7 +1408,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 3.4,
-          "projPoints": 6
+          "projPoints": 6.1
         },
         {
           "name": "Ladd McConkey",
@@ -1474,7 +1474,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.3,
           "last3AvgPoints": 12.1,
-          "projPoints": 10
+          "projPoints": 10.1
         },
         {
           "name": "TreVeyon Henderson",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.6,
           "last3AvgPoints": 26.5,
-          "projPoints": 17.5
+          "projPoints": 17.6
         },
         {
           "name": "Jordan Mason",
@@ -1739,7 +1739,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.6,
           "last3AvgPoints": 11.1,
-          "projPoints": 13.4
+          "projPoints": 13.5
         },
         {
           "name": "DJ Moore",
@@ -1783,7 +1783,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.6,
           "last3AvgPoints": 11.7,
-          "projPoints": 14.5
+          "projPoints": 14.7
         },
         {
           "name": "Rachaad White",
