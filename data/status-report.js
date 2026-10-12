@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-12T08:10:55.239Z",
+  "generatedAt": "2026-10-12T19:28:05.892Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 36.7,
           "last3AvgPoints": 24.7,
-          "projPoints": 18.9
+          "projPoints": 19.3
         },
         {
           "name": "Brian Robinson",
@@ -613,7 +613,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.6,
           "last3AvgPoints": 4.9,
-          "projPoints": 7
+          "projPoints": 6.8
         },
         {
           "name": "Marvin Harrison",
@@ -712,7 +712,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.2,
           "last3AvgPoints": 3.9,
-          "projPoints": 9.7
+          "projPoints": 9.4
         },
         {
           "name": "Rico Dowdle",
@@ -856,7 +856,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.2,
           "last3AvgPoints": 6.7,
-          "projPoints": 1.6
+          "projPoints": 1.7
         },
         {
           "name": "Max Klare",
@@ -1021,7 +1021,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 2.5,
-          "projPoints": 3.6
+          "projPoints": 3.5
         },
         {
           "name": "Tutu Atwell",
@@ -1154,7 +1154,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.1,
           "last3AvgPoints": 5.6,
-          "projPoints": 7.2
+          "projPoints": 7
         },
         {
           "name": "Brock Bowers",
@@ -1750,7 +1750,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.7,
           "last3AvgPoints": 5.1,
-          "projPoints": 11.3
+          "projPoints": 11
         },
         {
           "name": "David Montgomery",
