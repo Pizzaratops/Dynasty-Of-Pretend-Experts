@@ -2265,6 +2265,558 @@ const FANTASY_POWER_SCORE = {
           }
         }
       ]
+    },
+    "5": {
+      "cumulative": [
+        {
+          "teamId": "milchreis",
+          "values": {
+            "pointsFor": 139.78,
+            "pointsAgainst": 137.32,
+            "qbPts": 24.81,
+            "rbPts": 21.74,
+            "wrPts": 61.21,
+            "tePts": 17.62
+          },
+          "ranks": {
+            "pointsFor": 6,
+            "pointsAgainst": 10,
+            "qbPts": 2,
+            "rbPts": 11,
+            "wrPts": 4,
+            "tePts": 5
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "bomba12",
+          "values": {
+            "pointsFor": 152.51,
+            "pointsAgainst": 124.36,
+            "qbPts": 14.75,
+            "rbPts": 33.42,
+            "wrPts": 78.6,
+            "tePts": 9.54
+          },
+          "ranks": {
+            "pointsFor": 3,
+            "pointsAgainst": 5,
+            "qbPts": 11,
+            "rbPts": 6,
+            "wrPts": 1,
+            "tePts": 12
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "svennyg",
+          "values": {
+            "pointsFor": 110.55,
+            "pointsAgainst": 141.12,
+            "qbPts": 19.37,
+            "rbPts": 30.18,
+            "wrPts": 34.56,
+            "tePts": 7.24
+          },
+          "ranks": {
+            "pointsFor": 12,
+            "pointsAgainst": 13,
+            "qbPts": 6,
+            "rbPts": 8,
+            "wrPts": 10,
+            "tePts": 13
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "jiggydee2312",
+          "values": {
+            "pointsFor": 100.66,
+            "pointsAgainst": 142.76,
+            "qbPts": 19.8,
+            "rbPts": 18.54,
+            "wrPts": 22.74,
+            "tePts": 24.38
+          },
+          "ranks": {
+            "pointsFor": 13,
+            "pointsAgainst": 14,
+            "qbPts": 5,
+            "rbPts": 12,
+            "wrPts": 14,
+            "tePts": 2
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "dickvanhurik",
+          "values": {
+            "pointsFor": 146.5,
+            "pointsAgainst": 139.56,
+            "qbPts": 18.9,
+            "rbPts": 44.16,
+            "wrPts": 55.86,
+            "tePts": 9.78
+          },
+          "ranks": {
+            "pointsFor": 4,
+            "pointsAgainst": 11,
+            "qbPts": 7,
+            "rbPts": 4,
+            "wrPts": 6,
+            "tePts": 10
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "teambeermode",
+          "values": {
+            "pointsFor": 145.5,
+            "pointsAgainst": 112.68,
+            "qbPts": 16.6,
+            "rbPts": 38.54,
+            "wrPts": 61.72,
+            "tePts": 11.64
+          },
+          "ranks": {
+            "pointsFor": 5,
+            "pointsAgainst": 2,
+            "qbPts": 9,
+            "rbPts": 5,
+            "wrPts": 2,
+            "tePts": 9
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "dseinn",
+          "values": {
+            "pointsFor": 162.63,
+            "pointsAgainst": 139.56,
+            "qbPts": 15.81,
+            "rbPts": 75.14,
+            "wrPts": 40.26,
+            "tePts": 17.62
+          },
+          "ranks": {
+            "pointsFor": 1,
+            "pointsAgainst": 12,
+            "qbPts": 10,
+            "rbPts": 1,
+            "wrPts": 8,
+            "tePts": 6
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "giantmarv",
+          "values": {
+            "pointsFor": 131.2,
+            "pointsAgainst": 136.4,
+            "qbPts": 16.62,
+            "rbPts": 32.22,
+            "wrPts": 36.18,
+            "tePts": 29.38
+          },
+          "ranks": {
+            "pointsFor": 7,
+            "pointsAgainst": 9,
+            "qbPts": 8,
+            "rbPts": 7,
+            "wrPts": 9,
+            "tePts": 1
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "r4xon",
+          "values": {
+            "pointsFor": 159.61,
+            "pointsAgainst": 116.1,
+            "qbPts": 23.73,
+            "rbPts": 51.32,
+            "wrPts": 59.8,
+            "tePts": 13.16
+          },
+          "ranks": {
+            "pointsFor": 2,
+            "pointsAgainst": 3,
+            "qbPts": 3,
+            "rbPts": 2,
+            "wrPts": 5,
+            "tePts": 8
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "danfre",
+          "values": {
+            "pointsFor": 128.2,
+            "pointsAgainst": 119.94,
+            "qbPts": 13.34,
+            "rbPts": 50.74,
+            "wrPts": 29.92,
+            "tePts": 20.2
+          },
+          "ranks": {
+            "pointsFor": 9,
+            "pointsAgainst": 4,
+            "qbPts": 13,
+            "rbPts": 3,
+            "wrPts": 12,
+            "tePts": 3
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "unicornsruegen",
+          "values": {
+            "pointsFor": 118.04,
+            "pointsAgainst": 125.82,
+            "qbPts": 23.04,
+            "rbPts": 25.52,
+            "wrPts": 30.14,
+            "tePts": 19.94
+          },
+          "ranks": {
+            "pointsFor": 10,
+            "pointsAgainst": 7,
+            "qbPts": 4,
+            "rbPts": 9,
+            "wrPts": 11,
+            "tePts": 4
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "lovethecheesehead",
+          "values": {
+            "pointsFor": 54.9,
+            "pointsAgainst": 124.72,
+            "qbPts": 0,
+            "rbPts": 12.8,
+            "wrPts": 28.96,
+            "tePts": 4.94
+          },
+          "ranks": {
+            "pointsFor": 14,
+            "pointsAgainst": 6,
+            "qbPts": 14,
+            "rbPts": 14,
+            "wrPts": 13,
+            "tePts": 14
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "americagrizlies",
+          "values": {
+            "pointsFor": 117.85,
+            "pointsAgainst": 130.38,
+            "qbPts": 29.39,
+            "rbPts": 15.92,
+            "wrPts": 43.56,
+            "tePts": 9.58
+          },
+          "ranks": {
+            "pointsFor": 11,
+            "pointsAgainst": 8,
+            "qbPts": 1,
+            "rbPts": 13,
+            "wrPts": 7,
+            "tePts": 11
+          },
+          "gamesPlayed": 5
+        },
+        {
+          "teamId": "angryducks",
+          "values": {
+            "pointsFor": 128.34,
+            "pointsAgainst": 105.56,
+            "qbPts": 13.64,
+            "rbPts": 23.14,
+            "wrPts": 61.38,
+            "tePts": 13.98
+          },
+          "ranks": {
+            "pointsFor": 8,
+            "pointsAgainst": 1,
+            "qbPts": 12,
+            "rbPts": 10,
+            "wrPts": 3,
+            "tePts": 7
+          },
+          "gamesPlayed": 5
+        }
+      ],
+      "weekly": [
+        {
+          "teamId": "milchreis",
+          "values": {
+            "pointsFor": 149.46,
+            "pointsAgainst": 116.26,
+            "qbPts": 32.26,
+            "rbPts": 15.4,
+            "wrPts": 53.9,
+            "tePts": 26.9
+          },
+          "ranks": {
+            "pointsFor": 4,
+            "pointsAgainst": 5,
+            "qbPts": 2,
+            "rbPts": 13,
+            "wrPts": 4,
+            "tePts": 3
+          }
+        },
+        {
+          "teamId": "bomba12",
+          "values": {
+            "pointsFor": 130.8,
+            "pointsAgainst": 117.54,
+            "qbPts": 10.3,
+            "rbPts": 37,
+            "wrPts": 50.9,
+            "tePts": 11.6
+          },
+          "ranks": {
+            "pointsFor": 6,
+            "pointsAgainst": 6,
+            "qbPts": 11,
+            "rbPts": 6,
+            "wrPts": 5,
+            "tePts": 9
+          }
+        },
+        {
+          "teamId": "svennyg",
+          "values": {
+            "pointsFor": 117.54,
+            "pointsAgainst": 130.8,
+            "qbPts": 14.64,
+            "rbPts": 42.2,
+            "wrPts": 30.2,
+            "tePts": 5.5
+          },
+          "ranks": {
+            "pointsFor": 9,
+            "pointsAgainst": 9,
+            "qbPts": 8,
+            "rbPts": 4,
+            "wrPts": 8,
+            "tePts": 12
+          }
+        },
+        {
+          "teamId": "jiggydee2312",
+          "values": {
+            "pointsFor": 116.26,
+            "pointsAgainst": 149.46,
+            "qbPts": 39.46,
+            "rbPts": 13.7,
+            "wrPts": 29.2,
+            "tePts": 21.9
+          },
+          "ranks": {
+            "pointsFor": 10,
+            "pointsAgainst": 11,
+            "qbPts": 1,
+            "rbPts": 14,
+            "wrPts": 9,
+            "tePts": 4
+          }
+        },
+        {
+          "teamId": "dickvanhurik",
+          "values": {
+            "pointsFor": 103.2,
+            "pointsAgainst": 183.06,
+            "qbPts": 14.4,
+            "rbPts": 38,
+            "wrPts": 28.7,
+            "tePts": 5.1
+          },
+          "ranks": {
+            "pointsFor": 13,
+            "pointsAgainst": 14,
+            "qbPts": 9,
+            "rbPts": 5,
+            "wrPts": 10,
+            "tePts": 13
+          }
+        },
+        {
+          "teamId": "teambeermode",
+          "values": {
+            "pointsFor": 114.2,
+            "pointsAgainst": 162.46,
+            "qbPts": 13,
+            "rbPts": 23.6,
+            "wrPts": 33.2,
+            "tePts": 7.4
+          },
+          "ranks": {
+            "pointsFor": 11,
+            "pointsAgainst": 13,
+            "qbPts": 10,
+            "rbPts": 9,
+            "wrPts": 7,
+            "tePts": 10
+          }
+        },
+        {
+          "teamId": "dseinn",
+          "values": {
+            "pointsFor": 162.46,
+            "pointsAgainst": 114.2,
+            "qbPts": 18.26,
+            "rbPts": 71.5,
+            "wrPts": 18.3,
+            "tePts": 32.4
+          },
+          "ranks": {
+            "pointsFor": 2,
+            "pointsAgainst": 4,
+            "qbPts": 6,
+            "rbPts": 1,
+            "wrPts": 13,
+            "tePts": 2
+          }
+        },
+        {
+          "teamId": "giantmarv",
+          "values": {
+            "pointsFor": 149.74,
+            "pointsAgainst": 126.1,
+            "qbPts": 20.94,
+            "rbPts": 46.2,
+            "wrPts": 50.3,
+            "tePts": 12.3
+          },
+          "ranks": {
+            "pointsFor": 3,
+            "pointsAgainst": 8,
+            "qbPts": 5,
+            "rbPts": 3,
+            "wrPts": 6,
+            "tePts": 8
+          }
+        },
+        {
+          "teamId": "r4xon",
+          "values": {
+            "pointsFor": 183.06,
+            "pointsAgainst": 103.2,
+            "qbPts": 17.16,
+            "rbPts": 47.5,
+            "wrPts": 96.8,
+            "tePts": 5.6
+          },
+          "ranks": {
+            "pointsFor": 1,
+            "pointsAgainst": 2,
+            "qbPts": 7,
+            "rbPts": 2,
+            "wrPts": 1,
+            "tePts": 11
+          }
+        },
+        {
+          "teamId": "danfre",
+          "values": {
+            "pointsFor": 110.12,
+            "pointsAgainst": 142.3,
+            "qbPts": 1.84,
+            "rbPts": 35.5,
+            "wrPts": 22.78,
+            "tePts": 35
+          },
+          "ranks": {
+            "pointsFor": 12,
+            "pointsAgainst": 10,
+            "qbPts": 13,
+            "rbPts": 8,
+            "wrPts": 11,
+            "tePts": 1
+          }
+        },
+        {
+          "teamId": "unicornsruegen",
+          "values": {
+            "pointsFor": 126.1,
+            "pointsAgainst": 149.74,
+            "qbPts": 24.6,
+            "rbPts": 35.7,
+            "wrPts": 17.3,
+            "tePts": 15.5
+          },
+          "ranks": {
+            "pointsFor": 7,
+            "pointsAgainst": 12,
+            "qbPts": 4,
+            "rbPts": 7,
+            "wrPts": 14,
+            "tePts": 6
+          }
+        },
+        {
+          "teamId": "lovethecheesehead",
+          "values": {
+            "pointsFor": 49.1,
+            "pointsAgainst": 119.62,
+            "qbPts": 0,
+            "rbPts": 21.8,
+            "wrPts": 22.3,
+            "tePts": 0
+          },
+          "ranks": {
+            "pointsFor": 14,
+            "pointsAgainst": 7,
+            "qbPts": 14,
+            "rbPts": 10,
+            "wrPts": 12,
+            "tePts": 14
+          }
+        },
+        {
+          "teamId": "americagrizlies",
+          "values": {
+            "pointsFor": 142.3,
+            "pointsAgainst": 110.12,
+            "qbPts": 31.5,
+            "rbPts": 20.6,
+            "wrPts": 56.8,
+            "tePts": 13.4
+          },
+          "ranks": {
+            "pointsFor": 5,
+            "pointsAgainst": 3,
+            "qbPts": 3,
+            "rbPts": 11,
+            "wrPts": 3,
+            "tePts": 7
+          }
+        },
+        {
+          "teamId": "angryducks",
+          "values": {
+            "pointsFor": 119.62,
+            "pointsAgainst": 49.1,
+            "qbPts": 7.92,
+            "rbPts": 19.8,
+            "wrPts": 69.5,
+            "tePts": 21.4
+          },
+          "ranks": {
+            "pointsFor": 8,
+            "pointsAgainst": 1,
+            "qbPts": 12,
+            "rbPts": 12,
+            "wrPts": 2,
+            "tePts": 5
+          }
+        }
+      ]
     }
   }
 };
