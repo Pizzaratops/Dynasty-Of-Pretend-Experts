@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-15T08:38:47.228Z",
+  "generatedAt": "2026-10-15T14:30:32.132Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -104,7 +104,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.6,
           "last3AvgPoints": 13.2,
-          "projPoints": 11.8
+          "projPoints": 11.9
         },
         {
           "name": "Tory Horton",
@@ -1452,7 +1452,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.5,
           "last3AvgPoints": 9.9,
-          "projPoints": 13.6
+          "projPoints": 13.7
         },
         {
           "name": "Tory Horton",
