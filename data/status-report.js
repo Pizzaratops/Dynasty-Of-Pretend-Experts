@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-16T01:54:56.498Z",
+  "generatedAt": "2026-10-16T06:30:48.019Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -303,7 +303,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 9,
-          "projPoints": 6.9
+          "projPoints": 7
         },
         {
           "name": "Houston Texans",
@@ -458,7 +458,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.7,
           "last3AvgPoints": 6.5,
-          "projPoints": 5.4
+          "projPoints": 5.5
         },
         {
           "name": "Jared Goff",
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 19.7,
-          "projPoints": 20.3
+          "projPoints": 20.4
         },
         {
           "name": "Tua Tagovailoa",
@@ -524,7 +524,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.5,
           "last3AvgPoints": 14.2,
-          "projPoints": 15.1
+          "projPoints": 15
         },
         {
           "name": "Trey McBride",
@@ -557,7 +557,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.9,
           "last3AvgPoints": 10.3,
-          "projPoints": 7.8
+          "projPoints": 8
         },
         {
           "name": "Quentin Johnston",
@@ -568,7 +568,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 6,
-          "projPoints": 6.4
+          "projPoints": 6.5
         }
       ],
       "flaggedCount": 1
@@ -657,7 +657,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.4,
           "last3AvgPoints": 7.4,
-          "projPoints": 7.2
+          "projPoints": 7.3
         },
         {
           "name": "Colston Loveland",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17,
-          "projPoints": 18.7
+          "projPoints": 18.6
         },
         {
           "name": "DJ Moore",
@@ -757,7 +757,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 8.8,
-          "projPoints": 4.6
+          "projPoints": 4.5
         },
         {
           "name": "Joe Milton",
@@ -922,7 +922,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.9,
           "last3AvgPoints": 7.2,
-          "projPoints": 7.1
+          "projPoints": 7.2
         },
         {
           "name": "Demarcus Robinson",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 5.8
+          "projPoints": 5.9
         },
         {
           "name": "Makai Lemon",
@@ -1419,7 +1419,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 10.6,
-          "projPoints": 8.9
+          "projPoints": 9
         },
         {
           "name": "Ricky Pearsall",
@@ -1474,7 +1474,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 7.9,
-          "projPoints": 8
+          "projPoints": 8.2
         },
         {
           "name": "TreVeyon Henderson",
@@ -1551,7 +1551,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.4,
           "last3AvgPoints": 8.7,
-          "projPoints": 8.8
+          "projPoints": 8.9
         },
         {
           "name": "Aaron Jones",
@@ -1772,7 +1772,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.2,
           "last3AvgPoints": 12.2,
-          "projPoints": 12.9
+          "projPoints": 13.1
         },
         {
           "name": "Rachaad White",
