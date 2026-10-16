@@ -12,6 +12,19 @@
 
 const TRADES = [
  {
+  "date": "2026-10-16",
+  "week": 6,
+  "teamA": "Berlin Lightning Sloths",
+  "teamAGives": [
+   "2028 3rd"
+  ],
+  "teamB": "San José Salamancas",
+  "teamBGives": [
+   "Dameon Pierce"
+  ],
+  "id": "1416888983010496512"
+ },
+ {
   "date": "2026-10-06",
   "week": 4,
   "teamA": "South Steglitz Sharknados",
@@ -559,6 +572,11 @@ const FUTURE_PICKS = {
    "round": "2nd",
    "from": "San José Salamancas",
    "owner": "Husum Husos"
+  },
+  {
+   "round": "3rd",
+   "from": "Berlin Lightning Sloths",
+   "owner": "San José Salamancas"
   },
   {
    "round": "3rd",
