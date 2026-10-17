@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-17T11:48:06.491Z",
+  "generatedAt": "2026-10-17T14:31:48.367Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -757,7 +757,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 8.8,
-          "projPoints": 6
+          "projPoints": 6.1
         },
         {
           "name": "Joe Milton",
@@ -1330,7 +1330,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 11.8
+          "projPoints": 11.9
         },
         {
           "name": "Jaxon Smith-Njigba",
@@ -1375,7 +1375,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 8.8,
-          "projPoints": 6.7
+          "projPoints": 6.8
         },
         {
           "name": "Caleb Williams",
@@ -1668,7 +1668,7 @@ const STATUS_REPORT_DATA = {
           "name": "TreVeyon Henderson",
           "pos": "RB",
           "nfl": "NE",
-          "isStarter": false,
+          "isStarter": true,
           "status": "Q",
           "flag": false,
           "lastGamePoints": 4.8,
@@ -1679,9 +1679,9 @@ const STATUS_REPORT_DATA = {
           "name": "Kyle Monangai",
           "pos": "RB",
           "nfl": "CHI",
-          "isStarter": true,
+          "isStarter": false,
           "status": "O",
-          "flag": true,
+          "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 15.6,
           "projPoints": null
@@ -1761,7 +1761,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.9,
           "last3AvgPoints": 21.5,
-          "projPoints": 19.7
+          "projPoints": 19.8
         },
         {
           "name": "Justin Herbert",
@@ -1819,7 +1819,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": null
         }
       ],
-      "flaggedCount": 1
+      "flaggedCount": 0
     }
   ]
 };
