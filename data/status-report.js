@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-17T06:19:16.141Z",
+  "generatedAt": "2026-10-17T11:48:06.491Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -734,7 +734,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.4,
           "last3AvgPoints": 13.5,
-          "projPoints": 12.6
+          "projPoints": 12.7
         }
       ],
       "flaggedCount": 1
@@ -812,7 +812,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.6,
           "last3AvgPoints": 12.2,
-          "projPoints": 11.1
+          "projPoints": 11
         },
         {
           "name": "Quinn Ewers",
@@ -1065,7 +1065,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.4,
           "last3AvgPoints": 13.5,
-          "projPoints": 12.6
+          "projPoints": 12.7
         },
         {
           "name": "Kayshon Boutte",
