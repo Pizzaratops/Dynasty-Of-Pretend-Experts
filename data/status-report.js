@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-18T01:47:35.129Z",
+  "generatedAt": "2026-10-18T06:43:14.352Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.1,
           "last3AvgPoints": 9.6,
-          "projPoints": 14.9
+          "projPoints": 14.7
         },
         {
           "name": "David Montgomery",
@@ -325,7 +325,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2,
           "last3AvgPoints": 9,
-          "projPoints": 8.1
+          "projPoints": 8
         },
         {
           "name": "Minnesota Vikings",
@@ -734,7 +734,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.4,
           "last3AvgPoints": 13.5,
-          "projPoints": 12.8
+          "projPoints": 12.7
         }
       ],
       "flaggedCount": 0
@@ -1076,7 +1076,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 27.4,
           "last3AvgPoints": 13.5,
-          "projPoints": 12.8
+          "projPoints": 12.7
         },
         {
           "name": "Kayshon Boutte",
@@ -1308,7 +1308,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.1,
           "last3AvgPoints": 9.6,
-          "projPoints": 14.9
+          "projPoints": 14.7
         },
         {
           "name": "Brian Robinson",
@@ -1463,7 +1463,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.5,
           "last3AvgPoints": 9.9,
-          "projPoints": 13.3
+          "projPoints": 13.2
         },
         {
           "name": "Tory Horton",
@@ -1529,7 +1529,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 0.2,
-          "projPoints": 1.6
+          "projPoints": 1.7
         },
         {
           "name": "Drew Allar",
@@ -1617,7 +1617,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.8,
           "last3AvgPoints": 12.2,
-          "projPoints": 10.3
+          "projPoints": 10.2
         },
         {
           "name": "Michael Mayer",
@@ -1728,7 +1728,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.5,
           "last3AvgPoints": 13.9,
-          "projPoints": 9.7
+          "projPoints": 9.6
         },
         {
           "name": "Mike Evans",
