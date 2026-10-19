@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-19T16:40:35.085Z",
+  "generatedAt": "2026-10-19T21:47:31.917Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 32.3,
           "last3AvgPoints": 32.3,
-          "projPoints": 17.2
+          "projPoints": 17.6
         },
         {
           "name": "Brock Bowers",
@@ -922,7 +922,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.2,
           "last3AvgPoints": 7.2,
-          "projPoints": 3.6
+          "projPoints": 4.6
         },
         {
           "name": "Hunter Henry",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 14.4,
-          "projPoints": 12.5
+          "projPoints": 12.6
         },
         {
           "name": "Johnny Mundt",
@@ -1054,7 +1054,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.2,
           "last3AvgPoints": 22.7,
-          "projPoints": 22.2
+          "projPoints": 22.4
         },
         {
           "name": "Rashid Shaheed",
@@ -1132,7 +1132,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 32.3,
           "last3AvgPoints": 32.3,
-          "projPoints": 17.2
+          "projPoints": 17.6
         },
         {
           "name": "Blake Corum",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.2,
           "last3AvgPoints": 22.7,
-          "projPoints": 22.2
+          "projPoints": 22.4
         },
         {
           "name": "Jordan Mason",
@@ -1739,7 +1739,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 26.3,
           "last3AvgPoints": 17.1,
-          "projPoints": 16.3
+          "projPoints": 16.8
         },
         {
           "name": "DJ Moore",
@@ -1794,7 +1794,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3,
           "last3AvgPoints": 7.1,
-          "projPoints": 10.9
+          "projPoints": 10.8
         },
         {
           "name": "Chase Brown",
