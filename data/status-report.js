@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-20T13:05:51.630Z",
+  "generatedAt": "2026-10-20T18:09:45.116Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -49,7 +49,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11,
           "last3AvgPoints": 18.2,
-          "projPoints": 16.1
+          "projPoints": 16.2
         },
         {
           "name": "Rome Odunze",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.7,
           "last3AvgPoints": 22,
-          "projPoints": 19.9
+          "projPoints": 19.8
         },
         {
           "name": "Brian Robinson",
@@ -292,7 +292,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 5,
-          "projPoints": 8.6
+          "projPoints": 8.5
         },
         {
           "name": "Cameron Dicker",
@@ -513,7 +513,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 20.5,
           "last3AvgPoints": 20.5,
-          "projPoints": 13
+          "projPoints": 13.2
         },
         {
           "name": "Rhamondre Stevenson",
@@ -602,7 +602,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13,
           "last3AvgPoints": 10.1,
-          "projPoints": 7.3
+          "projPoints": 7.2
         },
         {
           "name": "Marvin Harrison",
@@ -635,7 +635,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.5,
           "last3AvgPoints": 18.9,
-          "projPoints": 15.8
+          "projPoints": 15.9
         },
         {
           "name": "Devaughn Vele",
@@ -999,7 +999,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.8,
           "last3AvgPoints": 3.8,
-          "projPoints": 4.2
+          "projPoints": 4.7
         },
         {
           "name": "AJ Dillon",
@@ -1154,7 +1154,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11,
           "last3AvgPoints": 18.2,
-          "projPoints": 16.1
+          "projPoints": 16.2
         },
         {
           "name": "Rome Odunze",
@@ -1176,7 +1176,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18.5,
           "last3AvgPoints": 7.8,
-          "projPoints": 7.8
+          "projPoints": 7.9
         },
         {
           "name": "Kirk Cousins",
@@ -1187,7 +1187,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.5,
           "last3AvgPoints": 18.9,
-          "projPoints": 15.8
+          "projPoints": 15.9
         },
         {
           "name": "Cam Skattebo",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 7.4,
-          "projPoints": 2.6
+          "projPoints": 3.7
         },
         {
           "name": "Tory Horton",
@@ -1264,7 +1264,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 6.6,
-          "projPoints": 5.7
+          "projPoints": 5.8
         },
         {
           "name": "Tyler Higbee",
@@ -1286,7 +1286,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 5,
-          "projPoints": 8.6
+          "projPoints": 8.5
         },
         {
           "name": "Josh Jacobs",
@@ -1341,7 +1341,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.6,
           "last3AvgPoints": 12.6,
-          "projPoints": 14
+          "projPoints": 14.1
         },
         {
           "name": "Jaxon Smith-Njigba",
@@ -1772,7 +1772,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16,
           "last3AvgPoints": 20.1,
-          "projPoints": 17.5
+          "projPoints": 17.7
         },
         {
           "name": "Justin Herbert",
