@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-19T21:47:31.917Z",
+  "generatedAt": "2026-10-20T00:46:19.390Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 32.3,
           "last3AvgPoints": 32.3,
-          "projPoints": 17.6
+          "projPoints": 17.7
         },
         {
           "name": "Brock Bowers",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 14.4,
-          "projPoints": 12.6
+          "projPoints": 12.4
         },
         {
           "name": "Johnny Mundt",
@@ -1054,7 +1054,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.2,
           "last3AvgPoints": 22.7,
-          "projPoints": 22.4
+          "projPoints": 21.9
         },
         {
           "name": "Rashid Shaheed",
@@ -1132,7 +1132,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 32.3,
           "last3AvgPoints": 32.3,
-          "projPoints": 17.6
+          "projPoints": 17.7
         },
         {
           "name": "Blake Corum",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.2,
           "last3AvgPoints": 22.7,
-          "projPoints": 22.4
+          "projPoints": 21.9
         },
         {
           "name": "Jordan Mason",
@@ -1735,11 +1735,11 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "SF",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 26.3,
           "last3AvgPoints": 17.1,
-          "projPoints": 16.8
+          "projPoints": 16.6
         },
         {
           "name": "DJ Moore",
@@ -1794,7 +1794,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3,
           "last3AvgPoints": 7.1,
-          "projPoints": 10.8
+          "projPoints": 10.9
         },
         {
           "name": "Chase Brown",
