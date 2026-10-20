@@ -579,6 +579,120 @@ const POSITION_POINTS = {
     "kPts": 0,
     "defPts": 1
    }
+  },
+  "6": {
+   "milchreis": {
+    "qbPts": 21,
+    "rbPts": 14,
+    "wrPts": 67.6,
+    "tePts": 29.5,
+    "kPts": 4,
+    "defPts": 14
+   },
+   "bomba12": {
+    "qbPts": 11.48,
+    "rbPts": 29.3,
+    "wrPts": 31.9,
+    "tePts": 11.8,
+    "kPts": 1,
+    "defPts": 1
+   },
+   "svennyg": {
+    "qbPts": 13.02,
+    "rbPts": 13.9,
+    "wrPts": 37.8,
+    "tePts": 1.4,
+    "kPts": 7,
+    "defPts": 1
+   },
+   "jiggydee2312": {
+    "qbPts": 23.8,
+    "rbPts": 39.7,
+    "wrPts": 26.8,
+    "tePts": 14.5,
+    "kPts": 3,
+    "defPts": 12
+   },
+   "dickvanhurik": {
+    "qbPts": 23.1,
+    "rbPts": 50.4,
+    "wrPts": 28.4,
+    "tePts": 10.8,
+    "kPts": 10,
+    "defPts": 3
+   },
+   "teambeermode": {
+    "qbPts": 13.16,
+    "rbPts": 19.9,
+    "wrPts": 61.9,
+    "tePts": 12.1,
+    "kPts": 11,
+    "defPts": 5
+   },
+   "dseinn": {
+    "qbPts": 19.84,
+    "rbPts": 44.9,
+    "wrPts": 42.7,
+    "tePts": 23.9,
+    "kPts": 1,
+    "defPts": 16
+   },
+   "giantmarv": {
+    "qbPts": 23.98,
+    "rbPts": 27.9,
+    "wrPts": 52.4,
+    "tePts": 27.2,
+    "kPts": 17,
+    "defPts": 10
+   },
+   "r4xon": {
+    "qbPts": 17.36,
+    "rbPts": 44.7,
+    "wrPts": 53.1,
+    "tePts": 0,
+    "kPts": 17,
+    "defPts": 4
+   },
+   "danfre": {
+    "qbPts": 26.96,
+    "rbPts": 67.5,
+    "wrPts": 28.1,
+    "tePts": 23,
+    "kPts": 12,
+    "defPts": 2
+   },
+   "unicornsruegen": {
+    "qbPts": 28.34,
+    "rbPts": 32.5,
+    "wrPts": 60,
+    "tePts": 9.4,
+    "kPts": 9,
+    "defPts": 6
+   },
+   "lovethecheesehead": {
+    "qbPts": 0,
+    "rbPts": 5.7,
+    "wrPts": 28.2,
+    "tePts": 2.1,
+    "kPts": 12,
+    "defPts": 9
+   },
+   "americagrizlies": {
+    "qbPts": 18.3,
+    "rbPts": 3,
+    "wrPts": 47.3,
+    "tePts": 27.3,
+    "kPts": 7,
+    "defPts": 6
+   },
+   "angryducks": {
+    "qbPts": 4.48,
+    "rbPts": 1,
+    "wrPts": 63.8,
+    "tePts": 1.4,
+    "kPts": 8,
+    "defPts": 10
+   }
   }
  }
 };
