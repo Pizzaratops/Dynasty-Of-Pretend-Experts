@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-21T02:14:39.829Z",
+  "generatedAt": "2026-10-21T08:56:25.883Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 23.5
+          "projPoints": 23.6
         },
         {
           "name": "Denver Broncos",
@@ -381,7 +381,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.7,
           "last3AvgPoints": 15.7,
-          "projPoints": 15.8
+          "projPoints": 15.7
         },
         {
           "name": "Pat Bryant",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.7,
           "last3AvgPoints": 7.9,
-          "projPoints": 9.8
+          "projPoints": 9.7
         },
         {
           "name": "Lamar Jackson",
@@ -546,7 +546,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 4.4,
-          "projPoints": 1.4
+          "projPoints": 1.5
         },
         {
           "name": "Keaton Mitchell",
@@ -624,7 +624,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.7,
           "last3AvgPoints": 12.7,
-          "projPoints": 13.1
+          "projPoints": 13
         },
         {
           "name": "Kirk Cousins",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.5,
           "last3AvgPoints": 14.3,
-          "projPoints": 16
+          "projPoints": 16.1
         },
         {
           "name": "DJ Moore",
@@ -801,7 +801,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.7,
           "last3AvgPoints": 4.1,
-          "projPoints": 3.2
+          "projPoints": 3.1
         },
         {
           "name": "Bhayshul Tuten",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 23.5
+          "projPoints": 23.6
         },
         {
           "name": "Denver Broncos",
@@ -1452,7 +1452,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.7,
           "last3AvgPoints": 15.7,
-          "projPoints": 15.8
+          "projPoints": 15.7
         },
         {
           "name": "Woody Marks",
