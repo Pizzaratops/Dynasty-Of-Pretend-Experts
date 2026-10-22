@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-22T02:09:08.827Z",
+  "generatedAt": "2026-10-22T08:58:31.473Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 23.5
+          "projPoints": 23.8
         },
         {
           "name": "Denver Broncos",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.5,
           "last3AvgPoints": 14.3,
-          "projPoints": 16
+          "projPoints": 16.1
         },
         {
           "name": "DJ Moore",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 9.3
+          "projPoints": 9.4
         },
         {
           "name": "Brandin Cooks",
@@ -955,7 +955,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.5,
           "last3AvgPoints": 3.9,
-          "projPoints": 5.5
+          "projPoints": 5.6
         },
         {
           "name": "George Kittle",
@@ -1065,7 +1065,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.3,
           "last3AvgPoints": 8.1,
-          "projPoints": 4.8
+          "projPoints": 4.9
         },
         {
           "name": "Parker Washington",
@@ -1110,7 +1110,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12.6
+          "projPoints": 12.8
         },
         {
           "name": "Caleb Williams",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 23.5
+          "projPoints": 23.8
         },
         {
           "name": "Denver Broncos",
@@ -1827,7 +1827,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 5.6
+          "projPoints": 5.5
         }
       ],
       "flaggedCount": 0
