@@ -12,6 +12,22 @@
 
 const TRADES = [
  {
+  "date": "2026-10-23",
+  "week": 7,
+  "teamA": "Berlin Lightning Sloths",
+  "teamAGives": [
+   "Mike Washington Jr."
+  ],
+  "teamB": "San José Salamancas",
+  "teamBGives": [
+   "Zonovan Knight",
+   "Konata Mumpfield",
+   "2028 3rd (via Berlin Lightning Sloths)",
+   "2027 3rd (via dseinn)"
+  ],
+  "id": "1419217091369697280"
+ },
+ {
   "date": "2026-10-16",
   "week": 6,
   "teamA": "Berlin Lightning Sloths",
@@ -514,7 +530,7 @@ const FUTURE_PICKS = {
   {
    "round": "3rd",
    "from": "dseinn",
-   "owner": "San José Salamancas"
+   "owner": "Berlin Lightning Sloths"
   },
   {
    "round": "3rd",
@@ -572,11 +588,6 @@ const FUTURE_PICKS = {
    "round": "2nd",
    "from": "San José Salamancas",
    "owner": "Husum Husos"
-  },
-  {
-   "round": "3rd",
-   "from": "Berlin Lightning Sloths",
-   "owner": "San José Salamancas"
   },
   {
    "round": "3rd",
