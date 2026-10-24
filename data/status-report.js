@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-24T02:12:44.648Z",
+  "generatedAt": "2026-10-24T08:27:24.352Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -724,6 +724,17 @@ const STATUS_REPORT_DATA = {
           "lastGamePoints": null,
           "last3AvgPoints": 10.7,
           "projPoints": 16.2
+        },
+        {
+          "name": "Michael Mayer",
+          "pos": "TE",
+          "nfl": "LV",
+          "isStarter": false,
+          "status": null,
+          "flag": false,
+          "lastGamePoints": 13,
+          "last3AvgPoints": 8.6,
+          "projPoints": 5.5
         },
         {
           "name": "Parker Washington",
