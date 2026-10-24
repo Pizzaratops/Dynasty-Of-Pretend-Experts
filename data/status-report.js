@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-24T19:54:17.466Z",
+  "generatedAt": "2026-10-24T22:02:58.216Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.1
+          "projPoints": 24
         },
         {
           "name": "Denver Broncos",
@@ -513,7 +513,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 20.5,
           "last3AvgPoints": 20.5,
-          "projPoints": 14.1
+          "projPoints": null
         },
         {
           "name": "Rhamondre Stevenson",
@@ -878,7 +878,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.4,
           "last3AvgPoints": 4.8,
-          "projPoints": 4.9
+          "projPoints": 5
         },
         {
           "name": "Sam Roush",
@@ -977,7 +977,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 0.9,
           "last3AvgPoints": 0.9,
-          "projPoints": 0.7
+          "projPoints": 0.8
         },
         {
           "name": "Courtland Sutton",
@@ -1264,7 +1264,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 6.6,
-          "projPoints": 6.3
+          "projPoints": 6.5
         },
         {
           "name": "Brandin Cooks",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.1
+          "projPoints": 24
         },
         {
           "name": "Denver Broncos",
@@ -1783,7 +1783,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16,
           "last3AvgPoints": 20.1,
-          "projPoints": 17.2
+          "projPoints": 17.3
         },
         {
           "name": "Justin Herbert",
