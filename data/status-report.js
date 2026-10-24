@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-24T08:27:24.352Z",
+  "generatedAt": "2026-10-24T13:41:13.187Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.3
+          "projPoints": 24.4
         },
         {
           "name": "Denver Broncos",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 14.8,
-          "projPoints": 11.2
+          "projPoints": 11.3
         },
         {
           "name": "Colston Loveland",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.3
+          "projPoints": 24.4
         },
         {
           "name": "Denver Broncos",
@@ -1518,7 +1518,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19,
           "last3AvgPoints": 14,
-          "projPoints": 12.4
+          "projPoints": 12.3
         },
         {
           "name": "Nicholas Singleton",
@@ -1822,15 +1822,15 @@ const STATUS_REPORT_DATA = {
           "name": "Zach Charbonnet",
           "pos": "RB",
           "nfl": "SEA",
-          "isStarter": true,
+          "isStarter": false,
           "status": "O",
-          "flag": true,
+          "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
           "projPoints": null
         }
       ],
-      "flaggedCount": 1
+      "flaggedCount": 0
     }
   ]
 };
