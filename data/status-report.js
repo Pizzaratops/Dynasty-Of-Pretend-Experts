@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-24T17:03:22.740Z",
+  "generatedAt": "2026-10-24T19:54:17.466Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -115,7 +115,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.5
+          "projPoints": 3.4
         },
         {
           "name": "Emeka Egbuka",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.3
+          "projPoints": 24.1
         },
         {
           "name": "Denver Broncos",
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 18.9,
-          "projPoints": 18.8
+          "projPoints": null
         },
         {
           "name": "Tua Tagovailoa",
@@ -591,7 +591,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.2,
           "last3AvgPoints": 14.3,
-          "projPoints": 9.4
+          "projPoints": 9.3
         },
         {
           "name": "Blake Corum",
@@ -624,7 +624,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.7,
           "last3AvgPoints": 12.7,
-          "projPoints": 13
+          "projPoints": 12.9
         },
         {
           "name": "Devaughn Vele",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.5,
           "last3AvgPoints": 14.3,
-          "projPoints": 16.4
+          "projPoints": 16.3
         },
         {
           "name": "DJ Moore",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 9.8
+          "projPoints": 9.7
         },
         {
           "name": "Brandin Cooks",
@@ -922,7 +922,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.8,
           "last3AvgPoints": 4.5,
-          "projPoints": 6.9
+          "projPoints": 6.7
         },
         {
           "name": "Hunter Henry",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.4,
           "last3AvgPoints": 11.8,
-          "projPoints": 14
+          "projPoints": 14.1
         },
         {
           "name": "Johnny Mundt",
@@ -1010,7 +1010,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 1.2,
-          "projPoints": 0.7
+          "projPoints": 2.2
         },
         {
           "name": "Colby Parkinson",
@@ -1209,7 +1209,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.5
+          "projPoints": 3.4
         },
         {
           "name": "Emeka Egbuka",
@@ -1275,7 +1275,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.3,
           "last3AvgPoints": 5,
-          "projPoints": 8.2
+          "projPoints": 8
         },
         {
           "name": "Tyler Higbee",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.3
+          "projPoints": 24.1
         },
         {
           "name": "Denver Broncos",
@@ -1474,7 +1474,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.5
+          "projPoints": 3.4
         },
         {
           "name": "Omarion Hampton",
@@ -1662,7 +1662,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.3,
           "last3AvgPoints": 12.7,
-          "projPoints": 11.3
+          "projPoints": 11.1
         },
         {
           "name": "Colston Loveland",
