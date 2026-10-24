@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-24T13:41:13.187Z",
+  "generatedAt": "2026-10-24T17:03:22.740Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.4
+          "projPoints": 24.3
         },
         {
           "name": "Denver Broncos",
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 18.9,
-          "projPoints": 19
+          "projPoints": 18.8
         },
         {
           "name": "Tua Tagovailoa",
@@ -1352,7 +1352,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24.4
+          "projPoints": 24.3
         },
         {
           "name": "Denver Broncos",
@@ -1643,15 +1643,15 @@ const STATUS_REPORT_DATA = {
       "record": "1-11-0",
       "players": [
         {
-          "name": "Jonathon Brooks",
-          "pos": "RB",
-          "nfl": "CAR",
-          "isStarter": false,
-          "status": "IR",
+          "name": "Bo Nix",
+          "pos": "QB",
+          "nfl": "DEN",
+          "isStarter": true,
+          "status": null,
           "flag": false,
-          "lastGamePoints": null,
-          "last3AvgPoints": null,
-          "projPoints": null
+          "lastGamePoints": 4.5,
+          "last3AvgPoints": 8.7,
+          "projPoints": 19.2
         },
         {
           "name": "Xavier Worthy",
@@ -1718,6 +1718,17 @@ const STATUS_REPORT_DATA = {
           "lastGamePoints": 7.9,
           "last3AvgPoints": 6.9,
           "projPoints": 9.7
+        },
+        {
+          "name": "Seth McGowan",
+          "pos": "RB",
+          "nfl": "IND",
+          "isStarter": true,
+          "status": null,
+          "flag": false,
+          "lastGamePoints": 2.7,
+          "last3AvgPoints": 3.5,
+          "projPoints": 3
         },
         {
           "name": "Keenan Allen",
@@ -1806,17 +1817,6 @@ const STATUS_REPORT_DATA = {
           "lastGamePoints": null,
           "last3AvgPoints": 13.1,
           "projPoints": 15.1
-        },
-        {
-          "name": "Michael Mayer",
-          "pos": "TE",
-          "nfl": "LV",
-          "isStarter": false,
-          "status": null,
-          "flag": false,
-          "lastGamePoints": 16.5,
-          "last3AvgPoints": 11.3,
-          "projPoints": 7.1
         },
         {
           "name": "Zach Charbonnet",
