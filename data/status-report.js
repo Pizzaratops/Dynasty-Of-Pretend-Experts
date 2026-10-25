@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-25T17:17:53.553Z",
+  "generatedAt": "2026-10-25T20:04:56.368Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -258,7 +258,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14,
           "last3AvgPoints": 10.7,
-          "projPoints": 8.2
+          "projPoints": 8.3
         }
       ],
       "flaggedCount": 0
@@ -359,7 +359,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1,
           "last3AvgPoints": 9.2,
-          "projPoints": 5
+          "projPoints": 5.1
         },
         {
           "name": "Rome Odunze",
@@ -535,7 +535,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.3,
           "last3AvgPoints": 14.7,
-          "projPoints": 15.3
+          "projPoints": 15.4
         },
         {
           "name": "Sean Tucker",
@@ -856,7 +856,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 0.5
+          "projPoints": null
         },
         {
           "name": "Nicholas Singleton",
@@ -1319,7 +1319,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 11.9
+          "projPoints": 12
         },
         {
           "name": "Treylon Burks",
@@ -1374,7 +1374,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14,
           "last3AvgPoints": 10.7,
-          "projPoints": 8.2
+          "projPoints": 8.3
         }
       ],
       "flaggedCount": 0
@@ -1662,7 +1662,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.5,
           "last3AvgPoints": 8.7,
-          "projPoints": 19.2
+          "projPoints": 19.4
         },
         {
           "name": "Xavier Worthy",
