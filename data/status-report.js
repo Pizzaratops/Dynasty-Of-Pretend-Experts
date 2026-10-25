@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-25T20:04:56.368Z",
+  "generatedAt": "2026-10-25T23:39:19.288Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -203,7 +203,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.7,
           "last3AvgPoints": 22,
-          "projPoints": 19.8
+          "projPoints": 19.9
         },
         {
           "name": "Brian Robinson Jr.",
@@ -247,7 +247,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24
+          "projPoints": 24.2
         },
         {
           "name": "Denver Broncos",
@@ -469,7 +469,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 24.7,
-          "projPoints": 19.9
+          "projPoints": 20.2
         },
         {
           "name": "Chris Godwin Jr.",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.5,
           "last3AvgPoints": 14.3,
-          "projPoints": 16.3
+          "projPoints": 16.4
         },
         {
           "name": "DJ Moore",
@@ -723,7 +723,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 10.7,
-          "projPoints": 16.9
+          "projPoints": 17.1
         },
         {
           "name": "Michael Mayer",
@@ -734,7 +734,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13,
           "last3AvgPoints": 8.6,
-          "projPoints": 5.5
+          "projPoints": 5.6
         },
         {
           "name": "Parker Washington",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 4.9,
-          "projPoints": 9.7
+          "projPoints": 9.8
         },
         {
           "name": "Brandin Cooks",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.5,
           "last3AvgPoints": 18.9,
-          "projPoints": 15.8
+          "projPoints": 15.9
         },
         {
           "name": "Cam Skattebo",
@@ -1297,7 +1297,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.2,
           "last3AvgPoints": 9.7,
-          "projPoints": 9.7
+          "projPoints": 9.8
         },
         {
           "name": "Eddy Pineiro",
@@ -1319,7 +1319,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12
+          "projPoints": 11.9
         },
         {
           "name": "Treylon Burks",
@@ -1363,7 +1363,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 20.3,
-          "projPoints": 24
+          "projPoints": 24.2
         },
         {
           "name": "Denver Broncos",
@@ -1639,7 +1639,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 11.3,
-          "projPoints": 7.1
+          "projPoints": 7.2
         }
       ],
       "flaggedCount": 0
