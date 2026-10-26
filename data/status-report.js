@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-26T09:26:00.004Z",
+  "generatedAt": "2026-10-26T16:20:41.478Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -447,7 +447,7 @@ const STATUS_REPORT_DATA = {
           "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": null
+          "projPoints": 1
         },
         {
           "name": "Eli Raridon",
@@ -878,7 +878,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.4,
           "last3AvgPoints": 4.8,
-          "projPoints": 6.9
+          "projPoints": 7
         },
         {
           "name": "Sam Roush",
@@ -1275,7 +1275,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.9,
           "last3AvgPoints": 6.6,
-          "projPoints": 8.9
+          "projPoints": 9
         },
         {
           "name": "Brandin Cooks",
@@ -1794,7 +1794,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16,
           "last3AvgPoints": 20.1,
-          "projPoints": 17.2
+          "projPoints": 17.3
         },
         {
           "name": "Justin Herbert",
