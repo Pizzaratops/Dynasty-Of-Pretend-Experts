@@ -693,6 +693,120 @@ const POSITION_POINTS = {
     "kPts": 8,
     "defPts": 10
    }
+  },
+  "7": {
+   "milchreis": {
+    "qbPts": 22.12,
+    "rbPts": 37.2,
+    "wrPts": 65.9,
+    "tePts": 36.6,
+    "kPts": 1,
+    "defPts": 4
+   },
+   "bomba12": {
+    "qbPts": 7,
+    "rbPts": 38.8,
+    "wrPts": 92.9,
+    "tePts": 14.8,
+    "kPts": 14,
+    "defPts": 3
+   },
+   "svennyg": {
+    "qbPts": 23.28,
+    "rbPts": 32.8,
+    "wrPts": 34.1,
+    "tePts": 0,
+    "kPts": 8,
+    "defPts": 1
+   },
+   "jiggydee2312": {
+    "qbPts": 28.44,
+    "rbPts": 21.1,
+    "wrPts": 32.6,
+    "tePts": 28.7,
+    "kPts": 9,
+    "defPts": 4
+   },
+   "dickvanhurik": {
+    "qbPts": 20.42,
+    "rbPts": 82.8,
+    "wrPts": 52.6,
+    "tePts": 13.1,
+    "kPts": 12,
+    "defPts": 11
+   },
+   "teambeermode": {
+    "qbPts": 26.02,
+    "rbPts": 19.1,
+    "wrPts": 23,
+    "tePts": 17.4,
+    "kPts": 11,
+    "defPts": -1
+   },
+   "dseinn": {
+    "qbPts": 7.42,
+    "rbPts": 67.5,
+    "wrPts": 13.3,
+    "tePts": 3.2,
+    "kPts": 10,
+    "defPts": 3
+   },
+   "giantmarv": {
+    "qbPts": 16.52,
+    "rbPts": 37,
+    "wrPts": 32.7,
+    "tePts": 23.2,
+    "kPts": 12,
+    "defPts": 6
+   },
+   "r4xon": {
+    "qbPts": 14.02,
+    "rbPts": 56.2,
+    "wrPts": 34,
+    "tePts": 1.7,
+    "kPts": 11,
+    "defPts": 2
+   },
+   "danfre": {
+    "qbPts": 14.82,
+    "rbPts": 50.8,
+    "wrPts": 26.7,
+    "tePts": 16,
+    "kPts": 8,
+    "defPts": 7
+   },
+   "unicornsruegen": {
+    "qbPts": 28.88,
+    "rbPts": 21.2,
+    "wrPts": 41.8,
+    "tePts": 13.5,
+    "kPts": 3,
+    "defPts": 6
+   },
+   "lovethecheesehead": {
+    "qbPts": 0,
+    "rbPts": 4,
+    "wrPts": 32,
+    "tePts": 14.6,
+    "kPts": 4,
+    "defPts": 8
+   },
+   "americagrizlies": {
+    "qbPts": 6.66,
+    "rbPts": 19.4,
+    "wrPts": 19.2,
+    "tePts": 20.3,
+    "kPts": 7,
+    "defPts": 2
+   },
+   "angryducks": {
+    "qbPts": 26.28,
+    "rbPts": 5.5,
+    "wrPts": 72.1,
+    "tePts": 5.3,
+    "kPts": 14,
+    "defPts": 9
+   }
   }
  }
 };
