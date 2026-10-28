@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-27T23:17:51.532Z",
+  "generatedAt": "2026-10-28T02:47:07.671Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -258,7 +258,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 11,
-          "projPoints": 6.8
+          "projPoints": 6.7
         }
       ],
       "flaggedCount": 0
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 20.2
+          "projPoints": 20.3
         },
         {
           "name": "Tua Tagovailoa",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7,
           "last3AvgPoints": 9.3,
-          "projPoints": 17.1
+          "projPoints": 16.9
         },
         {
           "name": "DJ Moore",
@@ -701,7 +701,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12.3
+          "projPoints": 12.4
         },
         {
           "name": "Rico Dowdle",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.4,
           "last3AvgPoints": 6.9,
-          "projPoints": 9.4
+          "projPoints": 9.3
         },
         {
           "name": "Brandin Cooks",
@@ -999,7 +999,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 5.9,
-          "projPoints": 6
+          "projPoints": 5.9
         },
         {
           "name": "Devin Singletary",
@@ -1121,7 +1121,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12.7
+          "projPoints": 12.6
         },
         {
           "name": "Caleb Williams",
@@ -1183,7 +1183,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYG",
           "isStarter": false,
-          "status": "Q",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": 8.7,
           "last3AvgPoints": 10.8,
@@ -1297,7 +1297,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.9,
           "last3AvgPoints": 10.6,
-          "projPoints": 15.9
+          "projPoints": 15.7
         },
         {
           "name": "Tyler Higbee",
@@ -1396,7 +1396,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4,
           "last3AvgPoints": 11,
-          "projPoints": 6.8
+          "projPoints": 6.7
         }
       ],
       "flaggedCount": 0
@@ -1650,7 +1650,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 11.6,
-          "projPoints": 10.6
+          "projPoints": 10.5
         },
         {
           "name": "Michael Mayer",
@@ -1684,7 +1684,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 26.2,
           "last3AvgPoints": 12.9,
-          "projPoints": 14
+          "projPoints": 13.9
         },
         {
           "name": "Xavier Worthy",
@@ -1794,7 +1794,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 14.5
+          "projPoints": 14.6
         },
         {
           "name": "David Montgomery",
@@ -1849,7 +1849,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.8,
           "last3AvgPoints": 8.4,
-          "projPoints": 17.9
+          "projPoints": 17.7
         },
         {
           "name": "Zach Charbonnet",
