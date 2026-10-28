@@ -12,6 +12,22 @@
 
 const TRADES = [
  {
+  "date": "2026-10-27",
+  "week": 7,
+  "teamA": "Tokyo Titi Twisters",
+  "teamAGives": [
+   "2028 1st",
+   "2028 2nd",
+   "2029 3rd"
+  ],
+  "teamB": "RioRainRats",
+  "teamBGives": [
+   "Derrick Henry",
+   "Chris Olave"
+  ],
+  "id": "1420924540476796928"
+ },
+ {
   "date": "2026-10-23",
   "week": 7,
   "teamA": "Berlin Lightning Sloths",
@@ -585,9 +601,19 @@ const FUTURE_PICKS = {
    "owner": "Blowout Arctic Yetis"
   },
   {
+   "round": "1st",
+   "from": "Tokyo Titi Twisters",
+   "owner": "RioRainRats"
+  },
+  {
    "round": "2nd",
    "from": "San José Salamancas",
    "owner": "Husum Husos"
+  },
+  {
+   "round": "2nd",
+   "from": "Tokyo Titi Twisters",
+   "owner": "RioRainRats"
   },
   {
    "round": "3rd",
@@ -620,6 +646,11 @@ const FUTURE_PICKS = {
    "round": "1st",
    "from": "UnicornsRuegen",
    "owner": "Blowout Arctic Yetis"
+  },
+  {
+   "round": "3rd",
+   "from": "Tokyo Titi Twisters",
+   "owner": "RioRainRats"
   }
  ]
 };

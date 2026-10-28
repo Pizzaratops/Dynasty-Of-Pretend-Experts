@@ -800,7 +800,7 @@ const POSITION_POINTS = {
     "defPts": 2
    },
    "angryducks": {
-    "qbPts": 26.28,
+    "qbPts": 26.18,
     "rbPts": 5.5,
     "wrPts": 72.1,
     "tePts": 5.3,

@@ -699,12 +699,12 @@ const WEEKLY_SCORES = {
     "teamId": "giantmarv",
     "points": 127.42,
     "opponentId": "angryducks",
-    "opponentPoints": 132.18,
+    "opponentPoints": 132.08,
     "medianResult": "W"
    },
    {
     "teamId": "angryducks",
-    "points": 132.18,
+    "points": 132.08,
     "opponentId": "giantmarv",
     "opponentPoints": 127.42,
     "medianResult": "W"

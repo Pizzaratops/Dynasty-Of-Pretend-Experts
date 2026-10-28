@@ -3516,7 +3516,7 @@ const FANTASY_POWER_SCORE = {
           "teamId": "giantmarv",
           "values": {
             "pointsFor": 134.56,
-            "pointsAgainst": 133.89,
+            "pointsAgainst": 133.87,
             "qbPts": 17.66,
             "rbPts": 32.29,
             "wrPts": 38,
@@ -3635,9 +3635,9 @@ const FANTASY_POWER_SCORE = {
         {
           "teamId": "angryducks",
           "values": {
-            "pointsFor": 123.22,
+            "pointsFor": 123.21,
             "pointsAgainst": 114.79,
-            "qbPts": 14.13,
+            "qbPts": 14.12,
             "rbPts": 17.46,
             "wrPts": 63.26,
             "tePts": 10.94
@@ -3791,7 +3791,7 @@ const FANTASY_POWER_SCORE = {
           "teamId": "giantmarv",
           "values": {
             "pointsFor": 127.42,
-            "pointsAgainst": 132.18,
+            "pointsAgainst": 132.08,
             "qbPts": 16.52,
             "rbPts": 37,
             "wrPts": 32.7,
@@ -3904,9 +3904,9 @@ const FANTASY_POWER_SCORE = {
         {
           "teamId": "angryducks",
           "values": {
-            "pointsFor": 132.18,
+            "pointsFor": 132.08,
             "pointsAgainst": 127.42,
-            "qbPts": 26.28,
+            "qbPts": 26.18,
             "rbPts": 5.5,
             "wrPts": 72.1,
             "tePts": 5.3
