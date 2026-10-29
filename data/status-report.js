@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-29T07:43:38.585Z",
+  "generatedAt": "2026-10-29T14:42:43.593Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -49,7 +49,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.3,
           "last3AvgPoints": 15.8,
-          "projPoints": 17.1
+          "projPoints": 17.2
         },
         {
           "name": "Rome Odunze",
@@ -657,7 +657,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.4,
           "last3AvgPoints": 11.6,
-          "projPoints": 7.8
+          "projPoints": 7.7
         },
         {
           "name": "Jeremiyah Love",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7,
           "last3AvgPoints": 9.3,
-          "projPoints": 16.9
+          "projPoints": 16.8
         },
         {
           "name": "DJ Moore",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.4,
           "last3AvgPoints": 6.9,
-          "projPoints": 9.4
+          "projPoints": 9.3
         },
         {
           "name": "Hunter Henry",
@@ -1110,7 +1110,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12.7
+          "projPoints": 12.6
         },
         {
           "name": "Caleb Williams",
@@ -1154,7 +1154,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.3,
           "last3AvgPoints": 15.8,
-          "projPoints": 17.1
+          "projPoints": 17.2
         },
         {
           "name": "Rome Odunze",
@@ -1408,7 +1408,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 2.4,
-          "projPoints": 3.5
+          "projPoints": 3.4
         },
         {
           "name": "Ladd McConkey",
@@ -1507,7 +1507,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 10.2,
-          "projPoints": 13.8
+          "projPoints": 13.7
         },
         {
           "name": "Nicholas Singleton",
@@ -1617,7 +1617,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 8,
-          "projPoints": 7.5
+          "projPoints": 7.6
         }
       ],
       "flaggedCount": 0
@@ -1640,7 +1640,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 26.2,
           "last3AvgPoints": 12.9,
-          "projPoints": 14.1
+          "projPoints": 14
         },
         {
           "name": "Xavier Worthy",
@@ -1651,7 +1651,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.1,
           "last3AvgPoints": 9.2,
-          "projPoints": 9.2
+          "projPoints": 9.1
         },
         {
           "name": "Colston Loveland",
@@ -1728,7 +1728,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.1,
           "last3AvgPoints": 10.6,
-          "projPoints": 9.6
+          "projPoints": 9.5
         },
         {
           "name": "Mike Evans",
