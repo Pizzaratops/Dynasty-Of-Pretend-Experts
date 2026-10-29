@@ -3456,7 +3456,7 @@ const FANTASY_POWER_SCORE = {
           "teamId": "dickvanhurik",
           "values": {
             "pointsFor": 150.01,
-            "pointsAgainst": 134.08,
+            "pointsAgainst": 134.22,
             "qbPts": 19.71,
             "rbPts": 50.57,
             "wrPts": 51.47,
@@ -3475,7 +3475,7 @@ const FANTASY_POWER_SCORE = {
         {
           "teamId": "teambeermode",
           "values": {
-            "pointsFor": 135.16,
+            "pointsFor": 135.3,
             "pointsAgainst": 130.54,
             "qbPts": 17.46,
             "rbPts": 33.1,
@@ -3734,7 +3734,7 @@ const FANTASY_POWER_SCORE = {
           "teamId": "dickvanhurik",
           "values": {
             "pointsFor": 191.92,
-            "pointsAgainst": 95.52,
+            "pointsAgainst": 96.52,
             "qbPts": 20.42,
             "rbPts": 82.8,
             "wrPts": 52.6,
@@ -3752,7 +3752,7 @@ const FANTASY_POWER_SCORE = {
         {
           "teamId": "teambeermode",
           "values": {
-            "pointsFor": 95.52,
+            "pointsFor": 96.52,
             "pointsAgainst": 191.92,
             "qbPts": 26.02,
             "rbPts": 19.1,

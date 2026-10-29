@@ -741,7 +741,7 @@ const POSITION_POINTS = {
     "wrPts": 23,
     "tePts": 17.4,
     "kPts": 11,
-    "defPts": -1
+    "defPts": 0
    },
    "dseinn": {
     "qbPts": 7.42,

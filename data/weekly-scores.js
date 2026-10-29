@@ -685,12 +685,12 @@ const WEEKLY_SCORES = {
     "teamId": "dickvanhurik",
     "points": 191.92,
     "opponentId": "teambeermode",
-    "opponentPoints": 95.52,
+    "opponentPoints": 96.52,
     "medianResult": "W"
    },
    {
     "teamId": "teambeermode",
-    "points": 95.52,
+    "points": 96.52,
     "opponentId": "dickvanhurik",
     "opponentPoints": 191.92,
     "medianResult": "L"
