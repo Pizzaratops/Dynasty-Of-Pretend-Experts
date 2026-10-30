@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-30T07:49:42.032Z",
+  "generatedAt": "2026-10-30T14:39:13.073Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -126,7 +126,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17.5,
-          "projPoints": 11.8
+          "projPoints": 11.7
         },
         {
           "name": "Colston Loveland",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.6,
           "last3AvgPoints": 10.5,
-          "projPoints": 12
+          "projPoints": 11.9
         },
         {
           "name": "David Montgomery",
@@ -469,7 +469,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18,
           "last3AvgPoints": 23.5,
-          "projPoints": 16.3
+          "projPoints": 16.2
         },
         {
           "name": "Chris Godwin Jr.",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.7,
           "last3AvgPoints": 7.1,
-          "projPoints": 10.5
+          "projPoints": 10.4
         },
         {
           "name": "Lamar Jackson",
@@ -491,7 +491,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 20.4
+          "projPoints": 20.5
         },
         {
           "name": "Tua Tagovailoa",
@@ -657,7 +657,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.4,
           "last3AvgPoints": 11.6,
-          "projPoints": 7.7
+          "projPoints": 7.8
         },
         {
           "name": "Jeremiyah Love",
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 12.4
+          "projPoints": 12.5
         },
         {
           "name": "Rico Dowdle",
@@ -712,7 +712,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.7,
           "last3AvgPoints": 14.8,
-          "projPoints": 14.4
+          "projPoints": 14.3
         },
         {
           "name": "Parker Washington",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17.5,
-          "projPoints": 11.8
+          "projPoints": 11.7
         },
         {
           "name": "Colston Loveland",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.9,
           "last3AvgPoints": 10.6,
-          "projPoints": 15.8
+          "projPoints": 15.9
         },
         {
           "name": "Josh Jacobs",
@@ -1485,7 +1485,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 10.2,
-          "projPoints": 13.7
+          "projPoints": 13.5
         },
         {
           "name": "Nicholas Singleton",
@@ -1551,7 +1551,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 13.9,
           "last3AvgPoints": 16.1,
-          "projPoints": 17.4
+          "projPoints": 17.3
         },
         {
           "name": "Brock Purdy",
@@ -1783,7 +1783,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.8,
           "last3AvgPoints": 8.4,
-          "projPoints": 17.7
+          "projPoints": 18.5
         },
         {
           "name": "Zach Charbonnet",
