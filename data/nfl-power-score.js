@@ -4,7 +4,7 @@
 //  AUTO-GENERIERT von scripts/sync-nfl-power-score.js über die GitHub
 //  Action ".github/workflows/sync-nfl-power-score.yml". Nicht von Hand
 //  editieren — Änderungen werden beim nächsten Sync überschrieben.
-//  Zuletzt synchronisiert: 2026-10-30T13:42:48.895Z
+//  Zuletzt synchronisiert: 2026-10-30T14:45:22.077Z
 //
 //  6 Kategorien, datengestützt ausgewählt (siehe Kommentar oben im
 //  Script für die Korrelationsanalyse gegen echte Season-Siege
