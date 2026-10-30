@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-10-30T01:24:30.667Z",
+  "generatedAt": "2026-10-30T07:49:42.032Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -126,7 +126,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17.5,
-          "projPoints": 11.5
+          "projPoints": 11.8
         },
         {
           "name": "Colston Loveland",
@@ -214,7 +214,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 2.3,
-          "projPoints": 4.4
+          "projPoints": 4.3
         },
         {
           "name": "Breece Hall",
@@ -458,7 +458,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 5.5
+          "projPoints": 5.6
         },
         {
           "name": "Jared Goff",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.7,
           "last3AvgPoints": 7.1,
-          "projPoints": 10.2
+          "projPoints": 10.5
         },
         {
           "name": "Lamar Jackson",
@@ -524,7 +524,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 22.5,
           "last3AvgPoints": 14.5,
-          "projPoints": 10.6
+          "projPoints": 10.5
         },
         {
           "name": "Trey McBride",
@@ -657,7 +657,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.4,
           "last3AvgPoints": 11.6,
-          "projPoints": 7.8
+          "projPoints": 7.7
         },
         {
           "name": "Jeremiyah Love",
@@ -779,7 +779,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.7,
           "last3AvgPoints": 6.8,
-          "projPoints": 3.3
+          "projPoints": 3.4
         },
         {
           "name": "Bhayshul Tuten",
@@ -900,7 +900,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10.6,
           "last3AvgPoints": 11.8,
-          "projPoints": 7.6
+          "projPoints": 7.8
         },
         {
           "name": "Demarcus Robinson",
@@ -1021,7 +1021,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 2.5,
-          "projPoints": 6.2
+          "projPoints": 6.4
         },
         {
           "name": "Brock Purdy",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17.5,
-          "projPoints": 11.5
+          "projPoints": 11.8
         },
         {
           "name": "Colston Loveland",
@@ -1297,7 +1297,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 2.3,
-          "projPoints": 4.4
+          "projPoints": 4.3
         },
         {
           "name": "Breece Hall",
@@ -1463,7 +1463,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.3,
           "last3AvgPoints": 4,
-          "projPoints": 7.4
+          "projPoints": 7.3
         },
         {
           "name": "Germie Bernard",
@@ -1485,7 +1485,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 10.2,
-          "projPoints": 13.8
+          "projPoints": 13.7
         },
         {
           "name": "Nicholas Singleton",
@@ -1529,7 +1529,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.1,
           "last3AvgPoints": 14.1,
-          "projPoints": 9.3
+          "projPoints": 9.6
         },
         {
           "name": "Aaron Jones Sr.",
@@ -1651,7 +1651,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.3,
           "last3AvgPoints": 4,
-          "projPoints": 7.4
+          "projPoints": 7.3
         },
         {
           "name": "Kyle Monangai",
