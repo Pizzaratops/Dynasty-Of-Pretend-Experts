@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-01T21:25:34.168Z",
+  "generatedAt": "2026-11-02T01:05:34.482Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 26.7,
-          "projPoints": 18.5
+          "projPoints": 18.4
         },
         {
           "name": "Brock Bowers",
@@ -221,7 +221,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYJ",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -232,7 +232,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "ARI",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -487,8 +487,8 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "BAL",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": null,
           "projPoints": 20.5
@@ -524,7 +524,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 22.5,
           "last3AvgPoints": 14.5,
-          "projPoints": 15.5
+          "projPoints": 15.4
         },
         {
           "name": "Trey McBride",
@@ -571,7 +571,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 6.9
         }
       ],
-      "flaggedCount": 1
+      "flaggedCount": 2
     },
     {
       "id": "beyaz-sleeper-1401860041555881984",
@@ -664,8 +664,8 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "ARI",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": 2.2,
           "projPoints": null
@@ -708,7 +708,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "DET",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 19.7,
           "last3AvgPoints": 14.8,
@@ -726,7 +726,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 12.8
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1318211269970399232",
@@ -896,11 +896,11 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "NE",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 10.6,
           "last3AvgPoints": 11.8,
-          "projPoints": 9.1
+          "projPoints": 9
         },
         {
           "name": "Demarcus Robinson",
@@ -1006,7 +1006,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LAR",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 6.6,
@@ -1079,7 +1079,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": null
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1312799736218017792",
@@ -1121,7 +1121,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 26.7,
-          "projPoints": 18.5
+          "projPoints": 18.4
         },
         {
           "name": "Blake Corum",
@@ -1253,7 +1253,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.7,
           "last3AvgPoints": 11.3,
-          "projPoints": 9.6
+          "projPoints": 9.7
         },
         {
           "name": "Derrick Henry",
@@ -1293,7 +1293,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "WAS",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 7.6,
@@ -1326,7 +1326,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "NYJ",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -1514,7 +1514,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "PIT",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -1525,7 +1525,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "MIN",
           "isStarter": false,
-          "status": null,
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 1.6,
@@ -1536,8 +1536,8 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "NE",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 14.1,
           "last3AvgPoints": 14.1,
           "projPoints": 11.2
@@ -1558,7 +1558,7 @@ const STATUS_REPORT_DATA = {
           "pos": "QB",
           "nfl": "MIN",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 13.9,
           "last3AvgPoints": 16.1,
@@ -1609,7 +1609,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 7.5
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1312955101303824384",
@@ -1680,8 +1680,8 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "ARI",
           "isStarter": true,
-          "status": null,
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": 2.2,
           "projPoints": null
@@ -1808,7 +1808,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 8.1
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     }
   ]
 };
