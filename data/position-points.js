@@ -807,6 +807,120 @@ const POSITION_POINTS = {
     "kPts": 14,
     "defPts": 9
    }
+  },
+  "8": {
+   "milchreis": {
+    "qbPts": 14.98,
+    "rbPts": 37.2,
+    "wrPts": 72.4,
+    "tePts": 39.7,
+    "kPts": 16,
+    "defPts": 2
+   },
+   "bomba12": {
+    "qbPts": 18.52,
+    "rbPts": 13.6,
+    "wrPts": 85.9,
+    "tePts": 17.3,
+    "kPts": 12,
+    "defPts": 7
+   },
+   "svennyg": {
+    "qbPts": 19.8,
+    "rbPts": 44.7,
+    "wrPts": 29.2,
+    "tePts": 8.3,
+    "kPts": 1,
+    "defPts": 20
+   },
+   "jiggydee2312": {
+    "qbPts": 22.46,
+    "rbPts": 30.7,
+    "wrPts": 32,
+    "tePts": 23.4,
+    "kPts": 6,
+    "defPts": 8
+   },
+   "dickvanhurik": {
+    "qbPts": 0,
+    "rbPts": 54,
+    "wrPts": 73.6,
+    "tePts": 18.6,
+    "kPts": 0,
+    "defPts": 3
+   },
+   "teambeermode": {
+    "qbPts": 15.64,
+    "rbPts": 6.2,
+    "wrPts": 27.5,
+    "tePts": 24.8,
+    "kPts": 0,
+    "defPts": 14
+   },
+   "dseinn": {
+    "qbPts": 11.36,
+    "rbPts": 60.3,
+    "wrPts": 36.1,
+    "tePts": 4.9,
+    "kPts": 5,
+    "defPts": 1
+   },
+   "giantmarv": {
+    "qbPts": 4.46,
+    "rbPts": 52.5,
+    "wrPts": 33.9,
+    "tePts": 11.7,
+    "kPts": 12,
+    "defPts": 5
+   },
+   "r4xon": {
+    "qbPts": 9.28,
+    "rbPts": 56.5,
+    "wrPts": 44.3,
+    "tePts": 4.3,
+    "kPts": 8,
+    "defPts": 18
+   },
+   "danfre": {
+    "qbPts": 19,
+    "rbPts": 36.8,
+    "wrPts": 40.5,
+    "tePts": 9.1,
+    "kPts": 10,
+    "defPts": 3
+   },
+   "unicornsruegen": {
+    "qbPts": 42.48,
+    "rbPts": 12.8,
+    "wrPts": 26,
+    "tePts": 23.3,
+    "kPts": 1,
+    "defPts": 15
+   },
+   "lovethecheesehead": {
+    "qbPts": 0.72,
+    "rbPts": 1.9,
+    "wrPts": 17.9,
+    "tePts": 1.5,
+    "kPts": 11,
+    "defPts": 4
+   },
+   "americagrizlies": {
+    "qbPts": 27.56,
+    "rbPts": 21.2,
+    "wrPts": 33.2,
+    "tePts": 16.3,
+    "kPts": 5,
+    "defPts": 8
+   },
+   "angryducks": {
+    "qbPts": 19.28,
+    "rbPts": 2.6,
+    "wrPts": 14.4,
+    "tePts": 4.4,
+    "kPts": 11,
+    "defPts": 21
+   }
   }
  }
 };
