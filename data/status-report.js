@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-04T03:36:13.576Z",
+  "generatedAt": "2026-11-04T11:40:07.613Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -192,7 +192,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.4,
           "last3AvgPoints": 4.3,
-          "projPoints": 3.2
+          "projPoints": 3.1
         },
         {
           "name": "Kyren Williams",
@@ -381,7 +381,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 13.8
+          "projPoints": 13.7
         },
         {
           "name": "Pat Bryant",
@@ -469,7 +469,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 10,
           "last3AvgPoints": 14,
-          "projPoints": 20
+          "projPoints": 20.2
         },
         {
           "name": "Chris Godwin Jr.",
@@ -480,7 +480,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 7.2,
-          "projPoints": 9.5
+          "projPoints": 9.4
         },
         {
           "name": "Lamar Jackson",
@@ -513,7 +513,7 @@ const STATUS_REPORT_DATA = {
           "flag": true,
           "lastGamePoints": null,
           "last3AvgPoints": 20.5,
-          "projPoints": 12.9
+          "projPoints": 12.8
         },
         {
           "name": "Rhamondre Stevenson",
@@ -624,7 +624,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.6,
           "last3AvgPoints": 7.6,
-          "projPoints": 11.4
+          "projPoints": 11.3
         },
         {
           "name": "Devaughn Vele",
@@ -712,7 +712,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.1,
           "last3AvgPoints": 14.4,
-          "projPoints": 16.8
+          "projPoints": 17
         },
         {
           "name": "Parker Washington",
@@ -988,7 +988,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 8.4,
-          "projPoints": 8.1
+          "projPoints": 8
         },
         {
           "name": "AJ Dillon",
@@ -1430,7 +1430,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 13.8
+          "projPoints": 13.7
         },
         {
           "name": "Woody Marks",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.5,
           "last3AvgPoints": 8.5,
-          "projPoints": 9.9
+          "projPoints": 9.8
         },
         {
           "name": "Michael Mayer",
@@ -1629,7 +1629,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.3,
           "last3AvgPoints": 16.7,
-          "projPoints": 15.7
+          "projPoints": 15.6
         },
         {
           "name": "Xavier Worthy",
