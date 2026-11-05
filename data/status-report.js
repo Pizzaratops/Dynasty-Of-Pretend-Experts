@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-05T08:39:28.866Z",
+  "generatedAt": "2026-11-05T17:43:12.194Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -49,7 +49,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28.2,
           "last3AvgPoints": 17.5,
-          "projPoints": 18.7
+          "projPoints": 18.8
         },
         {
           "name": "Rome Odunze",
@@ -115,7 +115,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.6,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.4
+          "projPoints": 3.3
         },
         {
           "name": "Emeka Egbuka",
@@ -392,7 +392,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": null
+          "projPoints": 6.5
         },
         {
           "name": "Quinshon Judkins",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 5.4,
-          "projPoints": 6.5
+          "projPoints": 6.3
         },
         {
           "name": "Marquise Brown",
@@ -1043,7 +1043,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 15.7,
-          "projPoints": 22.2
+          "projPoints": 22.1
         },
         {
           "name": "Rashid Shaheed",
@@ -1143,7 +1143,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28.2,
           "last3AvgPoints": 17.5,
-          "projPoints": 18.7
+          "projPoints": 18.8
         },
         {
           "name": "Rome Odunze",
@@ -1198,7 +1198,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.6,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.4
+          "projPoints": 3.3
         },
         {
           "name": "Emeka Egbuka",
@@ -1397,7 +1397,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.3,
           "last3AvgPoints": 1.3,
-          "projPoints": 3.5
+          "projPoints": 3.2
         },
         {
           "name": "Ladd McConkey",
@@ -1452,13 +1452,13 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.6,
           "last3AvgPoints": 4.9,
-          "projPoints": 3.4
+          "projPoints": 3.3
         },
         {
           "name": "Omarion Hampton",
           "pos": "RB",
           "nfl": "LAC",
-          "isStarter": true,
+          "isStarter": false,
           "status": null,
           "flag": false,
           "lastGamePoints": 4.7,
@@ -1573,7 +1573,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 15.7,
-          "projPoints": 22.2
+          "projPoints": 22.1
         },
         {
           "name": "Jordan Mason",
@@ -1601,12 +1601,12 @@ const STATUS_REPORT_DATA = {
           "name": "Michael Mayer",
           "pos": "TE",
           "nfl": "LV",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 10.3,
           "last3AvgPoints": 11,
-          "projPoints": 8
+          "projPoints": 8.1
         }
       ],
       "flaggedCount": 0
@@ -1629,7 +1629,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.3,
           "last3AvgPoints": 16.7,
-          "projPoints": 15.8
+          "projPoints": 15.6
         },
         {
           "name": "Xavier Worthy",
