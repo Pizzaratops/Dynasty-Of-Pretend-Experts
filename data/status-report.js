@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-06T03:53:51.766Z",
+  "generatedAt": "2026-11-06T11:39:26.926Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -381,7 +381,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 14
+          "projPoints": 13.8
         },
         {
           "name": "Pat Bryant",
@@ -392,7 +392,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 6.5
+          "projPoints": 6.4
         },
         {
           "name": "Quinshon Judkins",
@@ -624,7 +624,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.6,
           "last3AvgPoints": 7.6,
-          "projPoints": 11.6
+          "projPoints": 11.5
         },
         {
           "name": "Devaughn Vele",
@@ -966,7 +966,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.3,
           "last3AvgPoints": 5.4,
-          "projPoints": 6.1
+          "projPoints": 6
         },
         {
           "name": "Marquise Brown",
@@ -1430,7 +1430,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.6,
           "last3AvgPoints": 9.1,
-          "projPoints": 14
+          "projPoints": 13.8
         },
         {
           "name": "Woody Marks",
