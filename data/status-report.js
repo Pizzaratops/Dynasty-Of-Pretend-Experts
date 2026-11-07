@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-07T17:03:45.508Z",
+  "generatedAt": "2026-11-07T21:09:39.887Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.9,
           "last3AvgPoints": 15.2,
-          "projPoints": 12.2
+          "projPoints": 12.3
         },
         {
           "name": "Colston Loveland",
@@ -458,7 +458,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.5,
           "last3AvgPoints": 6.1,
-          "projPoints": 7.6
+          "projPoints": 7.5
         },
         {
           "name": "Jared Goff",
@@ -635,7 +635,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 9.8,
-          "projPoints": 7.1
+          "projPoints": 7.7
         },
         {
           "name": "Omarion Hampton",
@@ -911,7 +911,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.5,
           "last3AvgPoints": 9.3,
-          "projPoints": 6.2
+          "projPoints": 6.1
         },
         {
           "name": "Demarcus Robinson",
@@ -933,7 +933,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.2,
           "last3AvgPoints": 5.9,
-          "projPoints": 6.4
+          "projPoints": 6.5
         },
         {
           "name": "George Kittle",
@@ -1275,7 +1275,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 23.2,
           "last3AvgPoints": 21.7,
-          "projPoints": 13.9
+          "projPoints": 14
         },
         {
           "name": "Tyler Bass",
@@ -1308,7 +1308,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 13,
-          "projPoints": 15.5
+          "projPoints": 16.6
         },
         {
           "name": "Brian Robinson Jr.",
@@ -1540,7 +1540,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 11.6,
-          "projPoints": 7.7
+          "projPoints": 7.6
         },
         {
           "name": "Aaron Jones Sr.",
@@ -1551,7 +1551,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 4.8,
-          "projPoints": 10
+          "projPoints": 9.9
         },
         {
           "name": "Kyler Murray",
@@ -1794,7 +1794,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.1,
           "last3AvgPoints": 13,
-          "projPoints": 16.3
+          "projPoints": 16.1
         },
         {
           "name": "Zach Charbonnet",
