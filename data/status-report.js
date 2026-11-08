@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-08T00:56:55.782Z",
+  "generatedAt": "2026-11-08T08:11:41.310Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -225,7 +225,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 10.3
+          "projPoints": 10.4
         },
         {
           "name": "Evan Hull",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.9,
           "last3AvgPoints": 15.2,
-          "projPoints": 12.3
+          "projPoints": 12.2
         },
         {
           "name": "Colston Loveland",
@@ -679,7 +679,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 25.4,
           "last3AvgPoints": 14.6,
-          "projPoints": 21
+          "projPoints": 21.3
         },
         {
           "name": "DJ Moore",
@@ -900,7 +900,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.2,
           "last3AvgPoints": 7.6,
-          "projPoints": 10.9
+          "projPoints": 11
         },
         {
           "name": "Hunter Henry",
@@ -933,7 +933,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7.2,
           "last3AvgPoints": 5.9,
-          "projPoints": 6.4
+          "projPoints": 6.5
         },
         {
           "name": "George Kittle",
@@ -1099,7 +1099,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18.3,
           "last3AvgPoints": 18.3,
-          "projPoints": 15.6
+          "projPoints": 15.7
         },
         {
           "name": "Caleb Williams",
@@ -1242,7 +1242,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 22.4,
-          "projPoints": 13.4
+          "projPoints": 13.5
         },
         {
           "name": "Makai Lemon",
@@ -1330,7 +1330,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 10.3
+          "projPoints": 10.4
         },
         {
           "name": "Jaxon Smith-Njigba",
@@ -1640,7 +1640,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.3,
           "last3AvgPoints": 7.6,
-          "projPoints": 10.2
+          "projPoints": 10.3
         },
         {
           "name": "Colston Loveland",
