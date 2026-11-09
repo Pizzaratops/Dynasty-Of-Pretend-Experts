@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-09T08:47:13.512Z",
+  "generatedAt": "2026-11-09T20:14:19.367Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -93,7 +93,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 12,
-          "projPoints": 9.1
+          "projPoints": 9.2
         },
         {
           "name": "Bhayshul Tuten",
@@ -336,7 +336,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 7,
           "last3AvgPoints": 8.5,
-          "projPoints": 6.3
+          "projPoints": 6.4
         }
       ],
       "flaggedCount": 0
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 14.6,
-          "projPoints": 10.7
+          "projPoints": 11
         },
         {
           "name": "Devin Singletary",
@@ -1286,7 +1286,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16,
           "last3AvgPoints": 16.5,
-          "projPoints": 8.2
+          "projPoints": 8.4
         },
         {
           "name": "Treylon Burks",
@@ -1750,7 +1750,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.6,
           "last3AvgPoints": 16.6,
-          "projPoints": 12.7
+          "projPoints": 13
         },
         {
           "name": "David Montgomery",
