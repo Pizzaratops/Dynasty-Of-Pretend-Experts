@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-09T20:14:19.367Z",
+  "generatedAt": "2026-11-10T03:52:00.653Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -144,7 +144,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CHI",
           "isStarter": false,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 18.6,
           "last3AvgPoints": 19.9,
@@ -421,7 +421,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CHI",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 18.6,
           "last3AvgPoints": 19.9,
@@ -690,7 +690,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 14.6,
           "last3AvgPoints": 14.6,
-          "projPoints": 11
+          "projPoints": 10.7
         },
         {
           "name": "Devin Singletary",
@@ -1227,7 +1227,7 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "CHI",
           "isStarter": true,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 18.6,
           "last3AvgPoints": 19.9,
@@ -1271,8 +1271,8 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "GB",
           "isStarter": true,
-          "status": "Q",
-          "flag": false,
+          "status": "O",
+          "flag": true,
           "lastGamePoints": 23.2,
           "last3AvgPoints": 21.7,
           "projPoints": 15
@@ -1355,7 +1355,7 @@ const STATUS_REPORT_DATA = {
           "projPoints": 8.3
         }
       ],
-      "flaggedCount": 0
+      "flaggedCount": 1
     },
     {
       "id": "beyaz-sleeper-1312748395584036864",
@@ -1536,7 +1536,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "MIN",
           "isStarter": false,
-          "status": "O",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
@@ -1562,7 +1562,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6,
           "last3AvgPoints": 4.8,
-          "projPoints": 9.8
+          "projPoints": 9.9
         },
         {
           "name": "Kyler Murray",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 2,
           "last3AvgPoints": 4.4,
-          "projPoints": 8.6
+          "projPoints": 8.4
         },
         {
           "name": "Brenton Strange",
@@ -1750,7 +1750,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.6,
           "last3AvgPoints": 16.6,
-          "projPoints": 13
+          "projPoints": 12.8
         },
         {
           "name": "David Montgomery",
