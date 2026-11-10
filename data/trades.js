@@ -14,6 +14,20 @@ const TRADES = [
  {
   "date": "2026-11-10",
   "week": 9,
+  "teamA": "RioRainRats",
+  "teamAGives": [
+   "Kaleb Johnson"
+  ],
+  "teamB": "San José Salamancas",
+  "teamBGives": [
+   "2028 3rd (via South Steglitz Sharknados)",
+   "2027 4th (via RioRainRats)"
+  ],
+  "id": "1425963107250888704"
+ },
+ {
+  "date": "2026-11-10",
+  "week": 9,
   "teamA": "Tempelhof Thunder Turtles",
   "teamAGives": [
    "2027 2nd"
@@ -588,11 +602,6 @@ const FUTURE_PICKS = {
   },
   {
    "round": "4th",
-   "from": "RioRainRats",
-   "owner": "San José Salamancas"
-  },
-  {
-   "round": "4th",
    "from": "San José Salamancas",
    "owner": "danfre"
   },
@@ -646,7 +655,7 @@ const FUTURE_PICKS = {
   {
    "round": "3rd",
    "from": "South Steglitz Sharknados",
-   "owner": "San José Salamancas"
+   "owner": "RioRainRats"
   },
   {
    "round": "3rd",
