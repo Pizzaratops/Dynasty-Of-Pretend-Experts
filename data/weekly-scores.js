@@ -809,6 +809,106 @@ const WEEKLY_SCORES = {
     "opponentPoints": 149.2,
     "medianResult": "L"
    }
+  ],
+  "9": [
+   {
+    "teamId": "jiggydee2312",
+    "points": 109.46,
+    "opponentId": "lovethecheesehead",
+    "opponentPoints": 41.1,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "lovethecheesehead",
+    "points": 41.1,
+    "opponentId": "jiggydee2312",
+    "opponentPoints": 109.46,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "r4xon",
+    "points": 143.18,
+    "opponentId": "unicornsruegen",
+    "opponentPoints": 121.64,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "unicornsruegen",
+    "points": 121.64,
+    "opponentId": "r4xon",
+    "opponentPoints": 143.18,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "dseinn",
+    "points": 144.44,
+    "opponentId": "americagrizlies",
+    "opponentPoints": 74.16,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "americagrizlies",
+    "points": 74.16,
+    "opponentId": "dseinn",
+    "opponentPoints": 144.44,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "bomba12",
+    "points": 158.18,
+    "opponentId": "teambeermode",
+    "opponentPoints": 85.72,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "teambeermode",
+    "points": 85.72,
+    "opponentId": "bomba12",
+    "opponentPoints": 158.18,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "milchreis",
+    "points": 136.04,
+    "opponentId": "giantmarv",
+    "opponentPoints": 152.56,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "giantmarv",
+    "points": 152.56,
+    "opponentId": "milchreis",
+    "opponentPoints": 136.04,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "svennyg",
+    "points": 113.3,
+    "opponentId": "angryducks",
+    "opponentPoints": 76.48,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "angryducks",
+    "points": 76.48,
+    "opponentId": "svennyg",
+    "opponentPoints": 113.3,
+    "medianResult": "L"
+   },
+   {
+    "teamId": "dickvanhurik",
+    "points": 177.48,
+    "opponentId": "danfre",
+    "opponentPoints": 126.4,
+    "medianResult": "W"
+   },
+   {
+    "teamId": "danfre",
+    "points": 126.4,
+    "opponentId": "dickvanhurik",
+    "opponentPoints": 177.48,
+    "medianResult": "W"
+   }
   ]
  }
 };

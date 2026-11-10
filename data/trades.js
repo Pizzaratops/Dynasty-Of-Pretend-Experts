@@ -12,6 +12,19 @@
 
 const TRADES = [
  {
+  "date": "2026-11-10",
+  "week": 9,
+  "teamA": "Tempelhof Thunder Turtles",
+  "teamAGives": [
+   "2027 2nd"
+  ],
+  "teamB": "San José Salamancas",
+  "teamBGives": [
+   "Corey Kiner"
+  ],
+  "id": "1425805341978808320"
+ },
+ {
   "date": "2026-10-27",
   "week": 7,
   "teamA": "Tokyo Titi Twisters",
@@ -527,6 +540,11 @@ const FUTURE_PICKS = {
    "round": "2nd",
    "from": "South Steglitz Sharknados",
    "owner": "Tempelhof Thunder Turtles"
+  },
+  {
+   "round": "2nd",
+   "from": "Tempelhof Thunder Turtles",
+   "owner": "San José Salamancas"
   },
   {
    "round": "2nd",
