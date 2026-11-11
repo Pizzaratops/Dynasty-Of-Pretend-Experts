@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-11T08:31:16.814Z",
+  "generatedAt": "2026-11-11T17:31:04.738Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.3,
           "last3AvgPoints": 8.1,
-          "projPoints": 13.3
+          "projPoints": 13.2
         },
         {
           "name": "David Montgomery",
@@ -181,7 +181,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 11
+          "projPoints": 11.1
         },
         {
           "name": "John Metchie III",
@@ -403,7 +403,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 5.5,
           "last3AvgPoints": 11.9,
-          "projPoints": 10.8
+          "projPoints": 10.9
         },
         {
           "name": "Colston Loveland",
@@ -679,7 +679,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 16.3,
-          "projPoints": 18.5
+          "projPoints": 18.6
         },
         {
           "name": "DJ Moore",
@@ -1099,13 +1099,13 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 9.9,
           "last3AvgPoints": 14.1,
-          "projPoints": 14.9
+          "projPoints": 15
         },
         {
           "name": "Caleb Williams",
           "pos": "QB",
           "nfl": "CHI",
-          "isStarter": true,
+          "isStarter": false,
           "status": null,
           "flag": false,
           "lastGamePoints": 16.8,
@@ -1116,7 +1116,7 @@ const STATUS_REPORT_DATA = {
           "name": "Jayden Daniels",
           "pos": "QB",
           "nfl": "WAS",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 14.6,
@@ -1176,7 +1176,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.6,
           "last3AvgPoints": 21.4,
-          "projPoints": 14.4
+          "projPoints": 14.5
         },
         {
           "name": "Cam Skattebo",
@@ -1452,7 +1452,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.4,
           "last3AvgPoints": 8.8,
-          "projPoints": 8.5
+          "projPoints": 8.6
         },
         {
           "name": "Tory Horton",
@@ -1595,7 +1595,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 5,
-          "projPoints": 8.7
+          "projPoints": 8.6
         },
         {
           "name": "Brenton Strange",
@@ -1761,7 +1761,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 11
+          "projPoints": 11.1
         },
         {
           "name": "CeeDee Lamb",
