@@ -12,6 +12,19 @@
 
 const TRADES = [
  {
+  "date": "2026-11-13",
+  "week": 10,
+  "teamA": "Berlin Lightning Sloths",
+  "teamAGives": [
+   "Jordan Love"
+  ],
+  "teamB": "dseinn",
+  "teamBGives": [
+   "Fernando Mendoza"
+  ],
+  "id": "1427083218791727104"
+ },
+ {
   "date": "2026-11-12",
   "week": 10,
   "teamA": "Tokyo Titi Twisters",
