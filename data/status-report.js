@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-13T11:39:57.990Z",
+  "generatedAt": "2026-11-13T18:51:24.439Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.3,
           "last3AvgPoints": 8.1,
-          "projPoints": 13.2
+          "projPoints": 13.3
         },
         {
           "name": "David Montgomery",
@@ -181,7 +181,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 8.3
+          "projPoints": 8.4
         },
         {
           "name": "John Metchie III",
@@ -1441,7 +1441,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 8.4,
           "last3AvgPoints": 8.8,
-          "projPoints": 7
+          "projPoints": 8.9
         },
         {
           "name": "Tory Horton",
@@ -1496,7 +1496,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 9.9,
-          "projPoints": 11.8
+          "projPoints": null
         },
         {
           "name": "Nicholas Singleton",
@@ -1750,7 +1750,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
-          "projPoints": 8.3
+          "projPoints": 8.4
         },
         {
           "name": "CeeDee Lamb",
@@ -1761,7 +1761,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 33.5,
           "last3AvgPoints": 23.6,
-          "projPoints": 20.1
+          "projPoints": 19.6
         },
         {
           "name": "Justin Herbert",
