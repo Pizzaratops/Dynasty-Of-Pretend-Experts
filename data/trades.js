@@ -12,6 +12,19 @@
 
 const TRADES = [
  {
+  "date": "2026-11-12",
+  "week": 10,
+  "teamA": "Tokyo Titi Twisters",
+  "teamAGives": [
+   "Kirk Cousins"
+  ],
+  "teamB": "South Steglitz Sharknados",
+  "teamBGives": [
+   "2028 2nd"
+  ],
+  "id": "1426689043374026752"
+ },
+ {
   "date": "2026-11-10",
   "week": 9,
   "teamA": "RioRainRats",
@@ -636,6 +649,11 @@ const FUTURE_PICKS = {
    "round": "2nd",
    "from": "San José Salamancas",
    "owner": "Husum Husos"
+  },
+  {
+   "round": "2nd",
+   "from": "South Steglitz Sharknados",
+   "owner": "Tokyo Titi Twisters"
   },
   {
    "round": "2nd",
