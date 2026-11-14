@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-13T18:51:24.439Z",
+  "generatedAt": "2026-11-14T00:31:24.651Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -100,7 +100,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "JAX",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 19.4,
@@ -170,7 +170,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 11.3,
           "last3AvgPoints": 8.1,
-          "projPoints": 13.3
+          "projPoints": 13.2
         },
         {
           "name": "David Montgomery",
@@ -598,11 +598,11 @@ const STATUS_REPORT_DATA = {
           "pos": "WR",
           "nfl": "HOU",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": 3,
           "last3AvgPoints": 5.1,
-          "projPoints": 3.3
+          "projPoints": null
         },
         {
           "name": "Jalen Coker",
@@ -679,7 +679,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 16.5,
           "last3AvgPoints": 16.3,
-          "projPoints": 18.6
+          "projPoints": 18.7
         },
         {
           "name": "DJ Moore",
@@ -797,7 +797,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "JAX",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 8.9,
           "last3AvgPoints": 18.9,
@@ -900,14 +900,14 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 15.3,
           "last3AvgPoints": 10.3,
-          "projPoints": 10
+          "projPoints": 10.1
         },
         {
           "name": "Hunter Henry",
           "pos": "TE",
           "nfl": "NE",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 5,
           "last3AvgPoints": 6.7,
@@ -960,7 +960,7 @@ const STATUS_REPORT_DATA = {
         {
           "name": "Marquise Brown",
           "pos": "WR",
-          "nfl": "PHI",
+          "nfl": "FA",
           "isStarter": false,
           "status": null,
           "flag": false,
@@ -995,7 +995,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "LAR",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 3.3,
           "last3AvgPoints": 5.3,
@@ -1065,7 +1065,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 26.5,
           "last3AvgPoints": 14.8,
-          "projPoints": 3.9
+          "projPoints": 5
         }
       ],
       "flaggedCount": 0
@@ -1437,7 +1437,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "HOU",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 8.4,
           "last3AvgPoints": 8.8,
@@ -1485,14 +1485,14 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 6.9,
-          "projPoints": 10.9
+          "projPoints": 11.1
         },
         {
           "name": "Carnell Tate",
           "pos": "WR",
           "nfl": "TEN",
-          "isStarter": true,
-          "status": "Q",
+          "isStarter": false,
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 9.9,
@@ -1536,7 +1536,7 @@ const STATUS_REPORT_DATA = {
           "pos": "TE",
           "nfl": "NE",
           "isStarter": true,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 6.5,
           "last3AvgPoints": 8.9,
@@ -1551,14 +1551,14 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 3.1,
           "last3AvgPoints": 4.2,
-          "projPoints": 8.9
+          "projPoints": 9.3
         },
         {
           "name": "Kyler Murray",
           "pos": "QB",
           "nfl": "MIN",
           "isStarter": false,
-          "status": "D",
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 17.4,
@@ -1579,12 +1579,12 @@ const STATUS_REPORT_DATA = {
           "name": "Jordan Mason",
           "pos": "RB",
           "nfl": "MIN",
-          "isStarter": false,
+          "isStarter": true,
           "status": null,
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 5,
-          "projPoints": 9.5
+          "projPoints": 9.4
         },
         {
           "name": "Brenton Strange",
@@ -1706,14 +1706,14 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.6,
           "last3AvgPoints": 8.8,
-          "projPoints": 5.8
+          "projPoints": 6.4
         },
         {
           "name": "Mike Evans",
           "pos": "WR",
           "nfl": "SF",
           "isStarter": false,
-          "status": "Q",
+          "status": "O",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": null,
