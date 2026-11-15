@@ -12,6 +12,20 @@
 
 const TRADES = [
  {
+  "date": "2026-11-15",
+  "week": 10,
+  "teamA": "Tokyo Titi Twisters",
+  "teamAGives": [
+   "Darren Waller",
+   "2029 4th"
+  ],
+  "teamB": "UnicornsRuegen",
+  "teamBGives": [
+   "Xavier Worthy"
+  ],
+  "id": "1427792527922069504"
+ },
+ {
   "date": "2026-11-13",
   "week": 10,
   "teamA": "Berlin Lightning Sloths",
@@ -709,6 +723,11 @@ const FUTURE_PICKS = {
    "round": "3rd",
    "from": "Tokyo Titi Twisters",
    "owner": "RioRainRats"
+  },
+  {
+   "round": "4th",
+   "from": "Tokyo Titi Twisters",
+   "owner": "UnicornsRuegen"
   }
  ]
 };
