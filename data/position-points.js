@@ -1035,6 +1035,120 @@ const POSITION_POINTS = {
     "kPts": 9,
     "defPts": 9
    }
+  },
+  "10": {
+   "milchreis": {
+    "qbPts": 22.76,
+    "rbPts": 81.9,
+    "wrPts": 50.3,
+    "tePts": 3.8,
+    "kPts": 7,
+    "defPts": 4
+   },
+   "bomba12": {
+    "qbPts": 35.42,
+    "rbPts": 39.3,
+    "wrPts": 50.6,
+    "tePts": 11.5,
+    "kPts": 11,
+    "defPts": 7
+   },
+   "svennyg": {
+    "qbPts": 35.42,
+    "rbPts": 28.9,
+    "wrPts": 44.3,
+    "tePts": 0,
+    "kPts": 2,
+    "defPts": 3
+   },
+   "jiggydee2312": {
+    "qbPts": 3.02,
+    "rbPts": 22.2,
+    "wrPts": 32.3,
+    "tePts": 15.1,
+    "kPts": 5,
+    "defPts": 4
+   },
+   "dickvanhurik": {
+    "qbPts": 16.38,
+    "rbPts": 29.1,
+    "wrPts": 91,
+    "tePts": 16.1,
+    "kPts": 12,
+    "defPts": 10
+   },
+   "teambeermode": {
+    "qbPts": 7.22,
+    "rbPts": 17.8,
+    "wrPts": 46.2,
+    "tePts": 5,
+    "kPts": 7,
+    "defPts": 4
+   },
+   "dseinn": {
+    "qbPts": 8.1,
+    "rbPts": 61.9,
+    "wrPts": 34.4,
+    "tePts": 27.7,
+    "kPts": 7,
+    "defPts": 12
+   },
+   "giantmarv": {
+    "qbPts": 21.44,
+    "rbPts": 24.5,
+    "wrPts": 20.7,
+    "tePts": 18.4,
+    "kPts": 4,
+    "defPts": 5
+   },
+   "r4xon": {
+    "qbPts": 31.66,
+    "rbPts": 53.7,
+    "wrPts": 59.2,
+    "tePts": 4.8,
+    "kPts": 5,
+    "defPts": 17
+   },
+   "danfre": {
+    "qbPts": 10.98,
+    "rbPts": 93.1,
+    "wrPts": 17.4,
+    "tePts": 2.6,
+    "kPts": 8,
+    "defPts": 4
+   },
+   "unicornsruegen": {
+    "qbPts": 33.16,
+    "rbPts": 26,
+    "wrPts": 26.96,
+    "tePts": 12.5,
+    "kPts": 8,
+    "defPts": 13
+   },
+   "lovethecheesehead": {
+    "qbPts": 0,
+    "rbPts": 6.7,
+    "wrPts": 26.4,
+    "tePts": 1.6,
+    "kPts": 11,
+    "defPts": 3
+   },
+   "americagrizlies": {
+    "qbPts": 23.34,
+    "rbPts": 23.3,
+    "wrPts": 45.9,
+    "tePts": 8,
+    "kPts": 4,
+    "defPts": 2
+   },
+   "angryducks": {
+    "qbPts": 0,
+    "rbPts": 27.1,
+    "wrPts": 35.7,
+    "tePts": 18.6,
+    "kPts": 0,
+    "defPts": 12
+   }
   }
  }
 };
