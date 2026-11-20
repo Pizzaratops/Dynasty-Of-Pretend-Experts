@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-20T04:36:59.064Z",
+  "generatedAt": "2026-11-20T14:29:09.803Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -347,7 +347,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 7.6,
-          "projPoints": 6.6
+          "projPoints": 6.7
         },
         {
           "name": "Tyrone Tracy Jr.",
@@ -380,7 +380,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 12.8,
           "last3AvgPoints": 12.8,
-          "projPoints": 10.4
+          "projPoints": 10.5
         },
         {
           "name": "Tory Horton",
@@ -601,7 +601,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 18.8,
           "last3AvgPoints": 18.9,
-          "projPoints": 14.4
+          "projPoints": 14.5
         },
         {
           "name": "Quinn Ewers",
@@ -865,7 +865,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 24.7,
           "last3AvgPoints": 13.6,
-          "projPoints": 12.3
+          "projPoints": 12.2
         },
         {
           "name": "Kayshon Boutte",
@@ -1020,7 +1020,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1,
           "last3AvgPoints": 4.5,
-          "projPoints": 6.5
+          "projPoints": 6.6
         },
         {
           "name": "Carnell Tate",
@@ -1462,7 +1462,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 17.4,
           "last3AvgPoints": 12.4,
-          "projPoints": 10.5
+          "projPoints": 10.6
         },
         {
           "name": "Devin Singletary",
@@ -1506,7 +1506,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 24.7,
           "last3AvgPoints": 13.6,
-          "projPoints": 12.3
+          "projPoints": 12.2
         }
       ],
       "flaggedCount": 0
@@ -1540,7 +1540,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 7.6,
-          "projPoints": 6.6
+          "projPoints": 6.7
         },
         {
           "name": "Colston Loveland",
@@ -1628,7 +1628,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 19.4,
           "last3AvgPoints": 14.2,
-          "projPoints": 12.3
+          "projPoints": 12.4
         },
         {
           "name": "Mike Gesicki",
