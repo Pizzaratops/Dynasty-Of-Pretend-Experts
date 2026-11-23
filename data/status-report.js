@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-23T04:22:04.084Z",
+  "generatedAt": "2026-11-23T16:40:19.586Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -38,7 +38,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 22.8,
           "last3AvgPoints": 17.5,
-          "projPoints": 21.6
+          "projPoints": 21.9
         },
         {
           "name": "Brock Bowers",
@@ -303,7 +303,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 22.8,
           "last3AvgPoints": 17.5,
-          "projPoints": 21.6
+          "projPoints": 21.9
         },
         {
           "name": "Blake Corum",
@@ -490,7 +490,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 4.7,
           "last3AvgPoints": 7.9,
-          "projPoints": 6.9
+          "projPoints": 7
         },
         {
           "name": "Chris Olave",
@@ -1694,7 +1694,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 9,
-          "projPoints": 8.7
+          "projPoints": 8.6
         },
         {
           "name": "Chase Brown",
