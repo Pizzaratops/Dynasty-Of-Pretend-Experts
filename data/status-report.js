@@ -7,7 +7,7 @@
 // ============================================================
 
 const STATUS_REPORT_DATA = {
-  "generatedAt": "2026-11-23T16:40:19.586Z",
+  "generatedAt": "2026-11-24T03:32:03.733Z",
   "leagues": [
     {
       "id": "beyaz-sleeper-1312794408151687168",
@@ -100,7 +100,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "JAX",
           "isStarter": false,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 20.3,
           "last3AvgPoints": 19.7,
@@ -575,7 +575,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "SEA",
           "isStarter": false,
-          "status": "O",
+          "status": "IR",
           "flag": false,
           "lastGamePoints": null,
           "last3AvgPoints": 0.9,
@@ -597,7 +597,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "JAX",
           "isStarter": false,
-          "status": null,
+          "status": "Q",
           "flag": false,
           "lastGamePoints": 18.8,
           "last3AvgPoints": 18.9,
@@ -1650,7 +1650,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 1.9,
           "last3AvgPoints": 7.5,
-          "projPoints": 9.1
+          "projPoints": 9.2
         },
         {
           "name": "David Montgomery",
@@ -1690,7 +1690,7 @@ const STATUS_REPORT_DATA = {
           "pos": "RB",
           "nfl": "WAS",
           "isStarter": false,
-          "status": "Q",
+          "status": null,
           "flag": false,
           "lastGamePoints": 6.2,
           "last3AvgPoints": 9,
@@ -1705,7 +1705,7 @@ const STATUS_REPORT_DATA = {
           "flag": false,
           "lastGamePoints": 28.3,
           "last3AvgPoints": 18.3,
-          "projPoints": 14.9
+          "projPoints": 15
         },
         {
           "name": "Zach Charbonnet",
