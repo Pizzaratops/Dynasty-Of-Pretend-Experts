@@ -7,7 +7,7 @@
 //  schreibt NUR neue, noch nicht gespielte Wochen dazu. Einmal gesetzte
 //  Einträge werden nie überschrieben, damit sie eine echte "vorher"-
 //  Momentaufnahme bleiben.
-//  Zuletzt synchronisiert: 2026-11-18T17:55:35.150Z
+//  Zuletzt synchronisiert: 2026-11-25T18:29:46.766Z
 //
 //  Struktur: MATCHUP_SNAPSHOTS[season][week][teamId] = {
 //    capturedAt, lineup, mode, teamMean, starters: [{slot,name,pos,mean}]
@@ -8320,6 +8320,1044 @@ const MATCHUP_SNAPSHOTS = {
       "name": "Jaguars D/ST",
       "pos": "D/ST",
       "mean": 8
+     }
+    ]
+   }
+  },
+  "12": {
+   "jiggydee2312": {
+    "capturedAt": "2026-11-25T18:29:46.761Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 86.4,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Fernando Mendoza",
+      "pos": "QB",
+      "mean": 5.5
+     },
+     {
+      "slot": "RB",
+      "name": "Bhayshul Tuten",
+      "pos": "RB",
+      "mean": 14.4
+     },
+     {
+      "slot": "RB",
+      "name": "Chris Rodriguez Jr.",
+      "pos": "RB",
+      "mean": 6.4
+     },
+     {
+      "slot": "WR",
+      "name": "Jameson Williams",
+      "pos": "WR",
+      "mean": 13.1
+     },
+     {
+      "slot": "WR",
+      "name": "Kalif Raymond",
+      "pos": "WR",
+      "mean": 6
+     },
+     {
+      "slot": "WR",
+      "name": "Konata Mumpfield",
+      "pos": "WR",
+      "mean": 4
+     },
+     {
+      "slot": "TE",
+      "name": "Trey McBride",
+      "pos": "TE",
+      "mean": 16.3
+     },
+     {
+      "slot": "FLEX",
+      "name": "Chig Okonkwo",
+      "pos": "TE",
+      "mean": 7.9
+     },
+     {
+      "slot": "FLEX",
+      "name": "Zonovan Knight",
+      "pos": "RB",
+      "mean": 4.3
+     },
+     {
+      "slot": "K",
+      "name": "Jake Bates",
+      "pos": "K",
+      "mean": 8.4
+     },
+     {
+      "slot": "DST",
+      "name": null,
+      "pos": null,
+      "mean": null
+     }
+    ]
+   },
+   "teambeermode": {
+    "capturedAt": "2026-11-25T18:29:46.761Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 93.4,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Jalon Daniels",
+      "pos": "QB",
+      "mean": 4.9
+     },
+     {
+      "slot": "RB",
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "mean": 9
+     },
+     {
+      "slot": "RB",
+      "name": "Travis Etienne Jr.",
+      "pos": "RB",
+      "mean": 6.3
+     },
+     {
+      "slot": "WR",
+      "name": "Stefon Diggs",
+      "pos": "WR",
+      "mean": 12.2
+     },
+     {
+      "slot": "WR",
+      "name": "Deebo Samuel Sr.",
+      "pos": "WR",
+      "mean": 12.1
+     },
+     {
+      "slot": "WR",
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "mean": 7.5
+     },
+     {
+      "slot": "TE",
+      "name": "Dallas Goedert",
+      "pos": "TE",
+      "mean": 9.3
+     },
+     {
+      "slot": "FLEX",
+      "name": "Mike Gesicki",
+      "pos": "TE",
+      "mean": 8.7
+     },
+     {
+      "slot": "FLEX",
+      "name": "Ty Johnson",
+      "pos": "RB",
+      "mean": 5.7
+     },
+     {
+      "slot": "K",
+      "name": "Ka'imi Fairbairn",
+      "pos": "K",
+      "mean": 9.6
+     },
+     {
+      "slot": "DST",
+      "name": "49ers D/ST",
+      "pos": "D/ST",
+      "mean": 8
+     }
+    ]
+   },
+   "dseinn": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 153.9,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Jordan Love",
+      "pos": "QB",
+      "mean": 19.4
+     },
+     {
+      "slot": "RB",
+      "name": "Jahmyr Gibbs",
+      "pos": "RB",
+      "mean": 26.1
+     },
+     {
+      "slot": "RB",
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "mean": 19.6
+     },
+     {
+      "slot": "WR",
+      "name": "Nico Collins",
+      "pos": "WR",
+      "mean": 16.1
+     },
+     {
+      "slot": "WR",
+      "name": "Jalen Coker",
+      "pos": "WR",
+      "mean": 10.4
+     },
+     {
+      "slot": "WR",
+      "name": "Jaylen Waddle",
+      "pos": "WR",
+      "mean": 10
+     },
+     {
+      "slot": "TE",
+      "name": "Isaiah Likely",
+      "pos": "TE",
+      "mean": 14.5
+     },
+     {
+      "slot": "FLEX",
+      "name": "D'Andre Swift",
+      "pos": "RB",
+      "mean": 15.6
+     },
+     {
+      "slot": "FLEX",
+      "name": "Brian Thomas Jr.",
+      "pos": "WR",
+      "mean": 6.4
+     },
+     {
+      "slot": "K",
+      "name": "Evan McPherson",
+      "pos": "K",
+      "mean": 8.6
+     },
+     {
+      "slot": "DST",
+      "name": "Chiefs D/ST",
+      "pos": "D/ST",
+      "mean": 7.3
+     }
+    ]
+   },
+   "giantmarv": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 135.1,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "C.J. Stroud",
+      "pos": "QB",
+      "mean": 19.4
+     },
+     {
+      "slot": "RB",
+      "name": "James Cook III",
+      "pos": "RB",
+      "mean": 17.9
+     },
+     {
+      "slot": "RB",
+      "name": "Jonah Coleman",
+      "pos": "RB",
+      "mean": 8.4
+     },
+     {
+      "slot": "WR",
+      "name": "George Pickens",
+      "pos": "WR",
+      "mean": 16.5
+     },
+     {
+      "slot": "WR",
+      "name": "DeVonta Smith",
+      "pos": "WR",
+      "mean": 14.8
+     },
+     {
+      "slot": "WR",
+      "name": "Khalil Shakir",
+      "pos": "WR",
+      "mean": 9.9
+     },
+     {
+      "slot": "TE",
+      "name": "George Kittle",
+      "pos": "TE",
+      "mean": 13.5
+     },
+     {
+      "slot": "FLEX",
+      "name": "Travis Kelce",
+      "pos": "TE",
+      "mean": 12.3
+     },
+     {
+      "slot": "FLEX",
+      "name": "Jordan Mason",
+      "pos": "RB",
+      "mean": 5
+     },
+     {
+      "slot": "K",
+      "name": "Chase McLaughlin",
+      "pos": "K",
+      "mean": 9.2
+     },
+     {
+      "slot": "DST",
+      "name": "Steelers D/ST",
+      "pos": "D/ST",
+      "mean": 8
+     }
+    ]
+   },
+   "unicornsruegen": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 107.6,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Joe Burrow",
+      "pos": "QB",
+      "mean": 24
+     },
+     {
+      "slot": "RB",
+      "name": "Justice Hill",
+      "pos": "RB",
+      "mean": 7.1
+     },
+     {
+      "slot": "RB",
+      "name": "Emari Demercado",
+      "pos": "RB",
+      "mean": 2.5
+     },
+     {
+      "slot": "WR",
+      "name": "Carnell Tate",
+      "pos": "WR",
+      "mean": 11.1
+     },
+     {
+      "slot": "WR",
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "mean": 10
+     },
+     {
+      "slot": "WR",
+      "name": "Malik Washington",
+      "pos": "WR",
+      "mean": 9.2
+     },
+     {
+      "slot": "TE",
+      "name": "T.J. Hockenson",
+      "pos": "TE",
+      "mean": 10.4
+     },
+     {
+      "slot": "FLEX",
+      "name": "Brenton Strange",
+      "pos": "TE",
+      "mean": 8.7
+     },
+     {
+      "slot": "FLEX",
+      "name": "Darren Waller",
+      "pos": "TE",
+      "mean": 8.5
+     },
+     {
+      "slot": "K",
+      "name": "Spencer Shrader",
+      "pos": "K",
+      "mean": 8.9
+     },
+     {
+      "slot": "DST",
+      "name": "Bills D/ST",
+      "pos": "D/ST",
+      "mean": 7.1
+     }
+    ]
+   },
+   "angryducks": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 113.6,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Bo Nix",
+      "pos": "QB",
+      "mean": 15.3
+     },
+     {
+      "slot": "RB",
+      "name": "David Montgomery",
+      "pos": "RB",
+      "mean": 10.8
+     },
+     {
+      "slot": "RB",
+      "name": "Aaron Jones Sr.",
+      "pos": "RB",
+      "mean": 10.1
+     },
+     {
+      "slot": "WR",
+      "name": "Malik Nabers",
+      "pos": "WR",
+      "mean": 15.2
+     },
+     {
+      "slot": "WR",
+      "name": "Zay Flowers",
+      "pos": "WR",
+      "mean": 15
+     },
+     {
+      "slot": "WR",
+      "name": "Ladd McConkey",
+      "pos": "WR",
+      "mean": 9.4
+     },
+     {
+      "slot": "TE",
+      "name": "Tyler Warren",
+      "pos": "TE",
+      "mean": 10.4
+     },
+     {
+      "slot": "FLEX",
+      "name": "Mark Andrews",
+      "pos": "TE",
+      "mean": 7.6
+     },
+     {
+      "slot": "FLEX",
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "mean": 5.4
+     },
+     {
+      "slot": "K",
+      "name": "Cairo Santos",
+      "pos": "K",
+      "mean": 7.9
+     },
+     {
+      "slot": "DST",
+      "name": "Lions D/ST",
+      "pos": "D/ST",
+      "mean": 6.3
+     }
+    ]
+   },
+   "dickvanhurik": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 156.5,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "mean": 15.1
+     },
+     {
+      "slot": "RB",
+      "name": "Kenneth Walker III",
+      "pos": "RB",
+      "mean": 21.8
+     },
+     {
+      "slot": "RB",
+      "name": "Kyren Williams",
+      "pos": "RB",
+      "mean": 15.5
+     },
+     {
+      "slot": "WR",
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "mean": 21.4
+     },
+     {
+      "slot": "WR",
+      "name": "Ja'Marr Chase",
+      "pos": "WR",
+      "mean": 19.8
+     },
+     {
+      "slot": "WR",
+      "name": "DJ Moore",
+      "pos": "WR",
+      "mean": 12.1
+     },
+     {
+      "slot": "TE",
+      "name": "Harold Fannin Jr.",
+      "pos": "TE",
+      "mean": 11.6
+     },
+     {
+      "slot": "FLEX",
+      "name": "Tony Pollard",
+      "pos": "RB",
+      "mean": 13.8
+     },
+     {
+      "slot": "FLEX",
+      "name": "Antonio Williams",
+      "pos": "WR",
+      "mean": 8.2
+     },
+     {
+      "slot": "K",
+      "name": "Will Reichard",
+      "pos": "K",
+      "mean": 9.4
+     },
+     {
+      "slot": "DST",
+      "name": "Seahawks D/ST",
+      "pos": "D/ST",
+      "mean": 7.8
+     }
+    ]
+   },
+   "lovethecheesehead": {
+    "capturedAt": "2026-11-25T18:29:46.762Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 44.7,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Anthony Richardson Sr.",
+      "pos": "QB",
+      "mean": 0.3
+     },
+     {
+      "slot": "RB",
+      "name": "Braelon Allen",
+      "pos": "RB",
+      "mean": 9.2
+     },
+     {
+      "slot": "RB",
+      "name": "Mike Washington Jr.",
+      "pos": "RB",
+      "mean": 4.5
+     },
+     {
+      "slot": "WR",
+      "name": "Caleb Douglas",
+      "pos": "WR",
+      "mean": 9.2
+     },
+     {
+      "slot": "WR",
+      "name": "Cyrus Allen",
+      "pos": "WR",
+      "mean": 3.6
+     },
+     {
+      "slot": "WR",
+      "name": "Chris Bell",
+      "pos": "WR",
+      "mean": 3.6
+     },
+     {
+      "slot": "TE",
+      "name": null,
+      "pos": null,
+      "mean": null
+     },
+     {
+      "slot": "FLEX",
+      "name": "Travis Hunter",
+      "pos": "WR",
+      "mean": 3.3
+     },
+     {
+      "slot": "FLEX",
+      "name": null,
+      "pos": null,
+      "mean": null
+     },
+     {
+      "slot": "K",
+      "name": "Cameron Dicker",
+      "pos": "K",
+      "mean": 7.4
+     },
+     {
+      "slot": "DST",
+      "name": "Cardinals D/ST",
+      "pos": "D/ST",
+      "mean": 3.6
+     }
+    ]
+   },
+   "r4xon": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 138.7,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Brock Purdy",
+      "pos": "QB",
+      "mean": 21.8
+     },
+     {
+      "slot": "RB",
+      "name": "Chuba Hubbard",
+      "pos": "RB",
+      "mean": 17.9
+     },
+     {
+      "slot": "RB",
+      "name": "Ashton Jeanty",
+      "pos": "RB",
+      "mean": 15.9
+     },
+     {
+      "slot": "WR",
+      "name": "Parker Washington",
+      "pos": "WR",
+      "mean": 14.9
+     },
+     {
+      "slot": "WR",
+      "name": "Garrett Wilson",
+      "pos": "WR",
+      "mean": 13.5
+     },
+     {
+      "slot": "WR",
+      "name": "DK Metcalf",
+      "pos": "WR",
+      "mean": 9.8
+     },
+     {
+      "slot": "TE",
+      "name": "Tyler Higbee",
+      "pos": "TE",
+      "mean": 5.8
+     },
+     {
+      "slot": "FLEX",
+      "name": "Jaylen Warren",
+      "pos": "RB",
+      "mean": 14.2
+     },
+     {
+      "slot": "FLEX",
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "mean": 8
+     },
+     {
+      "slot": "K",
+      "name": "Chris Boswell",
+      "pos": "K",
+      "mean": 8.7
+     },
+     {
+      "slot": "DST",
+      "name": "Buccaneers D/ST",
+      "pos": "D/ST",
+      "mean": 8.2
+     }
+    ]
+   },
+   "danfre": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 119.9,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Cam Ward",
+      "pos": "QB",
+      "mean": 14.5
+     },
+     {
+      "slot": "RB",
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "mean": 21.4
+     },
+     {
+      "slot": "RB",
+      "name": "Jonathan Taylor",
+      "pos": "RB",
+      "mean": 15.8
+     },
+     {
+      "slot": "WR",
+      "name": "Jakobi Meyers",
+      "pos": "WR",
+      "mean": 9.6
+     },
+     {
+      "slot": "WR",
+      "name": "Courtland Sutton",
+      "pos": "WR",
+      "mean": 7.3
+     },
+     {
+      "slot": "WR",
+      "name": "Chimere Dike",
+      "pos": "WR",
+      "mean": 4.5
+     },
+     {
+      "slot": "TE",
+      "name": "Sam LaPorta",
+      "pos": "TE",
+      "mean": 10.7
+     },
+     {
+      "slot": "FLEX",
+      "name": "Chase Brown",
+      "pos": "RB",
+      "mean": 14.1
+     },
+     {
+      "slot": "FLEX",
+      "name": "Rachaad White",
+      "pos": "RB",
+      "mean": 8.2
+     },
+     {
+      "slot": "K",
+      "name": "Matt Gay",
+      "pos": "K",
+      "mean": 8.2
+     },
+     {
+      "slot": "DST",
+      "name": "Panthers D/ST",
+      "pos": "D/ST",
+      "mean": 5.6
+     }
+    ]
+   },
+   "svennyg": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 106.7,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Dak Prescott",
+      "pos": "QB",
+      "mean": 21.2
+     },
+     {
+      "slot": "RB",
+      "name": "Bucky Irving",
+      "pos": "RB",
+      "mean": 16.4
+     },
+     {
+      "slot": "RB",
+      "name": "Omarion Hampton",
+      "pos": "RB",
+      "mean": 10.7
+     },
+     {
+      "slot": "WR",
+      "name": "Devaughn Vele",
+      "pos": "WR",
+      "mean": 9.8
+     },
+     {
+      "slot": "WR",
+      "name": "Josh Downs",
+      "pos": "WR",
+      "mean": 9.3
+     },
+     {
+      "slot": "WR",
+      "name": "Mack Hollins",
+      "pos": "WR",
+      "mean": 5.3
+     },
+     {
+      "slot": "TE",
+      "name": "Greg Dulcich",
+      "pos": "TE",
+      "mean": 5.8
+     },
+     {
+      "slot": "FLEX",
+      "name": "Kenny Gainwell",
+      "pos": "RB",
+      "mean": 7.7
+     },
+     {
+      "slot": "FLEX",
+      "name": "Jadarian Price",
+      "pos": "RB",
+      "mean": 5.6
+     },
+     {
+      "slot": "K",
+      "name": "Jason Myers",
+      "pos": "K",
+      "mean": 7.2
+     },
+     {
+      "slot": "DST",
+      "name": "Jaguars D/ST",
+      "pos": "D/ST",
+      "mean": 7.7
+     }
+    ]
+   },
+   "americagrizlies": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 108.7,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Josh Allen",
+      "pos": "QB",
+      "mean": 23.7
+     },
+     {
+      "slot": "RB",
+      "name": "Saquon Barkley",
+      "pos": "RB",
+      "mean": 10.5
+     },
+     {
+      "slot": "RB",
+      "name": "Samaje Perine",
+      "pos": "RB",
+      "mean": 6.5
+     },
+     {
+      "slot": "WR",
+      "name": "Mike Evans",
+      "pos": "WR",
+      "mean": 15.1
+     },
+     {
+      "slot": "WR",
+      "name": "Justin Jefferson",
+      "pos": "WR",
+      "mean": 14.1
+     },
+     {
+      "slot": "WR",
+      "name": "Laquon Treadwell",
+      "pos": "WR",
+      "mean": 5.2
+     },
+     {
+      "slot": "TE",
+      "name": "Michael Mayer",
+      "pos": "TE",
+      "mean": 7.2
+     },
+     {
+      "slot": "FLEX",
+      "name": "Jordyn Tyson",
+      "pos": "WR",
+      "mean": 3.5
+     },
+     {
+      "slot": "FLEX",
+      "name": "Ja'Kobi Lane",
+      "pos": "WR",
+      "mean": 3.3
+     },
+     {
+      "slot": "K",
+      "name": "Cam Little",
+      "pos": "K",
+      "mean": 9.9
+     },
+     {
+      "slot": "DST",
+      "name": "Vikings D/ST",
+      "pos": "D/ST",
+      "mean": 9.6
+     }
+    ]
+   },
+   "milchreis": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 140.6,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Caleb Williams",
+      "pos": "QB",
+      "mean": 18.4
+     },
+     {
+      "slot": "RB",
+      "name": "Derrick Henry",
+      "pos": "RB",
+      "mean": 16
+     },
+     {
+      "slot": "RB",
+      "name": "Breece Hall",
+      "pos": "RB",
+      "mean": 13.9
+     },
+     {
+      "slot": "WR",
+      "name": "Chris Olave",
+      "pos": "WR",
+      "mean": 16
+     },
+     {
+      "slot": "WR",
+      "name": "Luther Burden III",
+      "pos": "WR",
+      "mean": 13.6
+     },
+     {
+      "slot": "WR",
+      "name": "Rashee Rice",
+      "pos": "WR",
+      "mean": 11.9
+     },
+     {
+      "slot": "TE",
+      "name": "Colston Loveland",
+      "pos": "TE",
+      "mean": 10.2
+     },
+     {
+      "slot": "FLEX",
+      "name": "Cam Skattebo",
+      "pos": "RB",
+      "mean": 11.6
+     },
+     {
+      "slot": "FLEX",
+      "name": "Emeka Egbuka",
+      "pos": "WR",
+      "mean": 11
+     },
+     {
+      "slot": "K",
+      "name": "Tyler Bass",
+      "pos": "K",
+      "mean": 10
+     },
+     {
+      "slot": "DST",
+      "name": "Broncos D/ST",
+      "pos": "D/ST",
+      "mean": 7.9
+     }
+    ]
+   },
+   "bomba12": {
+    "capturedAt": "2026-11-25T18:29:46.763Z",
+    "lineup": "current",
+    "mode": "mix",
+    "teamMean": 149.5,
+    "starters": [
+     {
+      "slot": "QB",
+      "name": "Patrick Mahomes II",
+      "pos": "QB",
+      "mean": 19.8
+     },
+     {
+      "slot": "RB",
+      "name": "Javonte Williams",
+      "pos": "RB",
+      "mean": 16.3
+     },
+     {
+      "slot": "RB",
+      "name": "Quinshon Judkins",
+      "pos": "RB",
+      "mean": 11.9
+     },
+     {
+      "slot": "WR",
+      "name": "Amon-Ra St. Brown",
+      "pos": "WR",
+      "mean": 19
+     },
+     {
+      "slot": "WR",
+      "name": "Tee Higgins",
+      "pos": "WR",
+      "mean": 17.2
+     },
+     {
+      "slot": "WR",
+      "name": "Christian Watson",
+      "pos": "WR",
+      "mean": 16.9
+     },
+     {
+      "slot": "TE",
+      "name": "Tucker Kraft",
+      "pos": "TE",
+      "mean": 9.5
+     },
+     {
+      "slot": "FLEX",
+      "name": "Tetairoa McMillan",
+      "pos": "WR",
+      "mean": 14.6
+     },
+     {
+      "slot": "FLEX",
+      "name": "Ollie Gordon II",
+      "pos": "RB",
+      "mean": 8.3
+     },
+     {
+      "slot": "K",
+      "name": "Brandon Aubrey",
+      "pos": "K",
+      "mean": 8.6
+     },
+     {
+      "slot": "DST",
+      "name": "Texans D/ST",
+      "pos": "D/ST",
+      "mean": 7.3
      }
     ]
    }
